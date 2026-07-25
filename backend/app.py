@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from .routes import upload, alerts, dashboard, investigation, reports
+from backend.routes import upload, alerts, dashboard, investigation, reports
 
 app = FastAPI(
     title="AML Backend",
