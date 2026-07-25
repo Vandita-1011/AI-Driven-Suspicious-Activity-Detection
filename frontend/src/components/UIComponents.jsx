@@ -28,6 +28,9 @@ export function StatusBadge({ status, type = 'status' }) {
       case 'PENDING REVIEW': colors = 'bg-blue-100 text-blue-800 border-blue-200'; break;
       case 'IN PROGRESS': colors = 'bg-purple-100 text-purple-800 border-purple-200'; break;
       case 'ESCALATED': colors = 'bg-red-100 text-red-800 border-red-200'; break;
+      case 'OPEN': colors = 'bg-blue-100 text-blue-800 border-blue-200'; break;
+      case 'INVESTIGATING': colors = 'bg-purple-100 text-purple-800 border-purple-200'; break;
+      case 'RESOLVED': colors = 'bg-green-100 text-green-800 border-green-200'; break;
     }
   }
 

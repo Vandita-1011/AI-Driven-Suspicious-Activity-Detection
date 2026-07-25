@@ -59,6 +59,26 @@ export const apiService = {
         }
       }, 1500);
     });
+  },
+  getAlerts: async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          alerts: [
+            { id: 'ALT-1001', customer: 'Global Trade Ltd', riskScore: 92, riskLevel: 'High', status: 'Open', createdAt: '2023-10-25T08:30:00Z' },
+            { id: 'ALT-1002', customer: 'Acme Corp', riskScore: 85, riskLevel: 'High', status: 'Investigating', createdAt: '2023-10-24T14:15:00Z' },
+            { id: 'ALT-1003', customer: 'John Doe', riskScore: 65, riskLevel: 'Medium', status: 'Open', createdAt: '2023-10-24T09:45:00Z' },
+            { id: 'ALT-1004', customer: 'Jane Smith', riskScore: 42, riskLevel: 'Low', status: 'Resolved', createdAt: '2023-10-23T11:20:00Z' },
+            { id: 'ALT-1005', customer: 'Initech', riskScore: 78, riskLevel: 'Medium', status: 'Investigating', createdAt: '2023-10-22T16:50:00Z' },
+            { id: 'ALT-1006', customer: 'Globex Inc', riskScore: 95, riskLevel: 'High', status: 'Open', createdAt: '2023-10-22T10:10:00Z' },
+            { id: 'ALT-1007', customer: 'Alice Johnson', riskScore: 35, riskLevel: 'Low', status: 'Resolved', createdAt: '2023-10-21T13:40:00Z' },
+            { id: 'ALT-1008', customer: 'Bob Williams', riskScore: 88, riskLevel: 'High', status: 'Open', createdAt: '2023-10-21T09:05:00Z' },
+            { id: 'ALT-1009', customer: 'Stark Industries', riskScore: 70, riskLevel: 'Medium', status: 'Resolved', createdAt: '2023-10-20T15:25:00Z' },
+            { id: 'ALT-1010', customer: 'Wayne Enterprises', riskScore: 60, riskLevel: 'Medium', status: 'Open', createdAt: '2023-10-19T11:55:00Z' }
+          ]
+        });
+      }, 1200);
+    });
   }
 };
 
