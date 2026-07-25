@@ -1,5 +1,10 @@
 from pydantic import BaseModel
 
-class UploadRequest(BaseModel):
+class UploadResponse(BaseModel):
+    status: str
+    message: str
     file_name: str
-    file_size: int
+
+class AnalysisResponse(BaseModel):
+    status: str
+    message: str
