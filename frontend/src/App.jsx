@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import Upload from './pages/Upload';
 import Alerts from './pages/Alerts';
 import Investigation from './pages/Investigation';
+import Reports from './pages/Reports';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/upload" element={<Upload />} />
         <Route path="/alerts" element={<Alerts />} />
         <Route path="/investigation/:id" element={<Investigation />} />
+        <Route path="/reports" element={<Reports />} />
       </Routes>
     </BrowserRouter>
   );

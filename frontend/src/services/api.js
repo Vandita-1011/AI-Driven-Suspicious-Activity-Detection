@@ -127,6 +127,42 @@ export const apiService = {
         });
       }, 1200);
     });
+  },
+  getReports: async () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          summary: {
+            totalReports: 145,
+            generatedToday: 12,
+            pendingReports: 3,
+            archivedReports: 130
+          },
+          reports: [
+            { id: 'REP-1001', alertId: 'ALT-1001', customer: 'Global Trade Ltd', type: 'Investigation Summary', status: 'Completed', generatedOn: '2023-10-25T10:30:00Z' },
+            { id: 'REP-1002', alertId: 'ALT-1002', customer: 'Acme Corp', type: 'PDF', status: 'Completed', generatedOn: '2023-10-24T16:15:00Z' },
+            { id: 'REP-1003', alertId: 'ALT-1003', customer: 'John Doe', type: 'CSV', status: 'Pending', generatedOn: '2023-10-24T09:45:00Z' },
+            { id: 'REP-1004', alertId: 'ALT-1004', customer: 'Jane Smith', type: 'Executive Summary', status: 'Completed', generatedOn: '2023-10-23T11:20:00Z' },
+            { id: 'REP-1005', alertId: 'ALT-1005', customer: 'Initech', type: 'Full Case Report', status: 'Pending', generatedOn: '2023-10-22T16:50:00Z' },
+            { id: 'REP-1006', alertId: 'ALT-1006', customer: 'Globex Inc', type: 'Investigation Summary', status: 'Completed', generatedOn: '2023-10-22T10:10:00Z' },
+            { id: 'REP-1007', alertId: 'ALT-1007', customer: 'Alice Johnson', type: 'PDF', status: 'Completed', generatedOn: '2023-10-21T13:40:00Z' },
+            { id: 'REP-1008', alertId: 'ALT-1008', customer: 'Bob Williams', type: 'Investigation Summary', status: 'Archived', generatedOn: '2023-10-21T09:05:00Z' },
+            { id: 'REP-1009', alertId: 'ALT-1009', customer: 'Stark Industries', type: 'CSV', status: 'Archived', generatedOn: '2023-10-20T15:25:00Z' },
+            { id: 'REP-1010', alertId: 'ALT-1010', customer: 'Wayne Enterprises', type: 'Full Case Report', status: 'Pending', generatedOn: '2023-10-19T11:55:00Z' }
+          ]
+        });
+      }, 1000);
+    });
+  },
+  generateReport: async (type) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          status: 'success',
+          message: `Successfully requested ${type} report generation.`
+        });
+      }, 1500);
+    });
   }
 };
 
