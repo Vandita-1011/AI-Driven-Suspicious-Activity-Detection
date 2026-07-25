@@ -1,57 +1,66 @@
-"""
-Statistical Engine
-==================
-Detects anomalies using statistical methods (Z-score, IQR).
-"""
-import pandas as pd
-import numpy as np
-from scipy import stats
+import time
+from typing import List, Dict, Optional, Any
 
-from src.interfaces.base_engine import BaseDetectionEngine, EngineResult
+from src.features.feature_models import FeatureVector
+from src.profiling.profile_models import BehaviourProfile
+from src.engines.statistical_models import StatisticalFinding
+from src.engines.statistical_builder import StatisticalBuilder
 from src.utils.logger import get_logger
-from src.config.settings import get_settings
 from src.utils.timer import timed
+from src.exceptions.engine_exceptions import EngineExecutionError
 
 logger = get_logger(__name__)
 
 
-class StatisticalEngine(BaseDetectionEngine):
+class StatisticalEngine:
     """
-    Applies Z-score and IQR-based anomaly detection.
+    Orchestrates the evaluation of transactions against statistical anomaly detectors.
     """
-    def __init__(self) -> None:
-        self.settings = get_settings().statistical_engine
+
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
+        self.builder = StatisticalBuilder(config)
 
     @timed("Statistical Engine")
-    def run(self, features_df: pd.DataFrame) -> EngineResult:
+    def run(self, features: List[FeatureVector], profiles: Dict[str, BehaviourProfile]) -> List[StatisticalFinding]:
         """
-        Executes statistical anomaly checks.
+        Evaluates a list of transaction feature vectors against all statistical anomaly detectors.
+
+        Args:
+            features: List of transaction feature vectors.
+            profiles: Dictionary of customer behaviour profiles.
+
+        Returns:
+            A flat list of all StatisticalFindings generated across all transactions.
         """
-        logger.info("Running Statistical Engine...")
-        
-        result = EngineResult()
-        if features_df.empty:
-            return result
-            
-        result.scores = pd.Series(0.0, index=features_df.index)
-        flags = pd.DataFrame(index=features_df.index)
+        if not features:
+            logger.warning("Empty feature list provided to Statistical Engine.")
+            return []
 
-        for col in self.settings.features_to_analyse:
-            if col in features_df.columns:
-                # Z-Score Anomaly
-                # Note: nan_policy='omit' prevents propagation of NaNs
-                z_scores = stats.zscore(features_df[col], nan_policy='omit')
-                # Handle cases where all values are the same (z-score returns NaN)
-                z_scores = np.nan_to_num(z_scores)
-                
-                flags[f"{col}_z_anomaly"] = np.abs(z_scores) > self.settings.z_score_threshold
-                
-                # Add to overall statistical score based on extreme z-scores
-                result.scores += np.clip(np.abs(z_scores) * 10.0, 0, 30)
+        start_time = time.time()
+        logger.info("Statistical Engine Started. Processing %d transactions...", len(features))
 
-        # Cap scores at 100
-        result.scores = result.scores.clip(upper=100.0)
-        result.flags = flags
+        all_findings: List[StatisticalFinding] = []
+
+        try:
+            for fv in features:
+                cust_profile = profiles.get(fv.customer_id)
+                # Evaluate the transaction for statistical anomalies
+                txn_findings = self.builder.evaluate(fv, cust_profile)
+                
+                # Log triggered findings
+                for finding in txn_findings:
+                    logger.debug("Statistical Finding: [%s] %s for Txn %s (Severity: %s)", 
+                                 finding.finding_id, finding.finding_name, finding.transaction_id, finding.severity.value)
+                
+                all_findings.extend(txn_findings)
+                
+        except Exception as e:
+            logger.error("Error during statistical evaluation: %s", e)
+            raise EngineExecutionError(f"Statistical Engine failed: {e}")
+
+        execution_time = time.time() - start_time
         
-        logger.info("Statistical Engine complete.")
-        return result
+        logger.info("Statistical Engine execution completed in %.2fs.", execution_time)
+        logger.info("Total statistical findings generated: %d", len(all_findings))
+        
+        return all_findings
