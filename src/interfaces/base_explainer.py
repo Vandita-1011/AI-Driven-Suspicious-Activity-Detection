@@ -5,9 +5,14 @@ Defines the contract for explanation generation.
 """
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, List
 
-import pandas as pd
+from src.fusion.risk_models import RiskAssessment
+from src.engines.rule_models import RuleHit
+from src.engines.behaviour_models import BehaviourFinding
+from src.engines.statistical_models import StatisticalFinding
+from src.engines.ml_models import MLFinding
+from src.engines.pattern_models import PatternFinding
 
 
 @dataclass
@@ -29,22 +34,30 @@ class BaseExplainer(ABC):
     """
 
     @abstractmethod
-    def explain(self, transaction_id: str, engine_results: dict[str, Any], features: pd.Series) -> Explanation:
+    def explain(
+        self,
+        risk_assessment: RiskAssessment,
+        rule_hits: List[RuleHit],
+        behaviour_findings: List[BehaviourFinding],
+        stat_findings: List[StatisticalFinding],
+        ml_findings: List[MLFinding],
+        pattern_findings: List[PatternFinding]
+    ) -> Explanation:
         """
-        Generates an explanation for a single transaction.
-
-        Args:
-            transaction_id: The ID of the transaction.
-            engine_results: Combined results from all detection engines.
-            features: The feature vector for this transaction.
-
-        Returns:
-            An Explanation object.
+        Generates an explanation for a single transaction based on actual findings.
         """
         pass
 
     @abstractmethod
-    def explain_batch(self, transaction_ids: list[str], engine_results: dict[str, Any], features_df: pd.DataFrame) -> list[Explanation]:
+    def explain_batch(
+        self,
+        risk_assessments: List[RiskAssessment],
+        rule_hits: List[RuleHit],
+        behaviour_findings: List[BehaviourFinding],
+        stat_findings: List[StatisticalFinding],
+        ml_findings: List[MLFinding],
+        pattern_findings: List[PatternFinding]
+    ) -> List[Explanation]:
         """
         Generates explanations for a batch of transactions.
         """
