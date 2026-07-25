@@ -43,6 +43,22 @@ export const apiService = {
         });
       }, 1000);
     });
+  },
+  uploadTransactions: async (file) => {
+    // Simulating API call delay for placeholder upload
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (!file) {
+          reject(new Error("No file provided"));
+        } else {
+          resolve({
+            status: "success",
+            message: "Upload Successful",
+            file_name: file.name
+          });
+        }
+      }, 1500);
+    });
   }
 };
 
