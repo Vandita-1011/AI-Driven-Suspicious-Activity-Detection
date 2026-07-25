@@ -14,8 +14,10 @@ from src.engines.rule_engine import RuleEngine
 from src.engines.behaviour_engine import BehaviourEngine
 from src.engines.statistical_engine import StatisticalEngine
 from src.engines.ml_engine import MLEngine
-from src.engines.aml_pattern_engine import AMLPatternEngine
-from src.engines.risk_fusion import SmartRiskFusion
+from src.engines.pattern_engine import PatternEngine
+from src.fusion.risk_engine import RiskEngine
+from src.features.feature_builder import FeatureBuilder
+import pandas as pd
 from src.explainability.explainer import Explainer
 from src.recommendation.recommender import Recommender
 from src.alerts.alert_prioritizer import AlertPrioritizer
@@ -66,22 +68,35 @@ class Orchestrator:
                 feature_pipe = FeaturePipeline(enriched_df, context)
                 features_df = feature_pipe.build()
                 
+                # Convert features_df to List[FeatureVector]
+                feature_builder = FeatureBuilder()
+                features = feature_builder.to_feature_vectors(features_df)
+
                 # 5-9. Detection Engines
-                engines = {
-                    "rule_engine": RuleEngine(),
-                    "behaviour_engine": BehaviourEngine(profiler),
-                    "statistical_engine": StatisticalEngine(),
-                    "ml_engine": MLEngine(),
-                    "aml_pattern_engine": AMLPatternEngine()
-                }
+                rule_engine = RuleEngine()
+                behaviour_engine = BehaviourEngine()
+                statistical_engine = StatisticalEngine()
+                ml_engine = MLEngine()
+                pattern_engine = PatternEngine()
                 
-                engine_results = {}
-                for name, engine in engines.items():
-                    engine_results[name] = engine.run(features_df)
+                rule_hits = rule_engine.run(features, profiler.customer_profiles)
+                behaviour_findings = behaviour_engine.run(features, profiler.customer_profiles)
+                stat_findings = statistical_engine.run(features, profiler.customer_profiles)
+                ml_findings = ml_engine.run(features)
+                pattern_findings = pattern_engine.run(features, profiler.customer_profiles)
                     
                 # 10. Risk Fusion
-                fusion = SmartRiskFusion()
-                risk_df = fusion.fuse(engine_results)
+                fusion = RiskEngine()
+                risk_assessments = fusion.run(
+                    rule_hits=rule_hits,
+                    behaviour_findings=behaviour_findings,
+                    stat_findings=stat_findings,
+                    ml_findings=ml_findings,
+                    pattern_findings=pattern_findings
+                )
+                
+                # Convert risk_assessments back to DataFrame for downstream legacy stubs
+                risk_df = pd.DataFrame([vars(r) for r in risk_assessments]) if risk_assessments else pd.DataFrame()
                 
                 # 11-13. Explain, Recommend, Alert
                 # For a full implementation, we'd filter risk_df first, then explain/recommend.
@@ -90,7 +105,7 @@ class Orchestrator:
                 prioritizer = AlertPrioritizer()
                 
                 # Dummy calls for foundation
-                explanations = explainer.explain_batch([], engine_results, features_df)
+                explanations = explainer.explain_batch([], {}, features_df)
                 recs = recommender.recommend_batch(risk_df)
                 alerts = prioritizer.prioritize(risk_df, explanations, recs)
                 

@@ -51,3 +51,10 @@ class BehaviourProfiler(BaseBehaviourProfiler):
         """
         return self._customer_profiles.get(str(entity_id))
 
+    @property
+    def customer_profiles(self) -> dict[str, BehaviourProfile]:
+        """
+        Retrieves all generated customer profiles.
+        """
+        return self._customer_profiles
+
