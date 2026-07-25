@@ -1,54 +1,66 @@
-"""
-Rule Engine
-===========
-Applies hard business rules and thresholds to flag suspicious activity.
-"""
-import pandas as pd
+import time
+from typing import List, Dict, Optional, Any
 
-from src.constants.column_names import ComputedCols, TxnCols
-from src.interfaces.base_engine import BaseDetectionEngine, EngineResult
+from src.features.feature_models import FeatureVector
+from src.profiling.profile_models import BehaviourProfile
+from src.engines.rule_models import RuleHit
+from src.engines.rule_builder import RuleBuilder
 from src.utils.logger import get_logger
-from src.config.settings import get_settings
 from src.utils.timer import timed
+from src.exceptions.engine_exceptions import EngineExecutionError
 
 logger = get_logger(__name__)
 
 
-class RuleEngine(BaseDetectionEngine):
+class RuleEngine:
     """
-    Evaluates hard rules (e.g., structuring thresholds, high-risk geography).
+    Orchestrates the evaluation of transactions against AML rules.
     """
-    def __init__(self) -> None:
-        self.settings = get_settings().rule_engine
+
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
+        self.builder = RuleBuilder(config)
 
     @timed("Rule Engine")
-    def run(self, features_df: pd.DataFrame) -> EngineResult:
+    def run(self, features: List[FeatureVector], profiles: Dict[str, BehaviourProfile]) -> List[RuleHit]:
         """
-        Executes rule-based checks.
-        """
-        logger.info("Running Rule Engine...")
-        
-        result = EngineResult()
-        if features_df.empty:
-            return result
-            
-        result.scores = pd.Series(0.0, index=features_df.index)
-        flags = pd.DataFrame(index=features_df.index)
-        
-        # Example Rule: Large Cash Transaction
-        if TxnCols.AMOUNT in features_df.columns:
-            flags["large_cash"] = features_df[TxnCols.AMOUNT] >= self.settings.large_cash_threshold
-            # Boost score for flagged items
-            result.scores += flags["large_cash"].astype(float) * 20.0
-            
-        # Example Rule: High Risk Counterparty Country (FATF Black/Grey)
-        if ComputedCols.FATF_STATUS in features_df.columns:
-            flags["high_risk_country"] = features_df[ComputedCols.FATF_STATUS].isin(["Black", "Grey"])
-            result.scores += flags["high_risk_country"].astype(float) * 30.0
+        Evaluates a list of transaction feature vectors against all AML rules.
 
-        # Cap scores at 100
-        result.scores = result.scores.clip(upper=100.0)
-        result.flags = flags
+        Args:
+            features: List of transaction feature vectors.
+            profiles: Dictionary of customer behaviour profiles.
+
+        Returns:
+            A flat list of all RuleHits generated across all transactions.
+        """
+        if not features:
+            logger.warning("Empty feature list provided to Rule Engine.")
+            return []
+
+        start_time = time.time()
+        logger.info("Rule Engine Started. Processing %d transactions...", len(features))
+
+        all_hits: List[RuleHit] = []
+
+        try:
+            for fv in features:
+                cust_profile = profiles.get(fv.customer_id)
+                # Evaluate the transaction
+                txn_hits = self.builder.evaluate(fv, cust_profile)
+                
+                # Log triggered rules
+                for hit in txn_hits:
+                    logger.debug("Rule Triggered: [%s] %s for Txn %s (Severity: %s)", 
+                                 hit.rule_id, hit.rule_name, hit.transaction_id, hit.severity.value)
+                
+                all_hits.extend(txn_hits)
+                
+        except Exception as e:
+            logger.error("Error during rule evaluation: %s", e)
+            raise EngineExecutionError(f"Rule Engine failed: {e}")
+
+        execution_time = time.time() - start_time
         
-        logger.info("Rule Engine complete.")
-        return result
+        logger.info("Rule Engine execution completed in %.2fs.", execution_time)
+        logger.info("Total rule hits generated: %d", len(all_hits))
+        
+        return all_hits
