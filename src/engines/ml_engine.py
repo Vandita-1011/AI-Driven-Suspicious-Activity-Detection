@@ -1,85 +1,78 @@
-"""
-ML Engine
-=========
-Unsupervised anomaly detection using Isolation Forest.
-"""
-import pandas as pd
-from sklearn.ensemble import IsolationForest
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
+import time
+from typing import List, Dict, Optional, Any
 
-from src.interfaces.base_engine import BaseDetectionEngine, EngineResult
+from src.features.feature_models import FeatureVector
+from src.engines.ml_models import MLFinding
+from src.engines.ml_builder import MLBuilder
 from src.utils.logger import get_logger
-from src.config.settings import get_settings
 from src.utils.timer import timed
+from src.exceptions.engine_exceptions import EngineExecutionError
 
 logger = get_logger(__name__)
 
 
-class MLEngine(BaseDetectionEngine):
+class MLEngine:
     """
-    Scores transactions using an Isolation Forest.
+    Orchestrates the evaluation of transactions against unsupervised Machine Learning models.
     """
-    def __init__(self) -> None:
-        self.settings = get_settings().ml_engine
-        self.model = None
 
-    def _build_pipeline(self) -> Pipeline:
-        """Builds the sklearn pipeline."""
-        return Pipeline([
-            ('imputer', SimpleImputer(strategy='median')),
-            ('scaler', StandardScaler()),
-            ('iforest', IsolationForest(
-                n_estimators=self.settings.n_estimators,
-                contamination=self.settings.contamination,
-                random_state=self.settings.random_state,
-                n_jobs=self.settings.n_jobs
-            ))
-        ])
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
+        self.builder = MLBuilder(config)
+        self.is_initialized = False
+
+    def _initialize_model(self, features: List[FeatureVector]) -> None:
+        """Loads existing model or trains a new one if not found."""
+        if self.builder.load_model():
+            self.is_initialized = True
+        else:
+            logger.info("No pre-trained ML model found. Initiating automatic training...")
+            if not features:
+                raise EngineExecutionError("Cannot train ML model: No historical feature vectors provided.")
+            
+            self.builder.train(features)
+            self.builder.save_model()
+            self.is_initialized = True
 
     @timed("ML Engine")
-    def run(self, features_df: pd.DataFrame) -> EngineResult:
+    def run(self, features: List[FeatureVector]) -> List[MLFinding]:
         """
-        Fits (if necessary) and predicts anomaly scores.
-        """
-        logger.info("Running ML Engine...")
-        
-        result = EngineResult()
-        if features_df.empty:
-            return result
-            
-        # Select numeric features only
-        numeric_df = features_df.select_dtypes(include=['number'])
-        
-        if numeric_df.empty:
-            logger.warning("No numeric features available for ML Engine.")
-            result.scores = pd.Series(0.0, index=features_df.index)
-            return result
+        Evaluates a list of transaction feature vectors using Machine Learning anomaly detection.
 
-        if self.model is None:
-            logger.info("Training Isolation Forest on the fly (hackathon mode)...")
-            self.model = self._build_pipeline()
-            self.model.fit(numeric_df)
+        Args:
+            features: List of transaction feature vectors.
+
+        Returns:
+            A flat list of MLFindings for transactions predicted as anomalies.
+        """
+        if not features:
+            logger.warning("Empty feature list provided to ML Engine.")
+            return []
+
+        start_time = time.time()
+        logger.info("ML Engine Started. Processing %d transactions...", len(features))
+
+        try:
+            if not self.is_initialized:
+                self._initialize_model(features)
+                
+            logger.info("Prediction Started.")
             
-        # Decision function returns > 0 for normal, < 0 for anomalies
-        # We invert and scale it to [0, 100] where 100 is highly anomalous
-        scores = self.model.decision_function(numeric_df)
+            all_findings: List[MLFinding] = []
+            
+            for fv in features:
+                finding = self.builder.predict(fv)
+                if finding:
+                    all_findings.append(finding)
+                    
+            logger.info("Prediction Completed.")
+                
+        except Exception as e:
+            logger.error("Error during ML evaluation: %s", e)
+            raise EngineExecutionError(f"ML Engine failed: {e}")
+
+        execution_time = time.time() - start_time
         
-        # Invert scores: lower (more negative) is more anomalous
-        anomaly_scores = -scores
+        logger.info("Execution Time: %.2fs.", execution_time)
+        logger.info("Number of Anomalies: %d", len(all_findings))
         
-        # Min-max scale to [0, 100] approximately based on typical decision function bounds (-0.5 to 0.5)
-        # Custom scaling for better distribution
-        scaled_scores = pd.Series(anomaly_scores).clip(-0.2, 0.2)
-        scaled_scores = ((scaled_scores + 0.2) / 0.4) * 100.0
-        
-        result.scores = pd.Series(scaled_scores.values, index=features_df.index)
-        result.flags = pd.DataFrame(index=features_df.index)
-        
-        # Flag transactions in the top `contamination` percentile
-        preds = self.model.predict(numeric_df) # -1 for anomaly, 1 for normal
-        result.flags["ml_anomaly"] = (preds == -1)
-        
-        logger.info("ML Engine complete.")
-        return result
+        return all_findings
