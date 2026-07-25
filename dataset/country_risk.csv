@@ -1,0 +1,21 @@
+country_code,country_name,fatf_status,risk_score
+IN,India,Normal,6
+US,United States,Normal,21
+GB,United Kingdom,Normal,18
+DE,Germany,Normal,14
+FR,France,Normal,14
+SG,Singapore,Normal,23
+AU,Australia,Normal,6
+CA,Canada,Normal,19
+JP,Japan,Normal,9
+AE,UAE,Normal,6
+CN,China,Grey,56
+TR,Turkey,Grey,70
+PH,Philippines,Grey,62
+ZA,South Africa,Grey,63
+PA,Panama,Grey,62
+KY,Cayman Islands,Grey,64
+MM,Myanmar,Black,90
+KP,North Korea,Black,82
+IR,Iran,Black,97
+AF,Afghanistan,Black,89
