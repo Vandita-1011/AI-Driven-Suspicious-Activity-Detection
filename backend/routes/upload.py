@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from fastapi import APIRouter, UploadFile, File, HTTPException
 from backend.services.ai_service import AIService
 from backend.schemas.upload_schema import UploadResponse, AnalysisResponse

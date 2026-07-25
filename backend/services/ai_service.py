@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 from fastapi import UploadFile
 
 class AIService:

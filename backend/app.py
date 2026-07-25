@@ -1,5 +1,11 @@
-from fastapi import FastAPI
+import logging
+from fastapi import FastAPI, HTTPException
 from backend.routes import upload, alerts, dashboard, investigation, reports
+from backend.services.ai_service import AIService
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="AML Backend",
@@ -13,6 +19,16 @@ app.include_router(dashboard.router)
 app.include_router(investigation.router)
 app.include_router(reports.router)
 
+ai_service = AIService()
+
 @app.get("/")
-def root():
-    return {"message": "AML Backend Running"}
+def root() -> dict:
+    """
+    Health check endpoint.
+    """
+    try:
+        health_status = ai_service.health_check()
+        return {"message": "AML Backend Running", "ai_status": health_status}
+    except Exception as e:
+        logger.error(f"Health check failed: {e}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
