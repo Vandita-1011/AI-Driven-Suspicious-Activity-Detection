@@ -1,0 +1,178 @@
+# ============================================================
+# AI Engine Configuration — engine_config.yaml
+# AI-Driven Suspicious Activity Detection System
+# HexBreach Hackathon
+# ============================================================
+# All thresholds, weights, and parameters are defined here.
+# Never hardcode these values in Python source files.
+# ============================================================
+
+# ----------------------------------------------------------
+# Dataset — paths to the 12 CSV tables
+# ----------------------------------------------------------
+dataset:
+  path: "dataset"                          # Relative to project root
+  files:
+    transactions: "transaction.csv"
+    customers: "customer.csv"
+    accounts: "account.csv"
+    devices: "device.csv"
+    beneficiaries: "beneficiary.csv"
+    merchants: "merchant.csv"
+    locations: "location.csv"
+    branches: "branch.csv"
+    country_risk: "country_risk.csv"
+    customer_relationships: "customer_relationship.csv"
+    fraud_rings: "fraud_ring.csv"
+    fraud_ring_memberships: "customer_fraud_ring_membership.csv"
+
+# ----------------------------------------------------------
+# Logging
+# ----------------------------------------------------------
+logging:
+  level: "INFO"                            # DEBUG | INFO | WARNING | ERROR | CRITICAL
+  log_dir: "logs"
+  log_file: "ai_engine.log"
+  max_bytes: 10485760                      # 10 MB per log file
+  backup_count: 5                          # Keep 5 backup files
+  console_enabled: true
+  file_enabled: true
+  format: "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+# ----------------------------------------------------------
+# Output files
+# ----------------------------------------------------------
+outputs:
+  dir: "outputs"
+  alerts_file: "alerts.json"
+  risk_report_file: "risk_report.json"
+  eda_report_file: "eda_report.json"
+
+# ----------------------------------------------------------
+# Trained model artifacts
+# ----------------------------------------------------------
+models:
+  dir: "models"
+  isolation_forest_file: "isolation_forest.pkl"
+
+# ----------------------------------------------------------
+# Preprocessing
+# ----------------------------------------------------------
+preprocessing:
+  timestamp_format: "%Y-%m-%d %H:%M:%S"
+  date_columns:
+    - "timestamp"
+  bool_columns:
+    - "is_pep"
+    - "sanctions_hit"
+    - "is_shared_device"
+    - "is_high_risk"
+    - "is_high_risk_branch"
+    - "is_symmetric"
+  null_strategy:
+    numeric: "median"                      # fill strategy for numeric nulls
+    categorical: "unknown"                 # fill value for categorical nulls
+
+# ----------------------------------------------------------
+# Feature Engineering
+# ----------------------------------------------------------
+features:
+  velocity_window_hours: 24               # Window for velocity (txn count) features
+  burst_window_minutes: 60                # Window for burst detection
+  round_amount_tolerance: 0.01            # Fraction tolerance for round-amount detection
+  high_amount_multiplier: 3.0             # Multiplier over customer avg to flag high amount
+  min_transactions_for_profile: 3         # Min txns before behaviour profiling activates
+
+# ----------------------------------------------------------
+# Rule Engine thresholds
+# (structuring_threshold matches generator's reporting_threshold: 1000000)
+# ----------------------------------------------------------
+rule_engine:
+  structuring_threshold: 1000000          # Same as generator config.yaml reporting_threshold
+  structuring_window_days: 5              # Look-back window for structuring detection
+  structuring_sub_threshold_ratio: 0.98   # Flag txns below this fraction of the threshold
+  large_cash_threshold: 500000            # Flag any single cash txn above this
+  high_risk_transfer_threshold: 100000    # Flag international transfers above this
+  dormant_reactivation_lookback_days: 90  # Inactivity window to classify account as dormant
+  velocity_max_txns_per_day: 10           # Max txns per account per day before flag
+  velocity_max_txns_per_hour: 5           # Max txns per account per hour before flag
+
+# ----------------------------------------------------------
+# Behaviour Engine
+# ----------------------------------------------------------
+behaviour_engine:
+  deviation_z_score_threshold: 2.5        # Z-score above which behaviour is anomalous
+  min_history_transactions: 5             # Minimum txns needed to compute a baseline
+
+# ----------------------------------------------------------
+# Statistical Engine
+# ----------------------------------------------------------
+statistical_engine:
+  z_score_threshold: 3.0                  # Z-score threshold for amount outlier flagging
+  iqr_multiplier: 1.5                     # Tukey's IQR fence multiplier
+  features_to_analyse:
+    - "amount"
+    - "balance_after"
+    - "txn_count_24h"
+
+# ----------------------------------------------------------
+# ML Engine — Isolation Forest (scikit-learn)
+# ----------------------------------------------------------
+ml_engine:
+  n_estimators: 100                       # Number of isolation trees
+  contamination: 0.05                     # Expected proportion of anomalies (5%)
+  random_state: 42                        # Reproducibility seed
+  max_samples: "auto"                     # Subsample size per tree
+  n_jobs: -1                              # Use all available CPU cores
+
+# ----------------------------------------------------------
+# AML Pattern Engine
+# (thresholds mirror the generator's scenario definitions)
+# ----------------------------------------------------------
+aml_pattern_engine:
+  structuring_n_txns: 3                   # Min deposits in window to trigger structuring
+  smurfing_n_senders: 4                   # Min unique senders to trigger smurfing flag
+  layering_min_hops: 3                    # Min transfer chain length for layering
+  circular_min_nodes: 3                   # Min unique accounts for circular detection
+  mule_passthrough_hours: 24              # Max hours between in and out for mule flag
+  mule_passthrough_ratio: 0.85            # Minimum ratio of amount passed through
+  dormant_lookback_days: 90               # Days of inactivity = "dormant"
+  velocity_max_per_day: 8                 # Max transactions per day for velocity pattern
+  burst_max_per_hour: 5                   # Max transactions per hour for burst pattern
+  round_amount_values:                    # Exact round amounts flagged (from generator)
+    - 10000
+    - 25000
+    - 50000
+    - 100000
+    - 200000
+    - 500000
+
+# ----------------------------------------------------------
+# Smart Risk Fusion
+# Weights must sum to 1.0
+# ----------------------------------------------------------
+risk_fusion:
+  weights:
+    rule_engine: 0.30
+    behaviour_engine: 0.20
+    statistical_engine: 0.15
+    ml_engine: 0.20
+    aml_pattern_engine: 0.15
+  risk_thresholds:
+    critical: 90
+    high: 75
+    medium: 50
+    low: 0
+
+# ----------------------------------------------------------
+# Alert Prioritization
+# ----------------------------------------------------------
+alerts:
+  max_alerts: 1000                        # Maximum alerts returned per pipeline run
+  priority_thresholds:
+    critical: 90
+    high: 75
+    medium: 50
+    low: 0
+  deduplication_window_hours: 24          # Suppress duplicate alerts within this window
