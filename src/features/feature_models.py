@@ -46,6 +46,43 @@ class FeatureVector:
     frequency_deviation_score: float
     behaviour_deviation_score: float
 
+    # 4. Relationship Features
+    new_beneficiary: bool
+    beneficiary_frequency: int
+    beneficiary_amount_average: float
+    beneficiary_amount_std: float
+    beneficiary_transaction_count: int
+    beneficiary_is_high_frequency: bool
+
+    # 5. Device Features
+    new_device: bool
+    device_frequency: int
+    device_switch_flag: bool
+    unique_devices_last_30_days: int
+
+    # 6. Channel Features
+    new_channel: bool
+    channel_frequency: int
+    preferred_channel: str
+    outside_preferred_channel: bool
+
+    # 7. Geographic Features
+    new_country: bool
+    country_frequency: int
+    cross_border_transaction: bool
+    high_risk_country_flag: bool
+    geographic_change: bool
+    distance_from_previous_country: float
+
+    # 8. Historical Customer Features
+    account_age_days: int
+    customer_age_group: str
+    kyc_level: str
+    pep_flag: bool
+    previous_sar_count: int
+    historical_average_amount: float
+
     def to_dict(self) -> Dict[str, Any]:
         """Converts FeatureVector into a dictionary."""
         return asdict(self)
+

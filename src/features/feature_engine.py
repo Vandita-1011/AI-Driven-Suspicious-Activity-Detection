@@ -43,7 +43,7 @@ class FeatureEngine:
 
         start_time = time.time()
         txns_count = len(enriched_df)
-        logger.info("Feature generation started for %d transactions.", txns_count)
+        logger.info("Advanced Feature Generation Started for %d transactions.", txns_count)
 
         try:
             feature_df = self.builder.build_features(enriched_df, profiles)
@@ -53,8 +53,8 @@ class FeatureEngine:
 
         execution_time = time.time() - start_time
         logger.info(
-            "Feature generation completed. Processed %d transactions in %.2fs.", 
-            txns_count, execution_time
+            "Advanced Feature Generation Completed. Processed %d transactions in %.2fs. Execution Time: %.2fs", 
+            txns_count, execution_time, execution_time
         )
         return feature_df
 

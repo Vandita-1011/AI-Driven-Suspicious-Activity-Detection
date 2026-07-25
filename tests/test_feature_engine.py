@@ -117,3 +117,56 @@ def test_large_dataset_features(large_txn_df, sample_profiles):
     assert len(vectors) == 100
     assert isinstance(vectors[0], FeatureVector)
     assert vectors[0].transaction_amount == 100.0
+
+
+def test_advanced_feature_groups(sample_profiles):
+    engine = FeatureEngine()
+    df = pd.DataFrame({
+        TxnCols.TRANSACTION_ID: ["T1", "T2"],
+        TxnCols.CUSTOMER_ID: ["CUST100", "CUST100"],
+        TxnCols.ACCOUNT_ID: ["ACC100", "ACC100"],
+        TxnCols.TIMESTAMP: [
+            pd.to_datetime("2024-01-01 10:00:00", utc=True),
+            pd.to_datetime("2024-01-01 11:00:00", utc=True)
+        ],
+        TxnCols.AMOUNT: [100.0, 200.0],
+        TxnCols.COUNTERPARTY_ACCOUNT_ID: ["BEN1", "BEN2"],
+        TxnCols.DEVICE_ID: ["DEV1", "DEV2"],
+        TxnCols.CHANNEL: ["MOBILE", "WEB"],
+        TxnCols.COUNTERPARTY_COUNTRY: ["US", "IR"],
+        'location_country': ["US", "US"],
+        'account_age_days': [120, 120],
+        'customer_age_group': ["18-30", "18-30"],
+        'kyc_level': ["HIGH", "HIGH"],
+        ComputedCols.IS_PEP: [False, False]
+    })
+
+    result = engine.run(df, sample_profiles)
+
+    # 1. Relationship Features
+    assert result['new_beneficiary'].iloc[0] == True
+    assert result['new_beneficiary'].iloc[1] == True
+
+    # 2. Device Features
+    assert result['new_device'].iloc[0] == True
+    assert result['device_switch_flag'].iloc[1] == True
+
+    # 3. Channel Features
+    assert result['preferred_channel'].iloc[0] == "MOBILE"
+    assert result['outside_preferred_channel'].iloc[1] == True
+
+    # 4. Geographic Features
+    assert result['cross_border_transaction'].iloc[1] == True
+    assert result['high_risk_country_flag'].iloc[1] == True  # IR is high risk
+    assert result['geographic_change'].iloc[1] == True
+
+    # 5. Historical Features
+    assert result['account_age_days'].iloc[0] == 120
+    assert result['customer_age_group'].iloc[0] == "18-30"
+
+    # Test complete FeatureVector mapping
+    vectors = engine.run_to_vectors(df, sample_profiles)
+    assert len(vectors) == 2
+    assert vectors[1].high_risk_country_flag == True
+    assert vectors[1].device_switch_flag == True
+
