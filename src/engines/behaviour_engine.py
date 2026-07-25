@@ -1,60 +1,66 @@
-"""
-Behaviour Engine
-================
-Detects anomalies by comparing transactions against customer behaviour baselines.
-"""
-import pandas as pd
-import numpy as np
+import time
+from typing import List, Dict, Optional, Any
 
-from src.constants.column_names import TxnCols
-from src.interfaces.base_engine import BaseDetectionEngine, EngineResult
-from src.interfaces.base_profiler import BaseBehaviourProfiler
+from src.features.feature_models import FeatureVector
+from src.profiling.profile_models import BehaviourProfile
+from src.engines.behaviour_models import BehaviourFinding
+from src.engines.behaviour_builder import BehaviourBuilder
 from src.utils.logger import get_logger
-from src.config.settings import get_settings
 from src.utils.timer import timed
+from src.exceptions.engine_exceptions import EngineExecutionError
 
 logger = get_logger(__name__)
 
 
-class BehaviourEngine(BaseDetectionEngine):
+class BehaviourEngine:
     """
-    Detects deviations from established behaviour profiles.
+    Orchestrates the evaluation of transactions against historical customer behaviour anomaly detectors.
     """
-    def __init__(self, profiler: BaseBehaviourProfiler) -> None:
-        self.profiler = profiler
-        self.settings = get_settings().behaviour_engine
+
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
+        self.builder = BehaviourBuilder(config)
 
     @timed("Behaviour Engine")
-    def run(self, features_df: pd.DataFrame) -> EngineResult:
+    def run(self, features: List[FeatureVector], profiles: Dict[str, BehaviourProfile]) -> List[BehaviourFinding]:
         """
-        Executes behaviour deviation checks.
+        Evaluates a list of transaction feature vectors against behavioural anomaly detectors.
+
+        Args:
+            features: List of transaction feature vectors.
+            profiles: Dictionary of customer behaviour profiles.
+
+        Returns:
+            A flat list of all BehaviourFindings generated across all transactions.
         """
-        logger.info("Running Behaviour Engine...")
-        
-        result = EngineResult()
-        if features_df.empty:
-            return result
-            
-        result.scores = pd.Series(0.0, index=features_df.index)
-        flags = pd.DataFrame(index=features_df.index)
-        
-        if TxnCols.CUSTOMER_ID in features_df.columns and TxnCols.AMOUNT in features_df.columns:
-            # Example: Amount deviation from baseline
-            def check_amount_deviation(row):
-                cust_id = str(row[TxnCols.CUSTOMER_ID])
-                profile = self.profiler.get_profile(cust_id)
-                if profile and "avg_amount" in profile.features:
-                    avg_amt = profile.features["avg_amount"]
-                    if avg_amt > 0:
-                        ratio = row[TxnCols.AMOUNT] / avg_amt
-                        if ratio > self.settings.deviation_z_score_threshold:
-                            return True, min(100.0, ratio * 10.0)
-                return False, 0.0
+        if not features:
+            logger.warning("Empty feature list provided to Behaviour Engine.")
+            return []
 
-            deviation_results = features_df.apply(check_amount_deviation, axis=1)
-            flags["amount_deviation"] = deviation_results.apply(lambda x: x[0])
-            result.scores = deviation_results.apply(lambda x: x[1])
+        start_time = time.time()
+        logger.info("Behaviour Engine Started. Processing %d transactions...", len(features))
 
-        result.flags = flags
-        logger.info("Behaviour Engine complete.")
-        return result
+        all_findings: List[BehaviourFinding] = []
+
+        try:
+            for fv in features:
+                cust_profile = profiles.get(fv.customer_id)
+                # Evaluate the transaction for behavioural anomalies
+                txn_findings = self.builder.evaluate(fv, cust_profile)
+                
+                # Log triggered findings
+                for finding in txn_findings:
+                    logger.debug("Behaviour Finding: [%s] %s for Txn %s (Severity: %s)", 
+                                 finding.finding_id, finding.finding_name, finding.transaction_id, finding.severity.value)
+                
+                all_findings.extend(txn_findings)
+                
+        except Exception as e:
+            logger.error("Error during behavioural evaluation: %s", e)
+            raise EngineExecutionError(f"Behaviour Engine failed: {e}")
+
+        execution_time = time.time() - start_time
+        
+        logger.info("Behaviour Engine execution completed in %.2fs.", execution_time)
+        logger.info("Total behaviour findings generated: %d", len(all_findings))
+        
+        return all_findings
