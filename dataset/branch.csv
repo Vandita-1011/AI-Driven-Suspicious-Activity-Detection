@@ -1,0 +1,179 @@
+branch_id,branch_name,country_code,city,is_high_risk_branch
+BR-000001,Singapore Branch 1,SG,Singapore,False
+BR-000002,Abu Dhabi Branch 2,AE,Abu Dhabi,False
+BR-000003,Chicago Branch 3,US,Chicago,False
+BR-000004,George Town Branch 4,KY,George Town,True
+BR-000005,Manchester Branch 5,GB,Manchester,False
+BR-000006,Frankfurt Branch 6,DE,Frankfurt,False
+BR-000007,Hyderabad Branch 7,IN,Hyderabad,False
+BR-000008,Bengaluru Branch 8,IN,Bengaluru,False
+BR-000009,London Branch 9,GB,London,False
+BR-000010,Hyderabad Branch 10,IN,Hyderabad,False
+BR-000011,Chennai Branch 11,IN,Chennai,False
+BR-000012,Chennai Branch 12,IN,Chennai,False
+BR-000013,Chennai Branch 13,IN,Chennai,False
+BR-000014,London Branch 14,GB,London,False
+BR-000015,Dubai Branch 15,AE,Dubai,False
+BR-000016,Chennai Branch 16,IN,Chennai,False
+BR-000017,Delhi Branch 17,IN,Delhi,False
+BR-000018,George Town Branch 18,KY,George Town,True
+BR-000019,Manchester Branch 19,GB,Manchester,False
+BR-000020,Bengaluru Branch 20,IN,Bengaluru,False
+BR-000021,Bengaluru Branch 21,IN,Bengaluru,False
+BR-000022,Hyderabad Branch 22,IN,Hyderabad,False
+BR-000023,Chicago Branch 23,US,Chicago,False
+BR-000024,San Francisco Branch 24,US,San Francisco,False
+BR-000025,Istanbul Branch 25,TR,Istanbul,True
+BR-000026,Chennai Branch 26,IN,Chennai,False
+BR-000027,Bengaluru Branch 27,IN,Bengaluru,False
+BR-000028,George Town Branch 28,KY,George Town,True
+BR-000029,London Branch 29,GB,London,False
+BR-000030,Manchester Branch 30,GB,Manchester,False
+BR-000031,Abu Dhabi Branch 31,AE,Abu Dhabi,False
+BR-000032,Mumbai Branch 32,IN,Mumbai,False
+BR-000033,Mumbai Branch 33,IN,Mumbai,False
+BR-000034,San Francisco Branch 34,US,San Francisco,False
+BR-000035,Mumbai Branch 35,IN,Mumbai,False
+BR-000036,Delhi Branch 36,IN,Delhi,False
+BR-000037,Delhi Branch 37,IN,Delhi,False
+BR-000038,Frankfurt Branch 38,DE,Frankfurt,False
+BR-000039,Hyderabad Branch 39,IN,Hyderabad,False
+BR-000040,London Branch 40,GB,London,False
+BR-000041,Delhi Branch 41,IN,Delhi,False
+BR-000042,Singapore Branch 42,SG,Singapore,False
+BR-000043,Delhi Branch 43,IN,Delhi,False
+BR-000044,Chennai Branch 44,IN,Chennai,False
+BR-000045,London Branch 45,GB,London,False
+BR-000046,San Francisco Branch 46,US,San Francisco,False
+BR-000047,Chicago Branch 47,US,Chicago,False
+BR-000048,Mumbai Branch 48,IN,Mumbai,False
+BR-000049,Delhi Branch 49,IN,Delhi,False
+BR-000050,New York Branch 50,US,New York,False
+BR-000051,Singapore Branch 51,SG,Singapore,False
+BR-000052,Delhi Branch 52,IN,Delhi,False
+BR-000053,Panama City Branch 53,PA,Panama City,True
+BR-000054,Bengaluru Branch 54,IN,Bengaluru,False
+BR-000055,Delhi Branch 55,IN,Delhi,False
+BR-000056,Singapore Branch 56,SG,Singapore,False
+BR-000057,Hyderabad Branch 57,IN,Hyderabad,False
+BR-000058,New York Branch 58,US,New York,False
+BR-000059,Chennai Branch 59,IN,Chennai,False
+BR-000060,Hyderabad Branch 60,IN,Hyderabad,False
+BR-000061,Delhi Branch 61,IN,Delhi,False
+BR-000062,Manchester Branch 62,GB,Manchester,False
+BR-000063,London Branch 63,GB,London,False
+BR-000064,Mumbai Branch 64,IN,Mumbai,False
+BR-000065,Shenzhen Branch 65,CN,Shenzhen,True
+BR-000066,Dubai Branch 66,AE,Dubai,False
+BR-000067,Berlin Branch 67,DE,Berlin,False
+BR-000068,San Francisco Branch 68,US,San Francisco,False
+BR-000069,Chennai Branch 69,IN,Chennai,False
+BR-000070,Istanbul Branch 70,TR,Istanbul,True
+BR-000071,Dubai Branch 71,AE,Dubai,False
+BR-000072,Dubai Branch 72,AE,Dubai,False
+BR-000073,Hyderabad Branch 73,IN,Hyderabad,False
+BR-000074,London Branch 74,GB,London,False
+BR-000075,London Branch 75,GB,London,False
+BR-000076,Singapore Branch 76,SG,Singapore,False
+BR-000077,Mumbai Branch 77,IN,Mumbai,False
+BR-000078,Hyderabad Branch 78,IN,Hyderabad,False
+BR-000079,Dubai Branch 79,AE,Dubai,False
+BR-000080,London Branch 80,GB,London,False
+BR-000081,Chicago Branch 81,US,Chicago,False
+BR-000082,Shanghai Branch 82,CN,Shanghai,True
+BR-000083,London Branch 83,GB,London,False
+BR-000084,San Francisco Branch 84,US,San Francisco,False
+BR-000085,Delhi Branch 85,IN,Delhi,False
+BR-000086,London Branch 86,GB,London,False
+BR-000087,Delhi Branch 87,IN,Delhi,False
+BR-000088,Hyderabad Branch 88,IN,Hyderabad,False
+BR-000089,London Branch 89,GB,London,False
+BR-000090,Hyderabad Branch 90,IN,Hyderabad,False
+BR-000091,George Town Branch 91,KY,George Town,True
+BR-000092,San Francisco Branch 92,US,San Francisco,False
+BR-000093,Mumbai Branch 93,IN,Mumbai,False
+BR-000094,New York Branch 94,US,New York,False
+BR-000095,Hyderabad Branch 95,IN,Hyderabad,False
+BR-000096,Delhi Branch 96,IN,Delhi,False
+BR-000097,London Branch 97,GB,London,False
+BR-000098,San Francisco Branch 98,US,San Francisco,False
+BR-000099,Chicago Branch 99,US,Chicago,False
+BR-000100,Hyderabad Branch 100,IN,Hyderabad,False
+BR-000101,Dubai Branch 101,AE,Dubai,False
+BR-000102,Chennai Branch 102,IN,Chennai,False
+BR-000103,Dubai Branch 103,AE,Dubai,False
+BR-000104,Bengaluru Branch 104,IN,Bengaluru,False
+BR-000105,Abu Dhabi Branch 105,AE,Abu Dhabi,False
+BR-000106,Hyderabad Branch 106,IN,Hyderabad,False
+BR-000107,Hyderabad Branch 107,IN,Hyderabad,False
+BR-000108,Bengaluru Branch 108,IN,Bengaluru,False
+BR-000109,Shanghai Branch 109,CN,Shanghai,True
+BR-000110,Shanghai Branch 110,CN,Shanghai,True
+BR-000111,Bengaluru Branch 111,IN,Bengaluru,False
+BR-000112,San Francisco Branch 112,US,San Francisco,False
+BR-000113,Hyderabad Branch 113,IN,Hyderabad,False
+BR-000114,Chennai Branch 114,IN,Chennai,False
+BR-000115,Chennai Branch 115,IN,Chennai,False
+BR-000116,Shanghai Branch 116,CN,Shanghai,True
+BR-000117,Mumbai Branch 117,IN,Mumbai,False
+BR-000118,George Town Branch 118,KY,George Town,True
+BR-000119,Hyderabad Branch 119,IN,Hyderabad,False
+BR-000120,Berlin Branch 120,DE,Berlin,False
+BR-000121,Manchester Branch 121,GB,Manchester,False
+BR-000122,Delhi Branch 122,IN,Delhi,False
+BR-000123,San Francisco Branch 123,US,San Francisco,False
+BR-000124,Hyderabad Branch 124,IN,Hyderabad,False
+BR-000125,Mumbai Branch 125,IN,Mumbai,False
+BR-000126,Mumbai Branch 126,IN,Mumbai,False
+BR-000127,Bengaluru Branch 127,IN,Bengaluru,False
+BR-000128,Chennai Branch 128,IN,Chennai,False
+BR-000129,Delhi Branch 129,IN,Delhi,False
+BR-000130,Hyderabad Branch 130,IN,Hyderabad,False
+BR-000131,San Francisco Branch 131,US,San Francisco,False
+BR-000132,Abu Dhabi Branch 132,AE,Abu Dhabi,False
+BR-000133,New York Branch 133,US,New York,False
+BR-000134,Chennai Branch 134,IN,Chennai,False
+BR-000135,Abu Dhabi Branch 135,AE,Abu Dhabi,False
+BR-000136,Mumbai Branch 136,IN,Mumbai,False
+BR-000137,Bengaluru Branch 137,IN,Bengaluru,False
+BR-000138,Berlin Branch 138,DE,Berlin,False
+BR-000139,Chicago Branch 139,US,Chicago,False
+BR-000140,Singapore Branch 140,SG,Singapore,False
+BR-000141,San Francisco Branch 141,US,San Francisco,False
+BR-000142,New York Branch 142,US,New York,False
+BR-000143,New York Branch 143,US,New York,False
+BR-000144,San Francisco Branch 144,US,San Francisco,False
+BR-000145,Delhi Branch 145,IN,Delhi,False
+BR-000146,Singapore Branch 146,SG,Singapore,False
+BR-000147,Delhi Branch 147,IN,Delhi,False
+BR-000148,Mumbai Branch 148,IN,Mumbai,False
+BR-000149,Manchester Branch 149,GB,Manchester,False
+BR-000150,London Branch 150,GB,London,False
+BR-000151,Bengaluru Branch 151,IN,Bengaluru,False
+BR-000152,Chennai Branch 152,IN,Chennai,False
+BR-000153,Delhi Branch 153,IN,Delhi,False
+BR-000154,Chicago Branch 154,US,Chicago,False
+BR-000155,Manchester Branch 155,GB,Manchester,False
+BR-000156,Frankfurt Branch 156,DE,Frankfurt,False
+BR-000157,Frankfurt Branch 157,DE,Frankfurt,False
+BR-000158,New York Branch 158,US,New York,False
+BR-000159,New York Branch 159,US,New York,False
+BR-000160,Panama City Branch 160,PA,Panama City,True
+BR-000161,Dubai Branch 161,AE,Dubai,False
+BR-000162,Chennai Branch 162,IN,Chennai,False
+BR-000163,Singapore Branch 163,SG,Singapore,False
+BR-000164,Chennai Branch 164,IN,Chennai,False
+BR-000165,Hyderabad Branch 165,IN,Hyderabad,False
+BR-000166,Delhi Branch 166,IN,Delhi,False
+BR-000167,Manchester Branch 167,GB,Manchester,False
+BR-000168,Abu Dhabi Branch 168,AE,Abu Dhabi,False
+BR-000169,Mumbai Branch 169,IN,Mumbai,False
+BR-000170,Mumbai Branch 170,IN,Mumbai,False
+BR-000171,Hyderabad Branch 171,IN,Hyderabad,False
+BR-000172,Shanghai Branch 172,CN,Shanghai,True
+BR-000173,Abu Dhabi Branch 173,AE,Abu Dhabi,False
+BR-000174,Chennai Branch 174,IN,Chennai,False
+BR-000175,Singapore Branch 175,SG,Singapore,False
+BR-000176,Manchester Branch 176,GB,Manchester,False
+BR-000177,George Town Branch 177,KY,George Town,True
+BR-000178,Delhi Branch 178,IN,Delhi,False

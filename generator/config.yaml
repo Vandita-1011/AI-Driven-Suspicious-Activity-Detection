@@ -1,0 +1,77 @@
+active_preset: small   # options: small | medium | hackathon
+
+presets:
+  small:
+    n_customers: 500
+    accounts_per_customer_retail: [1, 3]
+    accounts_per_customer_business: 5
+    txn_per_customer_avg: 18
+    suspicious_ratio: 0.05
+  medium:
+    n_customers: 2000
+    accounts_per_customer_retail: [1, 3]
+    accounts_per_customer_business: 5
+    txn_per_customer_avg: 18
+    suspicious_ratio: 0.05
+  hackathon:
+    n_customers: 5000
+    accounts_per_customer_retail: [1, 3]
+    accounts_per_customer_business: 5
+    txn_per_customer_avg: 18
+    suspicious_ratio: 0.05
+
+min_instances_per_scenario: 15
+
+scenario_allocation:
+  # % of the total suspicious transaction budget given to each scenario generator
+  structuring: 0.10
+  smurfing: 0.08
+  layering: 0.08
+  integration: 0.06
+  circular: 0.06
+  mule_accounts: 0.08
+  shell_companies: 0.06
+  dormant_activation: 0.06
+  velocity_anomalies: 0.08
+  transaction_bursts: 0.08
+  high_risk_geography: 0.08
+  cross_border_unusual: 0.06
+  tbml: 0.06
+  relationship_based: 0.04
+  round_amount: 0.02
+
+customer_generation:
+  profile_segments:
+    Retail: 0.55
+    HNI: 0.10
+    Corporate: 0.05
+    Business: 0.10
+    Student: 0.10
+    Retiree: 0.10
+  income_bands:
+    Low: [150000, 500000]
+    Medium: [500001, 1500000]
+    High: [1500001, 5000000]
+    HNI: [5000001, 50000000]
+  pep_rate: 0.008
+  sanctions_hit_rate: 0.003
+  kyc_levels:
+    Low: 0.30
+    Medium: 0.50
+    High: 0.20
+
+account_generation:
+  account_types_by_segment:
+    Retail: [Savings, Current]
+    HNI: [Savings, Current, Investment]
+    Corporate: [Current, Business]
+    Business: [Business, Current]
+    Student: [Savings]
+    Retiree: [Savings]
+  dormant_rate: 0.04
+
+currencies: [INR, USD, EUR, GBP, AED]
+
+reporting_threshold: 1000000   # currency-neutral "large cash transaction" threshold used by structuring scenario
+
+random_seed: 42

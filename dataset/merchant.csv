@@ -1,0 +1,135 @@
+merchant_id,merchant_name,mcc_code,category,country_code,risk_level
+MER-000001,ElectronicsCorp1,5732,Electronics,US,Low
+MER-000002,HotelsCorp2,7011,Hotels,IN,Low
+MER-000003,CurrencyExchangeCorp3,6051,Currency Exchange,US,Low
+MER-000004,ElectronicsCorp4,5732,Electronics,TR,Low
+MER-000005,TransitCorp5,4111,Transit,CN,Low
+MER-000006,BuildingMaterialsCorp6,5231,Building Materials,GB,Low
+MER-000007,TransitCorp7,4111,Transit,DE,Low
+MER-000008,GroceryCorp8,5411,Grocery,AE,Low
+MER-000009,CurrencyExchangeCorp9,6051,Currency Exchange,US,Low
+MER-000010,RestaurantCorp10,5812,Restaurant,PA,Low
+MER-000011,RestaurantCorp11,5812,Restaurant,PA,Low
+MER-000012,ElectronicsCorp12,5732,Electronics,SG,Low
+MER-000013,CurrencyExchangeCorp13,6051,Currency Exchange,US,High
+MER-000014,WireTransferAgencyCorp14,4829,Wire Transfer Agency,PA,High
+MER-000015,HotelsCorp15,7011,Hotels,PA,Low
+MER-000016,Freight/ShippingCorp16,4789,Freight/Shipping,CN,Low
+MER-000017,GroceryCorp17,5411,Grocery,AE,Low
+MER-000018,GroceryCorp18,5411,Grocery,PA,Low
+MER-000019,WireTransferAgencyCorp19,4829,Wire Transfer Agency,PA,Low
+MER-000020,CurrencyExchangeCorp20,6051,Currency Exchange,SG,High
+MER-000021,TransitCorp21,4111,Transit,TR,Low
+MER-000022,RestaurantCorp22,5812,Restaurant,PA,Low
+MER-000023,Freight/ShippingCorp23,4789,Freight/Shipping,IN,Low
+MER-000024,GroceryCorp24,5411,Grocery,KY,Low
+MER-000025,TransitCorp25,4111,Transit,GB,Low
+MER-000026,CurrencyExchangeCorp26,6051,Currency Exchange,SG,Low
+MER-000027,HotelsCorp27,7011,Hotels,SG,Low
+MER-000028,CurrencyExchangeCorp28,6051,Currency Exchange,GB,Low
+MER-000029,CurrencyExchangeCorp29,6051,Currency Exchange,IN,Low
+MER-000030,BuildingMaterialsCorp30,5231,Building Materials,AE,Low
+MER-000031,Retail-MiscCorp31,5999,Retail-Misc,SG,Low
+MER-000032,GroceryCorp32,5411,Grocery,TR,Low
+MER-000033,BuildingMaterialsCorp33,5231,Building Materials,PA,Low
+MER-000034,BuildingMaterialsCorp34,5231,Building Materials,DE,Low
+MER-000035,RestaurantCorp35,5812,Restaurant,TR,Low
+MER-000036,ElectronicsCorp36,5732,Electronics,AE,Low
+MER-000037,BuildingMaterialsCorp37,5231,Building Materials,DE,Low
+MER-000038,RestaurantCorp38,5812,Restaurant,DE,Low
+MER-000039,WireTransferAgencyCorp39,4829,Wire Transfer Agency,GB,High
+MER-000040,BuildingMaterialsCorp40,5231,Building Materials,US,Low
+MER-000041,ElectronicsCorp41,5732,Electronics,PA,Low
+MER-000042,TransitCorp42,4111,Transit,TR,Low
+MER-000043,TransitCorp43,4111,Transit,DE,Low
+MER-000044,WireTransferAgencyCorp44,4829,Wire Transfer Agency,GB,Low
+MER-000045,BuildingMaterialsCorp45,5231,Building Materials,CN,Low
+MER-000046,GroceryCorp46,5411,Grocery,TR,Low
+MER-000047,BuildingMaterialsCorp47,5231,Building Materials,GB,Low
+MER-000048,TransitCorp48,4111,Transit,SG,Low
+MER-000049,Freight/ShippingCorp49,4789,Freight/Shipping,PA,Low
+MER-000050,GroceryCorp50,5411,Grocery,AE,Low
+MER-000051,HotelsCorp51,7011,Hotels,PA,Low
+MER-000052,TransitCorp52,4111,Transit,TR,Low
+MER-000053,CurrencyExchangeCorp53,6051,Currency Exchange,GB,High
+MER-000054,RestaurantCorp54,5812,Restaurant,KY,Low
+MER-000055,WireTransferAgencyCorp55,4829,Wire Transfer Agency,US,High
+MER-000056,HotelsCorp56,7011,Hotels,PA,Low
+MER-000057,TransitCorp57,4111,Transit,IN,Low
+MER-000058,RestaurantCorp58,5812,Restaurant,US,Low
+MER-000059,Freight/ShippingCorp59,4789,Freight/Shipping,DE,High
+MER-000060,HotelsCorp60,7011,Hotels,CN,Low
+MER-000061,TransitCorp61,4111,Transit,SG,Low
+MER-000062,CurrencyExchangeCorp62,6051,Currency Exchange,SG,High
+MER-000063,Freight/ShippingCorp63,4789,Freight/Shipping,US,High
+MER-000064,WireTransferAgencyCorp64,4829,Wire Transfer Agency,KY,Low
+MER-000065,ElectronicsCorp65,5732,Electronics,US,Low
+MER-000066,Freight/ShippingCorp66,4789,Freight/Shipping,GB,Low
+MER-000067,GroceryCorp67,5411,Grocery,PA,Low
+MER-000068,BuildingMaterialsCorp68,5231,Building Materials,KY,Low
+MER-000069,BuildingMaterialsCorp69,5231,Building Materials,TR,Low
+MER-000070,BuildingMaterialsCorp70,5231,Building Materials,DE,Low
+MER-000071,HotelsCorp71,7011,Hotels,CN,Low
+MER-000072,CurrencyExchangeCorp72,6051,Currency Exchange,DE,Low
+MER-000073,ElectronicsCorp73,5732,Electronics,IN,Low
+MER-000074,TransitCorp74,4111,Transit,SG,Low
+MER-000075,Freight/ShippingCorp75,4789,Freight/Shipping,CN,Low
+MER-000076,GroceryCorp76,5411,Grocery,TR,Low
+MER-000077,BuildingMaterialsCorp77,5231,Building Materials,KY,Low
+MER-000078,TransitCorp78,4111,Transit,GB,Low
+MER-000079,ElectronicsCorp79,5732,Electronics,GB,Low
+MER-000080,ElectronicsCorp80,5732,Electronics,SG,Low
+MER-000081,BuildingMaterialsCorp81,5231,Building Materials,TR,Low
+MER-000082,ElectronicsCorp82,5732,Electronics,GB,Low
+MER-000083,Retail-MiscCorp83,5999,Retail-Misc,SG,Low
+MER-000084,HotelsCorp84,7011,Hotels,GB,Low
+MER-000085,CurrencyExchangeCorp85,6051,Currency Exchange,KY,High
+MER-000086,BuildingMaterialsCorp86,5231,Building Materials,KY,Low
+MER-000087,Freight/ShippingCorp87,4789,Freight/Shipping,US,Low
+MER-000088,Freight/ShippingCorp88,4789,Freight/Shipping,TR,High
+MER-000089,HotelsCorp89,7011,Hotels,IN,Low
+MER-000090,BuildingMaterialsCorp90,5231,Building Materials,AE,Low
+MER-000091,HotelsCorp91,7011,Hotels,DE,Low
+MER-000092,TransitCorp92,4111,Transit,SG,Low
+MER-000093,GroceryCorp93,5411,Grocery,US,Low
+MER-000094,ElectronicsCorp94,5732,Electronics,US,Low
+MER-000095,WireTransferAgencyCorp95,4829,Wire Transfer Agency,GB,Low
+MER-000096,RestaurantCorp96,5812,Restaurant,CN,Low
+MER-000097,Freight/ShippingCorp97,4789,Freight/Shipping,TR,High
+MER-000098,TransitCorp98,4111,Transit,AE,Low
+MER-000099,RestaurantCorp99,5812,Restaurant,AE,Low
+MER-000100,TransitCorp100,4111,Transit,SG,Low
+MER-000101,Freight/ShippingCorp101,4789,Freight/Shipping,TR,Low
+MER-000102,WireTransferAgencyCorp102,4829,Wire Transfer Agency,SG,High
+MER-000103,CurrencyExchangeCorp103,6051,Currency Exchange,AE,Low
+MER-000104,WireTransferAgencyCorp104,4829,Wire Transfer Agency,SG,High
+MER-000105,Retail-MiscCorp105,5999,Retail-Misc,CN,Low
+MER-000106,TransitCorp106,4111,Transit,US,Low
+MER-000107,WireTransferAgencyCorp107,4829,Wire Transfer Agency,IN,High
+MER-000108,WireTransferAgencyCorp108,4829,Wire Transfer Agency,US,Low
+MER-000109,RestaurantCorp109,5812,Restaurant,GB,Low
+MER-000110,BuildingMaterialsCorp110,5231,Building Materials,PA,Low
+MER-000111,HotelsCorp111,7011,Hotels,AE,Low
+MER-000112,GroceryCorp112,5411,Grocery,US,Low
+MER-000113,ElectronicsCorp113,5732,Electronics,SG,Low
+MER-000114,BuildingMaterialsCorp114,5231,Building Materials,KY,Low
+MER-000115,BuildingMaterialsCorp115,5231,Building Materials,US,Low
+MER-000116,GroceryCorp116,5411,Grocery,AE,Low
+MER-000117,Retail-MiscCorp117,5999,Retail-Misc,GB,Low
+MER-000118,Retail-MiscCorp118,5999,Retail-Misc,CN,Low
+MER-000119,WireTransferAgencyCorp119,4829,Wire Transfer Agency,TR,Low
+MER-000120,RestaurantCorp120,5812,Restaurant,DE,Low
+MER-000121,CurrencyExchangeCorp121,6051,Currency Exchange,GB,High
+MER-000122,TransitCorp122,4111,Transit,DE,Low
+MER-000123,GroceryCorp123,5411,Grocery,AE,Low
+MER-000124,GroceryCorp124,5411,Grocery,GB,Low
+MER-000125,CurrencyExchangeCorp125,6051,Currency Exchange,SG,High
+MER-000126,CurrencyExchangeCorp126,6051,Currency Exchange,SG,High
+MER-000127,CurrencyExchangeCorp127,6051,Currency Exchange,CN,Low
+MER-000128,HotelsCorp128,7011,Hotels,US,Low
+MER-000129,TransitCorp129,4111,Transit,AE,Low
+MER-000130,HotelsCorp130,7011,Hotels,CN,Low
+MER-000131,WireTransferAgencyCorp131,4829,Wire Transfer Agency,IN,Low
+MER-000132,RestaurantCorp132,5812,Restaurant,SG,Low
+MER-000133,ElectronicsCorp133,5732,Electronics,TR,Low
+MER-000134,GroceryCorp134,5411,Grocery,US,Low

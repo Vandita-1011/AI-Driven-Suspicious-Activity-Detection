@@ -1,0 +1,29 @@
+[PASS] FK: transaction.account_id -> account
+[PASS] FK: transaction.customer_id -> customer
+[PASS] FK: account.customer_id -> customer
+[PASS] FK: transaction.counterparty_account_id -> account
+[PASS] No duplicate customer_id
+[PASS] No duplicate account_id
+[PASS] No duplicate transaction_id
+[PASS] Balance reconciliation: no negative balances
+[PASS] Timestamps sorted ascending within account (post-settlement)
+[PASS] Scenario 'Structuring' has >= 15 instances - actual=47
+[PASS] Scenario 'Smurfing' has >= 15 instances - actual=37
+[PASS] Scenario 'Layering' has >= 15 instances - actual=37
+[PASS] Scenario 'Integration' has >= 15 instances - actual=28
+[PASS] Scenario 'Circular' has >= 15 instances - actual=28
+[PASS] Scenario 'Mule Accounts' has >= 15 instances - actual=38
+[PASS] Scenario 'Shell Companies' has >= 15 instances - actual=28
+[PASS] Scenario 'Dormant Activation' has >= 15 instances - actual=28
+[PASS] Scenario 'Velocity Anomalies' has >= 15 instances - actual=37
+[PASS] Scenario 'Transaction Bursts' has >= 15 instances - actual=37
+[PASS] Scenario 'High-Risk Geography' has >= 15 instances - actual=37
+[PASS] Scenario 'Cross-Border Unusual' has >= 15 instances - actual=28
+[PASS] Scenario 'TBML' has >= 15 instances - actual=28
+[PASS] Scenario 'Relationship-Based' has >= 15 instances - actual=18
+[PASS] Scenario 'Round-Amount' has >= 15 instances - actual=15
+[PASS] Fraud ring membership customer_id -> customer FK
+[INFO] Total transactions: 9431
+[INFO] Suspicious transactions: 471 (4.99%)
+[INFO] Normal transactions: 8960
+[OVERALL] ALL CHECKS PASSED

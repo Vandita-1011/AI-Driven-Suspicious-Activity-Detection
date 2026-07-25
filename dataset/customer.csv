@@ -1,0 +1,501 @@
+customer_id,full_name,dob,age,gender,nationality,occupation,profile_segment,annual_income,income_band,kyc_level,is_pep,sanctions_hit,beneficial_owner_id,onboarding_date,branch_id,risk_score
+CUST-000001,Ava Johnson Holdings,1996-03-03,26,M,IN,Self-Employed,Business,1234621,Medium,Medium,False,False,,2022-01-15,BR-000134,37
+CUST-000002,Diya Chowdhury,1978-04-29,44,F,IN,Salaried,Retail,182102,Low,Medium,False,False,,2022-03-01,BR-000046,54
+CUST-000003,Mohammed Singh,1952-06-22,70,M,GB,Retired,Retiree,1149233,Medium,Medium,False,False,,2023-01-20,BR-000163,50
+CUST-000004,Aditya Singh,1971-08-11,51,M,KY,Salaried,Retail,1134629,Medium,Low,False,False,,2024-08-11,BR-000108,26
+CUST-000005,Kabir Khan,1996-06-13,26,M,DE,Salaried,Retail,1202002,Medium,Medium,False,False,,2020-05-17,BR-000062,50
+CUST-000006,Karan Johnson,1962-04-23,60,F,PA,Salaried,Retail,1421057,Medium,Medium,False,False,,2020-05-17,BR-000093,57
+CUST-000007,Rahul Mehta,1961-12-27,61,F,PA,Salaried,Retail,266945,Low,Medium,False,False,,2024-05-01,BR-000078,66
+CUST-000008,Saanvi Wang,1968-12-02,54,M,TR,Salaried,Retail,485450,Low,Medium,False,False,,2023-07-15,BR-000026,51
+CUST-000009,John Khan,1964-07-08,58,M,CN,Salaried,Retail,208067,Low,Medium,False,False,,2020-02-07,BR-000143,66
+CUST-000010,Aadhya Verma,1960-04-16,62,M,US,Salaried,Retail,314264,Low,High,False,False,,2024-07-23,BR-000113,63
+CUST-000011,Sarah Smith,2000-12-07,22,M,SG,Business Owner,HNI,42961477,HNI,Medium,False,False,,2023-09-05,BR-000110,58
+CUST-000012,Sneha Mehta,1985-07-18,37,F,KY,Salaried,Retail,1352015,Medium,Medium,False,False,,2019-08-14,BR-000069,43
+CUST-000013,Aarav Gupta,1953-02-18,69,M,GB,Salaried,Retail,677507,Medium,Low,False,False,,2022-07-22,BR-000123,12
+CUST-000014,Liam Patel,1992-04-27,30,Other,TR,Salaried,Retail,1481805,Medium,Medium,False,False,,2022-10-24,BR-000092,46
+CUST-000015,Aditya Iyer,2001-04-14,21,F,US,Student,Student,304031,Low,High,False,False,,2019-07-16,BR-000028,50
+CUST-000016,Ava Rao,1954-07-24,68,F,DE,Salaried,Retail,3127407,High,Medium,False,False,,2022-10-22,BR-000040,56
+CUST-000017,Saanvi Sharma,2004-08-22,18,F,PA,Student,Student,167044,Low,Medium,False,False,,2022-11-07,BR-000002,58
+CUST-000018,Sneha Khan,1996-05-26,26,F,PA,Salaried,Retail,504501,Medium,Low,False,False,,2023-06-21,BR-000125,17
+CUST-000019,Ava Singh,1999-03-02,23,M,AE,Student,Student,254630,Low,Low,False,False,,2022-03-16,BR-000155,36
+CUST-000020,Liam Mehta Enterprises,1953-05-31,69,M,GB,Self-Employed,Business,636822,Medium,Medium,False,False,,2020-09-04,BR-000106,72
+CUST-000021,Sneha Iyer,1983-12-12,39,F,CN,Salaried,Retail,156184,Low,Medium,False,False,,2019-04-19,BR-000075,39
+CUST-000022,Robert Singh,1957-08-29,65,M,PA,Salaried,Retail,468172,Low,Medium,False,False,,2020-04-23,BR-000117,60
+CUST-000023,Saanvi Singh,1960-01-17,63,F,US,Salaried,Retail,1291974,Medium,Medium,False,False,,2020-08-07,BR-000178,43
+CUST-000024,Arjun Smith Trading Co,1992-06-17,30,M,CN,Self-Employed,Business,1152922,Medium,Medium,False,False,,2019-09-26,BR-000167,40
+CUST-000025,Fatima Verma,1953-08-05,69,M,IN,Salaried,Retail,812570,Medium,Medium,False,False,,2023-07-30,BR-000160,56
+CUST-000026,Diya Reddy,1994-01-08,29,F,GB,Salaried,Retail,451967,Low,Medium,False,False,,2019-01-26,BR-000074,37
+CUST-000027,Diya Singh,1972-10-17,50,F,GB,Salaried,Retail,389140,Low,High,False,False,,2021-10-19,BR-000089,70
+CUST-000028,Aadhya Iyer,2000-02-06,22,F,DE,Salaried,Retail,215912,Low,Medium,False,False,,2021-10-04,BR-000016,27
+CUST-000029,Myra Chowdhury,1975-06-02,47,Other,IN,Salaried,Retail,420528,Low,High,False,False,,2022-04-01,BR-000173,83
+CUST-000030,Kabir Singh,2001-03-21,21,M,SG,Student,Student,360256,Low,Medium,False,False,,2023-11-08,BR-000154,51
+CUST-000031,Li Al-Farsi,1960-05-03,62,M,IN,Salaried,Retail,817153,Medium,Low,False,False,,2023-07-28,BR-000120,30
+CUST-000032,Saanvi Sharma,1940-01-16,83,M,IN,Retired,Retiree,1084639,Medium,High,False,False,,2021-05-24,BR-000030,61
+CUST-000033,Ishaan Patel,1984-05-13,38,F,IN,Business Owner,HNI,1563562,High,High,False,False,,2023-12-12,BR-000111,74
+CUST-000034,Ava Al-Farsi Holdings,1973-10-08,49,M,CN,Corporate Entity,Corporate,2967453,High,Medium,False,False,,2023-06-18,BR-000093,53
+CUST-000035,Aditya Nair,1968-07-27,54,M,PA,Salaried,Retail,2124546,High,High,False,False,,2019-10-17,BR-000038,70
+CUST-000036,Robert Reddy,1976-12-11,46,F,DE,Salaried,Retail,1282960,Medium,High,False,False,,2023-05-12,BR-000155,87
+CUST-000037,Aditya Smith Trading Co,1990-01-17,32,M,DE,Self-Employed,Business,1219312,Medium,Medium,False,False,,2020-12-27,BR-000102,61
+CUST-000038,Ava Smith,1961-11-06,61,M,CN,Retired,Retiree,287937,Low,Medium,False,False,,2019-03-05,BR-000005,32
+CUST-000039,Fatima Chowdhury Global Ltd,1987-07-20,35,F,US,Self-Employed,Business,1022012,Medium,Low,False,False,CUST-000479,2020-02-10,BR-000086,7
+CUST-000040,Li Khan,1988-11-21,34,M,GB,Salaried,Retail,1376710,Medium,High,False,False,,2020-09-01,BR-000170,84
+CUST-000041,Kabir Reddy,1996-03-15,26,F,DE,Business Owner,HNI,29406398,HNI,Low,False,False,,2023-12-27,BR-000152,35
+CUST-000042,Robert Mehta,1981-12-02,41,M,AE,Salaried,Retail,706814,Medium,High,False,False,,2023-06-22,BR-000018,60
+CUST-000043,Neha Verma,1979-11-06,43,M,US,Salaried,Retail,1351334,Medium,Medium,False,False,,2020-05-15,BR-000045,39
+CUST-000044,Kabir Sharma,1999-09-10,23,M,AE,Student,Student,321712,Low,Medium,False,False,,2022-01-04,BR-000024,63
+CUST-000045,Karan Iyer,1958-09-04,64,F,SG,Retired,Retiree,238614,Low,High,False,False,,2022-03-26,BR-000058,73
+CUST-000046,Olivia Zhang,1992-03-08,30,M,CN,Salaried,Retail,1241614,Medium,High,False,False,,2024-11-05,BR-000061,64
+CUST-000047,James Verma,1964-05-28,58,M,PA,Business Owner,HNI,46570249,HNI,Low,False,False,,2023-09-03,BR-000177,41
+CUST-000048,Vivaan Reddy,1993-03-27,29,F,SG,Salaried,Retail,472648,Low,Medium,False,False,,2022-09-14,BR-000118,55
+CUST-000049,Noah Brown,1992-12-06,30,F,TR,Salaried,Retail,540254,Medium,Medium,False,False,,2022-12-23,BR-000177,60
+CUST-000050,Li Al-Farsi,1953-04-25,69,F,GB,Retired,Retiree,346636,Low,High,False,False,,2023-05-05,BR-000075,65
+CUST-000051,James Patel,1994-03-13,28,F,CN,Salaried,Retail,1155518,Medium,Medium,False,False,,2019-06-12,BR-000036,37
+CUST-000052,Neha Nair Trading Co,1959-10-09,63,F,TR,Corporate Entity,Corporate,17758435,HNI,Low,False,False,,2024-09-05,BR-000098,3
+CUST-000053,Aadhya Wang,1997-09-13,25,M,IN,Salaried,Retail,2898867,High,Medium,False,False,,2023-02-11,BR-000172,59
+CUST-000054,Aadhya Singh,1999-06-23,23,F,CN,Student,Student,321438,Low,Low,False,False,,2021-04-27,BR-000170,35
+CUST-000055,Pooja Rao Global Ltd,1964-12-08,58,M,US,Self-Employed,Business,740227,Medium,Low,False,False,,2021-10-15,BR-000105,24
+CUST-000056,Diya Brown,2003-08-26,19,M,AE,Student,Student,267645,Low,Low,False,False,,2018-12-09,BR-000138,10
+CUST-000057,Emma Das,1993-12-30,29,M,GB,Salaried,Retail,1432900,Medium,Low,False,False,,2021-06-10,BR-000141,25
+CUST-000058,Rahul Al-Farsi,1961-06-20,61,Other,SG,Salaried,Retail,343264,Low,Medium,False,False,,2019-12-15,BR-000177,68
+CUST-000059,Ava Iyer Impex,1985-09-16,37,F,PA,Self-Employed,Business,924777,Medium,Medium,False,False,,2020-11-04,BR-000122,65
+CUST-000060,Saanvi Al-Farsi,1966-03-29,56,M,DE,Salaried,Retail,462560,Low,Low,False,False,,2020-11-08,BR-000055,35
+CUST-000061,Aditya Reddy,1960-04-09,62,F,PA,Salaried,Retail,378290,Low,Low,False,False,,2019-04-15,BR-000048,21
+CUST-000062,Liam Gupta,1974-04-19,48,M,US,Salaried,Retail,413315,Low,Medium,False,False,,2020-10-03,BR-000074,50
+CUST-000063,Robert Verma,1984-11-07,38,M,GB,Salaried,Retail,438087,Low,Low,False,False,,2024-11-04,BR-000032,30
+CUST-000064,Karan Chowdhury,1951-11-10,71,F,PA,Retired,Retiree,379625,Low,Medium,False,False,,2023-05-22,BR-000069,45
+CUST-000065,Sneha Wang,1983-07-18,39,F,US,Salaried,Retail,296529,Low,Medium,False,False,,2019-11-05,BR-000135,34
+CUST-000066,Li Zhang,1960-12-23,62,M,GB,Business Owner,HNI,14552472,HNI,Low,False,False,,2023-12-14,BR-000017,26
+CUST-000067,James Khan,1978-06-13,44,M,AE,Salaried,Retail,387834,Low,Low,False,False,,2019-07-11,BR-000093,22
+CUST-000068,James Gupta,1989-12-20,33,M,SG,Salaried,Retail,242682,Low,High,False,False,,2019-02-02,BR-000125,48
+CUST-000069,Liam Iyer,1991-03-04,31,F,KY,Business Owner,HNI,4369331,High,Low,False,False,,2020-02-27,BR-000012,36
+CUST-000070,Sneha Nair,1999-01-15,23,M,DE,Student,Student,324523,Low,Medium,False,False,,2023-09-29,BR-000142,56
+CUST-000071,Pooja Iyer,1962-03-06,60,M,CN,Salaried,Retail,858673,Medium,Medium,False,False,,2021-03-05,BR-000143,31
+CUST-000072,Pooja Brown,1982-07-27,40,F,AE,Salaried,Retail,1054399,Medium,Medium,False,False,,2022-02-05,BR-000055,51
+CUST-000073,Priya Brown,1964-04-15,58,M,CN,Salaried,Retail,439376,Low,Medium,False,False,,2024-11-14,BR-000117,54
+CUST-000074,Pooja Sharma,1971-12-31,51,M,GB,Business Owner,HNI,30320061,HNI,High,False,False,,2020-05-02,BR-000037,73
+CUST-000075,Rahul Chowdhury,1953-09-04,69,Other,CN,Salaried,Retail,770342,Medium,Medium,False,False,,2020-03-09,BR-000043,42
+CUST-000076,Sneha Brown,1954-03-04,68,M,IN,Salaried,Retail,185387,Low,Medium,False,False,,2022-09-26,BR-000130,16
+CUST-000077,Ishaan Iyer,1958-04-02,64,F,GB,Salaried,Retail,784397,Medium,Low,False,False,,2024-07-22,BR-000091,20
+CUST-000078,Ishaan Gupta Holdings,1971-11-26,51,M,DE,Corporate Entity,Corporate,28501290,HNI,Low,False,False,,2019-02-19,BR-000062,33
+CUST-000079,Karan Reddy,1998-10-10,24,M,US,Student,Student,378084,Low,Medium,False,False,,2019-05-19,BR-000077,37
+CUST-000080,Mohammed Zhang,1961-11-03,61,M,SG,Retired,Retiree,466046,Low,High,False,False,,2023-02-22,BR-000021,75
+CUST-000081,Neha Verma,1957-03-05,65,M,AE,Salaried,Retail,305755,Low,Medium,False,False,,2022-04-24,BR-000034,65
+CUST-000082,Karan Iyer,2000-06-23,22,F,KY,Student,Student,491564,Low,Low,False,False,,2023-11-23,BR-000142,33
+CUST-000083,Mohammed Reddy,1945-04-17,77,F,TR,Retired,Retiree,285219,Low,Low,False,False,,2021-10-20,BR-000014,21
+CUST-000084,Olivia Verma,1999-09-14,23,M,DE,Business Owner,HNI,48908121,HNI,High,False,False,,2019-11-04,BR-000174,67
+CUST-000085,Vivaan Iyer,1991-11-16,31,F,IN,Salaried,Retail,3380266,High,High,False,False,,2022-04-26,BR-000110,86
+CUST-000086,Karan Smith,1990-08-14,32,F,AE,Salaried,Retail,2824084,High,Low,False,False,,2021-07-13,BR-000058,39
+CUST-000087,John Rao,1966-02-20,56,M,US,Salaried,Retail,2157663,High,Medium,False,False,,2019-11-29,BR-000091,35
+CUST-000088,Pooja Das,1980-01-22,42,F,US,Salaried,Retail,727968,Medium,High,False,False,,2019-04-19,BR-000084,66
+CUST-000089,Noah Al-Farsi,2000-04-09,22,F,TR,Student,Student,299859,Low,Medium,False,False,,2023-08-08,BR-000062,41
+CUST-000090,John Brown,1980-05-27,42,M,KY,Salaried,Retail,1236573,Medium,Medium,False,False,,2023-10-14,BR-000024,22
+CUST-000091,Wei Al-Farsi,2003-06-15,19,F,TR,Student,Student,484616,Low,Low,False,False,,2019-07-24,BR-000095,39
+CUST-000092,Robert Rao,1983-03-30,39,M,GB,Salaried,Retail,245700,Low,Medium,False,False,,2021-10-10,BR-000126,53
+CUST-000093,Noah Iyer Impex,1991-07-30,31,F,US,Self-Employed,Business,2342636,High,Medium,False,False,,2020-12-17,BR-000128,73
+CUST-000094,James Iyer,2000-07-30,22,F,IN,Salaried,Retail,279245,Low,High,False,False,,2021-02-02,BR-000112,54
+CUST-000095,Olivia Chowdhury,1961-02-19,61,F,GB,Business Owner,HNI,3113260,High,Medium,False,False,,2021-09-19,BR-000088,61
+CUST-000096,Pooja Iyer,2000-10-16,22,M,KY,Student,Student,427551,Low,High,False,False,,2019-08-10,BR-000029,68
+CUST-000097,Wei Das,1980-09-08,42,F,GB,Business Owner,HNI,18333484,HNI,Low,False,False,,2022-09-07,BR-000137,22
+CUST-000098,Robert Nair,1990-03-19,32,Other,US,Salaried,Retail,469649,Low,High,False,False,,2021-06-04,BR-000171,71
+CUST-000099,Pooja Reddy,1967-10-15,55,Other,DE,Salaried,Retail,1271849,Medium,Low,False,False,,2022-12-20,BR-000102,34
+CUST-000100,Rahul Johnson,1966-03-26,56,M,GB,Salaried,Retail,288332,Low,Low,False,False,,2019-12-08,BR-000101,13
+CUST-000101,Robert Zhang,1994-01-15,28,M,SG,Business Owner,HNI,23150948,HNI,Medium,False,False,,2019-06-02,BR-000173,32
+CUST-000102,Liam Smith,1989-09-26,33,F,AE,Salaried,Retail,1407604,Medium,Low,False,False,,2019-08-10,BR-000050,36
+CUST-000103,Liam Mehta,1970-08-22,52,F,PA,Salaried,Retail,206679,Low,Low,False,False,,2021-04-05,BR-000110,49
+CUST-000104,Neha Chowdhury,1975-09-24,47,F,GB,Salaried,Retail,1259967,Medium,High,False,False,,2019-07-14,BR-000174,67
+CUST-000105,Vivaan Mehta Trading Co,1965-06-03,57,F,CN,Self-Employed,Business,738339,Medium,Medium,False,False,,2020-08-17,BR-000071,65
+CUST-000106,Sneha Patel Holdings,1988-07-03,34,F,KY,Self-Employed,Business,1295232,Medium,High,False,False,,2019-11-02,BR-000070,91
+CUST-000107,Diya Verma,1948-08-22,74,F,KY,Retired,Retiree,784052,Medium,High,False,False,,2021-10-14,BR-000139,50
+CUST-000108,Myra Zhang,1956-03-21,66,F,KY,Business Owner,HNI,14907105,HNI,Medium,False,False,,2021-10-01,BR-000081,52
+CUST-000109,Liam Das,1959-12-30,63,F,DE,Salaried,Retail,757613,Medium,High,False,False,,2020-09-08,BR-000098,98
+CUST-000110,Liam Sharma,1984-01-27,38,M,IN,Salaried,Retail,1135560,Medium,Medium,False,False,,2019-08-20,BR-000011,48
+CUST-000111,Vivaan Singh,1998-06-10,24,M,AE,Student,Student,199359,Low,High,False,False,,2023-11-14,BR-000148,82
+CUST-000112,Emma Verma,1998-01-11,24,F,PA,Salaried,Retail,196389,Low,Medium,False,False,,2019-02-12,BR-000073,47
+CUST-000113,Liam Reddy Holdings,1984-11-10,38,M,CN,Self-Employed,Business,1296571,Medium,Low,False,False,,2021-09-16,BR-000150,20
+CUST-000114,John Chowdhury,1964-11-01,58,F,US,Salaried,Retail,391115,Low,Medium,False,False,,2020-09-29,BR-000052,77
+CUST-000115,Wei Das,1994-09-11,28,M,KY,Business Owner,HNI,35716465,HNI,Medium,False,False,,2023-01-26,BR-000016,83
+CUST-000116,Olivia Mehta,1961-07-31,61,F,IN,Salaried,Retail,972556,Medium,High,False,False,,2022-03-07,BR-000088,87
+CUST-000117,Wei Reddy,1976-05-13,46,M,AE,Salaried,Retail,3227273,High,Medium,False,False,,2021-10-17,BR-000033,49
+CUST-000118,Aditya Gupta,1964-07-03,58,M,KY,Salaried,Retail,349494,Low,Low,False,False,,2023-04-24,BR-000112,25
+CUST-000119,Li Nair Global Ltd,1989-02-13,33,M,US,Self-Employed,Business,4146326,High,Low,False,False,,2023-04-07,BR-000063,24
+CUST-000120,Aarav Kapoor,1960-07-08,62,M,KY,Retired,Retiree,1359970,Medium,Medium,False,False,,2022-12-01,BR-000041,68
+CUST-000121,Sneha Das,1948-04-03,74,F,GB,Retired,Retiree,262297,Low,Medium,False,False,,2022-05-12,BR-000074,39
+CUST-000122,Ava Iyer,1980-11-04,42,M,KY,Salaried,Retail,946282,Medium,Medium,False,False,,2019-12-17,BR-000174,52
+CUST-000123,John Verma,2000-12-17,22,M,GB,Salaried,Retail,521724,Medium,Medium,False,False,,2020-04-09,BR-000121,62
+CUST-000124,Ishaan Sharma,2001-11-02,21,F,TR,Student,Student,466366,Low,Low,False,False,,2023-10-06,BR-000026,17
+CUST-000125,Mohammed Singh,1956-07-27,66,F,GB,Salaried,Retail,228545,Low,Medium,False,False,,2021-01-20,BR-000058,37
+CUST-000126,Ava Mehta Global Ltd,1966-12-30,56,M,SG,Self-Employed,Business,1103406,Medium,Low,False,False,CUST-000198,2019-07-07,BR-000081,17
+CUST-000127,Ananya Reddy,1957-06-09,65,F,US,Retired,Retiree,473736,Low,Medium,False,False,,2024-06-29,BR-000173,56
+CUST-000128,Pooja Verma,1960-12-25,62,F,AE,Salaried,Retail,917254,Medium,Medium,False,False,,2022-08-04,BR-000014,63
+CUST-000129,Neha Johnson,1986-02-06,36,F,SG,Salaried,Retail,868989,Medium,Medium,False,False,,2024-09-24,BR-000168,69
+CUST-000130,Diya Nair,1960-04-05,62,M,IN,Salaried,Retail,1426670,Medium,High,False,False,,2020-05-07,BR-000027,59
+CUST-000131,John Reddy,1978-04-12,44,F,US,Salaried,Retail,267266,Low,High,False,False,,2023-06-08,BR-000080,62
+CUST-000132,Li Zhang,2001-09-25,21,M,IN,Student,Student,203441,Low,Low,False,False,,2019-09-30,BR-000025,27
+CUST-000133,Liam Reddy,1999-05-02,23,M,TR,Salaried,Retail,377967,Low,Low,False,False,,2022-08-05,BR-000082,30
+CUST-000134,Arjun Khan,1972-11-22,50,M,CN,Salaried,Retail,844831,Medium,Medium,False,False,,2019-01-10,BR-000168,51
+CUST-000135,Wei Rao,1963-07-17,59,M,SG,Salaried,Retail,4933516,High,Medium,False,False,,2022-09-14,BR-000027,48
+CUST-000136,Pooja Iyer,1960-07-13,62,M,TR,Salaried,Retail,492316,Low,Low,False,False,,2020-11-04,BR-000169,22
+CUST-000137,Ava Sharma,1956-04-26,66,F,PA,Salaried,Retail,2405925,High,Medium,False,False,,2021-12-02,BR-000050,44
+CUST-000138,Emma Khan,1958-05-05,64,M,DE,Retired,Retiree,287143,Low,Low,False,False,,2020-09-16,BR-000121,37
+CUST-000139,James Smith Enterprises,1969-09-05,53,M,GB,Self-Employed,Business,3501827,High,Medium,False,False,,2023-05-11,BR-000101,84
+CUST-000140,James Iyer Global Ltd,1962-02-20,60,F,PA,Self-Employed,Business,3986257,High,Medium,False,False,,2024-07-15,BR-000029,47
+CUST-000141,Ava Singh,2000-12-11,22,M,US,Business Owner,HNI,6780210,HNI,Low,False,False,,2024-06-24,BR-000006,29
+CUST-000142,Ananya Kapoor,1984-09-08,38,F,TR,Salaried,Retail,158821,Low,High,False,False,,2020-11-13,BR-000166,62
+CUST-000143,Ava Verma Holdings,1965-03-13,57,Other,SG,Self-Employed,Business,3020222,High,Medium,False,False,CUST-000451,2019-04-21,BR-000088,53
+CUST-000144,Myra Zhang,1994-12-27,28,M,GB,Salaried,Retail,1299223,Medium,Low,False,False,,2023-06-04,BR-000175,40
+CUST-000145,Pooja Gupta,1960-08-14,62,M,GB,Salaried,Retail,770341,Medium,Medium,False,False,,2023-05-09,BR-000010,49
+CUST-000146,Priya Gupta,1971-06-22,51,M,PA,Salaried,Retail,438369,Low,Medium,False,False,,2021-11-20,BR-000103,52
+CUST-000147,Diya Mehta,1986-06-11,36,F,DE,Salaried,Retail,475359,Low,Medium,False,False,,2020-06-17,BR-000060,45
+CUST-000148,Myra Patel,1997-05-11,25,M,TR,Salaried,Retail,477968,Low,Medium,False,False,,2019-08-15,BR-000060,43
+CUST-000149,Sarah Kapoor,1964-08-02,58,M,CN,Salaried,Retail,982376,Medium,Low,False,False,,2022-05-31,BR-000117,19
+CUST-000150,Robert Reddy,1986-11-02,36,F,KY,Salaried,Retail,753308,Medium,Low,False,False,,2019-08-06,BR-000019,7
+CUST-000151,Rahul Al-Farsi,1952-03-05,70,M,KY,Retired,Retiree,262056,Low,Low,False,False,,2023-12-05,BR-000084,32
+CUST-000152,John Patel,1986-05-27,36,F,CN,Salaried,Retail,270884,Low,Medium,False,False,,2020-08-21,BR-000048,44
+CUST-000153,James Verma Holdings,1980-01-16,42,F,SG,Self-Employed,Business,3104317,High,Low,False,False,,2023-02-06,BR-000134,12
+CUST-000154,Sarah Das,1971-08-05,51,F,GB,Business Owner,HNI,4541688,High,Low,False,False,,2023-06-10,BR-000154,17
+CUST-000155,Liam Al-Farsi,1967-09-25,55,F,DE,Salaried,Retail,460810,Low,Low,False,False,,2020-02-15,BR-000174,41
+CUST-000156,Wei Zhang,1999-12-12,23,F,PA,Salaried,Retail,151700,Low,Medium,False,False,,2023-04-13,BR-000084,35
+CUST-000157,Olivia Brown,1980-09-27,42,M,US,Salaried,Retail,1495009,Medium,Low,False,False,,2022-06-30,BR-000063,27
+CUST-000158,Ananya Wang,1956-03-16,66,M,AE,Salaried,Retail,291145,Low,High,False,False,,2019-02-02,BR-000038,46
+CUST-000159,Fatima Nair,1982-09-19,40,M,KY,Business Owner,HNI,24277669,HNI,Medium,False,False,,2023-11-15,BR-000102,63
+CUST-000160,Ananya Das Global Ltd,2000-04-17,22,M,PA,Self-Employed,Business,1362547,Medium,Low,False,False,CUST-000337,2024-03-30,BR-000097,24
+CUST-000161,Myra Rao,1958-07-23,64,F,PA,Salaried,Retail,1489091,Medium,Low,False,False,,2020-08-23,BR-000018,34
+CUST-000162,Arjun Reddy,1998-08-27,24,F,AE,Salaried,Retail,962228,Medium,Low,False,False,,2024-02-07,BR-000008,47
+CUST-000163,Olivia Zhang,1954-03-15,68,F,SG,Salaried,Retail,202710,Low,Medium,False,False,,2019-12-17,BR-000048,60
+CUST-000164,James Rao,1960-09-07,62,F,DE,Business Owner,HNI,31783521,HNI,Low,False,False,,2021-12-05,BR-000070,37
+CUST-000165,Noah Chowdhury Global Ltd,1962-11-03,60,M,AE,Self-Employed,Business,2540942,High,Medium,False,False,,2020-05-19,BR-000174,80
+CUST-000166,Mohammed Gupta,1989-01-18,33,F,CN,Salaried,Retail,476011,Low,Medium,False,False,,2022-01-26,BR-000018,56
+CUST-000167,Sarah Mehta Holdings,1988-04-08,34,F,DE,Corporate Entity,Corporate,4014227,High,Medium,False,False,,2020-01-16,BR-000011,63
+CUST-000168,Emma Kapoor Enterprises,1994-01-06,29,F,KY,Self-Employed,Business,3184814,High,Medium,False,False,,2020-02-11,BR-000104,61
+CUST-000169,Li Patel,1963-03-31,59,F,KY,Business Owner,HNI,32278839,HNI,Medium,False,False,,2022-08-28,BR-000156,68
+CUST-000170,Aditya Sharma,1965-02-21,57,F,US,Salaried,Retail,1091363,Medium,High,False,False,,2023-11-17,BR-000129,64
+CUST-000171,Emma Gupta,1991-11-12,31,M,PA,Salaried,Retail,3268037,High,Medium,False,False,,2021-02-21,BR-000146,38
+CUST-000172,Priya Das,1971-02-20,51,M,TR,Salaried,Retail,167830,Low,Medium,False,False,,2024-09-02,BR-000099,81
+CUST-000173,Arjun Wang,1968-04-07,54,F,PA,Salaried,Retail,777198,Medium,High,False,False,,2024-08-14,BR-000095,62
+CUST-000174,Olivia Patel,1996-04-26,26,F,PA,Salaried,Retail,645833,Medium,Low,False,False,,2020-04-18,BR-000030,30
+CUST-000175,Emma Reddy,1959-01-31,63,M,SG,Retired,Retiree,1329087,Medium,Medium,False,False,,2024-05-24,BR-000123,39
+CUST-000176,Karan Iyer Global Ltd,1986-01-06,37,Other,KY,Self-Employed,Business,3275165,High,Low,False,False,,2019-09-22,BR-000158,21
+CUST-000177,Karan Patel,1974-06-29,48,M,US,Salaried,Retail,375309,Low,Medium,False,False,,2024-11-14,BR-000043,55
+CUST-000178,Wei Zhang,1995-04-11,27,M,CN,Business Owner,HNI,32177510,HNI,Low,False,False,,2021-08-27,BR-000015,22
+CUST-000179,Noah Mehta Global Ltd,1974-11-17,48,M,TR,Self-Employed,Business,4506382,High,Low,False,False,,2022-08-17,BR-000149,29
+CUST-000180,Ananya Chowdhury,1984-10-28,38,M,TR,Salaried,Retail,290829,Low,Medium,False,False,,2019-11-23,BR-000023,30
+CUST-000181,Sneha Das,1955-06-25,67,F,PA,Salaried,Retail,383588,Low,Low,False,False,,2024-08-14,BR-000026,35
+CUST-000182,Diya Singh,1958-02-15,64,F,CN,Salaried,Retail,420513,Low,Low,False,False,,2023-10-30,BR-000154,30
+CUST-000183,Sneha Gupta,1957-06-18,65,M,DE,Retired,Retiree,297873,Low,Low,False,False,,2024-07-04,BR-000043,32
+CUST-000184,Noah Zhang,1975-11-07,47,F,US,Business Owner,HNI,14417481,HNI,Medium,False,False,,2021-06-22,BR-000136,61
+CUST-000185,Neha Singh,1999-02-05,23,F,SG,Student,Student,382602,Low,Medium,False,False,,2023-09-15,BR-000145,64
+CUST-000186,Olivia Reddy,1973-07-01,49,F,KY,Salaried,Retail,444243,Low,Low,False,False,,2019-07-14,BR-000088,39
+CUST-000187,Rahul Gupta,1978-09-24,44,F,IN,Business Owner,HNI,22939017,HNI,Medium,False,False,,2022-08-05,BR-000085,41
+CUST-000188,Robert Brown,1999-09-30,23,M,GB,Student,Student,353938,Low,Low,False,False,,2019-10-26,BR-000120,18
+CUST-000189,Ava Verma,1958-10-24,64,F,IN,Salaried,Retail,665866,Medium,Medium,False,False,,2024-11-02,BR-000155,48
+CUST-000190,Ava Brown,2000-12-30,22,M,KY,Student,Student,462369,Low,Medium,False,False,,2021-09-18,BR-000174,51
+CUST-000191,Saanvi Kapoor,2003-09-07,19,M,IN,Student,Student,496805,Low,Medium,False,False,,2021-12-03,BR-000144,45
+CUST-000192,Liam Mehta Holdings,1986-11-22,36,M,US,Self-Employed,Business,1392905,Medium,Medium,False,False,CUST-000320,2019-02-05,BR-000099,47
+CUST-000193,Saanvi Al-Farsi,1996-06-12,26,M,US,Salaried,Retail,445543,Low,Medium,False,False,,2021-09-30,BR-000032,28
+CUST-000194,Karan Khan,1999-04-18,23,F,IN,Salaried,Retail,580786,Medium,High,False,False,,2021-12-16,BR-000094,74
+CUST-000195,Wei Iyer,1948-09-26,74,F,AE,Retired,Retiree,480681,Low,High,False,False,,2023-10-24,BR-000051,69
+CUST-000196,Diya Rao,1972-09-06,50,M,IN,Salaried,Retail,1014048,Medium,Low,False,False,,2023-08-20,BR-000017,9
+CUST-000197,Saanvi Zhang Holdings,1975-06-16,47,F,DE,Corporate Entity,Corporate,42613833,HNI,High,False,False,,2024-07-10,BR-000151,65
+CUST-000198,Wei Rao Holdings,1984-01-12,38,M,TR,Corporate Entity,Corporate,7758683,HNI,Low,False,False,,2022-09-30,BR-000102,24
+CUST-000199,Diya Chowdhury,1991-05-01,31,M,CN,Salaried,Retail,159902,Low,Medium,False,False,,2020-06-05,BR-000020,59
+CUST-000200,Rahul Kapoor,1954-01-26,68,M,GB,Salaried,Retail,965213,Medium,Medium,False,False,,2019-09-03,BR-000154,61
+CUST-000201,James Wang Impex,1969-07-18,53,M,KY,Corporate Entity,Corporate,7054803,HNI,Medium,False,False,,2020-07-10,BR-000044,62
+CUST-000202,Fatima Verma,1964-04-28,58,F,CN,Salaried,Retail,300961,Low,Medium,False,False,,2021-02-28,BR-000168,58
+CUST-000203,Liam Zhang,1975-10-27,47,M,TR,Salaried,Retail,295198,Low,Medium,False,False,,2020-10-21,BR-000166,27
+CUST-000204,Wei Reddy,1989-02-07,33,M,KY,Salaried,Retail,246099,Low,Low,False,False,,2019-08-10,BR-000029,39
+CUST-000205,Mohammed Singh,1990-08-13,32,F,DE,Salaried,Retail,1879079,High,High,False,False,,2019-01-15,BR-000110,59
+CUST-000206,Pooja Reddy,1957-03-07,65,F,US,Retired,Retiree,284383,Low,High,False,False,,2022-08-24,BR-000068,76
+CUST-000207,Pooja Gupta,1948-06-10,74,F,PA,Retired,Retiree,336685,Low,Low,False,False,,2023-02-19,BR-000044,20
+CUST-000208,Vivaan Brown,1962-03-04,60,F,DE,Retired,Retiree,559991,Medium,Medium,False,False,,2019-11-12,BR-000066,56
+CUST-000209,Fatima Al-Farsi,1958-02-14,64,M,AE,Business Owner,HNI,19471285,HNI,Low,False,False,,2022-11-29,BR-000176,20
+CUST-000210,Arjun Al-Farsi,1980-11-27,42,F,TR,Salaried,Retail,1457693,Medium,Medium,False,False,,2020-11-05,BR-000027,40
+CUST-000211,Ava Johnson,2000-09-10,22,F,KY,Salaried,Retail,4290417,High,Medium,False,False,,2020-05-21,BR-000046,43
+CUST-000212,Aadhya Kapoor,1992-10-07,30,F,US,Business Owner,HNI,10768194,HNI,High,False,False,,2021-09-20,BR-000117,69
+CUST-000213,Sarah Mehta,1987-04-14,35,F,IN,Business Owner,HNI,7985877,HNI,Medium,False,False,,2019-06-29,BR-000029,41
+CUST-000214,Priya Das,1974-03-03,48,F,GB,Salaried,Retail,379289,Low,Low,False,False,,2022-04-14,BR-000148,8
+CUST-000215,Saanvi Gupta,1963-05-22,59,F,DE,Salaried,Retail,177826,Low,High,False,False,,2022-06-12,BR-000136,78
+CUST-000216,Myra Khan,1960-06-18,62,M,KY,Retired,Retiree,287637,Low,Medium,False,False,,2020-11-09,BR-000056,73
+CUST-000217,Myra Wang,1982-07-24,40,M,KY,Business Owner,HNI,16425099,HNI,Medium,False,False,,2023-08-26,BR-000110,49
+CUST-000218,Ananya Khan,1956-05-17,66,M,US,Salaried,Retail,412330,Low,Medium,False,False,,2023-07-02,BR-000164,68
+CUST-000219,Rahul Sharma,1963-06-09,59,M,AE,Business Owner,HNI,32780619,HNI,Low,False,False,,2022-08-06,BR-000107,29
+CUST-000220,Saanvi Verma,1979-02-13,43,F,SG,Salaried,Retail,406069,Low,High,False,False,,2021-05-12,BR-000146,66
+CUST-000221,Rahul Sharma,1971-12-14,51,M,CN,Salaried,Retail,227683,Low,Medium,False,False,,2022-07-24,BR-000136,42
+CUST-000222,Diya Rao,1956-08-28,66,M,IN,Salaried,Retail,4475918,High,Low,False,False,,2024-02-29,BR-000015,23
+CUST-000223,Saanvi Khan,1958-12-29,64,F,US,Retired,Retiree,1140946,Medium,Medium,False,False,,2024-09-02,BR-000034,48
+CUST-000224,Aadhya Brown Holdings,2000-07-26,22,M,KY,Self-Employed,Business,2058226,High,Low,False,False,,2022-10-25,BR-000164,47
+CUST-000225,John Nair,1987-06-27,35,F,SG,Salaried,Retail,391113,Low,High,False,False,,2022-02-22,BR-000124,72
+CUST-000226,Mohammed Verma,2004-03-28,18,F,PA,Student,Student,281788,Low,High,False,False,,2019-04-27,BR-000049,51
+CUST-000227,Kabir Chowdhury Global Ltd,1992-09-08,30,M,TR,Self-Employed,Business,2738505,High,Medium,False,False,CUST-000461,2018-11-24,BR-000013,58
+CUST-000228,Sneha Iyer,1938-02-12,84,F,US,Retired,Retiree,1100805,Medium,Low,False,False,,2019-10-02,BR-000014,22
+CUST-000229,Pooja Brown Impex,1978-05-10,44,F,US,Self-Employed,Business,1367005,Medium,Medium,False,False,,2022-08-28,BR-000136,40
+CUST-000230,Pooja Verma,1955-04-28,67,F,IN,Salaried,Retail,643299,Medium,Low,False,False,,2020-05-15,BR-000087,32
+CUST-000231,Fatima Verma,1973-11-18,49,M,GB,Business Owner,HNI,4165277,High,Medium,False,False,,2022-01-21,BR-000151,42
+CUST-000232,Pooja Verma,1970-09-08,52,M,SG,Salaried,Retail,1290649,Medium,Medium,False,False,,2020-06-03,BR-000109,45
+CUST-000233,Mohammed Mehta,1999-04-05,23,M,GB,Salaried,Retail,639005,Medium,Low,False,False,,2020-09-02,BR-000062,62
+CUST-000234,James Verma,1976-11-14,46,F,DE,Salaried,Retail,483937,Low,Medium,False,False,,2022-11-08,BR-000169,38
+CUST-000235,Rahul Brown,1986-09-06,36,M,GB,Salaried,Retail,1379423,Medium,Medium,False,False,,2021-05-21,BR-000169,38
+CUST-000236,Arjun Singh,1987-06-18,35,M,US,Salaried,Retail,177760,Low,Medium,False,False,,2023-12-15,BR-000012,51
+CUST-000237,Aadhya Iyer,1939-02-06,83,M,DE,Retired,Retiree,374581,Low,High,False,False,,2019-12-23,BR-000075,75
+CUST-000238,Noah Sharma Trading Co,1987-12-04,35,M,IN,Corporate Entity,Corporate,33742891,HNI,Low,False,False,,2019-06-18,BR-000078,44
+CUST-000239,Sarah Khan,1978-01-09,45,M,PA,Salaried,Retail,996980,Medium,High,False,False,,2024-09-17,BR-000057,54
+CUST-000240,Pooja Das,1998-10-24,24,M,GB,Salaried,Retail,571565,Medium,Medium,False,False,,2019-01-18,BR-000110,36
+CUST-000241,Vivaan Verma,1996-03-25,26,M,SG,Salaried,Retail,301912,Low,Medium,False,False,,2020-10-07,BR-000151,49
+CUST-000242,Neha Verma,1955-07-26,67,M,CN,Salaried,Retail,234935,Low,Medium,False,False,,2020-07-19,BR-000158,69
+CUST-000243,Ava Gupta,2003-10-28,19,M,PA,Student,Student,326048,Low,Medium,False,False,,2019-07-08,BR-000138,26
+CUST-000244,Aarav Sharma,1985-10-29,37,M,US,Salaried,Retail,346209,Low,Medium,False,False,,2021-11-17,BR-000057,33
+CUST-000245,Fatima Zhang,1985-06-10,37,M,KY,Salaried,Retail,635051,Medium,Low,False,False,,2023-01-27,BR-000153,24
+CUST-000246,Ava Zhang,1957-07-09,65,F,CN,Salaried,Retail,2503604,High,Medium,False,False,,2021-08-19,BR-000037,43
+CUST-000247,Mohammed Iyer,1988-02-24,34,M,SG,Salaried,Retail,1474109,Medium,High,False,False,,2019-09-23,BR-000014,71
+CUST-000248,John Johnson,1960-08-09,62,M,TR,Salaried,Retail,4572968,High,Low,False,False,,2022-01-17,BR-000091,30
+CUST-000249,Li Johnson,1998-07-19,24,M,US,Salaried,Retail,367011,Low,High,False,False,,2020-09-11,BR-000154,73
+CUST-000250,Li Gupta,1975-05-11,47,M,TR,Salaried,Retail,1424289,Medium,Medium,False,False,,2019-05-31,BR-000176,43
+CUST-000251,Aditya Reddy,1985-08-03,37,M,SG,Salaried,Retail,764034,Medium,Medium,False,False,,2018-12-08,BR-000157,51
+CUST-000252,John Das,1962-01-03,61,F,SG,Salaried,Retail,500993,Medium,Medium,False,False,,2023-01-23,BR-000167,53
+CUST-000253,Aarav Smith,1963-09-11,59,Other,PA,Salaried,Retail,412963,Low,Medium,False,False,,2018-12-07,BR-000056,37
+CUST-000254,Olivia Smith,1981-08-28,41,F,SG,Business Owner,HNI,42202171,HNI,Medium,False,False,,2022-03-22,BR-000079,35
+CUST-000255,Neha Nair Holdings,1990-05-08,32,M,IN,Corporate Entity,Corporate,2230259,High,Low,False,False,,2024-08-28,BR-000095,25
+CUST-000256,Robert Rao Global Ltd,1982-08-13,40,F,GB,Self-Employed,Business,1070509,Medium,Medium,False,False,,2024-01-15,BR-000101,54
+CUST-000257,Arjun Johnson,1954-06-13,68,F,PA,Salaried,Retail,4899414,High,Medium,False,False,,2023-02-25,BR-000031,46
+CUST-000258,Robert Mehta,2004-06-02,18,F,GB,Student,Student,327087,Low,Low,False,False,,2021-03-10,BR-000150,29
+CUST-000259,Vivaan Sharma,1993-05-24,29,F,DE,Salaried,Retail,728297,Medium,Medium,False,False,,2023-02-21,BR-000159,33
+CUST-000260,Rahul Zhang,1978-08-12,44,F,US,Salaried,Retail,1900559,High,Medium,False,False,,2021-10-14,BR-000062,56
+CUST-000261,Myra Johnson,1956-07-15,66,F,TR,Salaried,Retail,1211069,Medium,Low,False,False,,2022-08-23,BR-000174,42
+CUST-000262,Neha Khan,2002-11-02,20,F,GB,Student,Student,199157,Low,Medium,False,False,,2023-06-26,BR-000069,62
+CUST-000263,Saanvi Sharma,1964-06-01,58,F,KY,Salaried,Retail,402867,Low,Medium,False,False,,2023-08-31,BR-000087,56
+CUST-000264,Myra Khan,1962-07-29,60,M,US,Salaried,Retail,499186,Low,High,False,False,,2019-06-01,BR-000079,70
+CUST-000265,Ishaan Reddy,1956-04-11,66,F,SG,Salaried,Retail,236266,Low,Medium,False,False,,2018-12-01,BR-000059,68
+CUST-000266,Rahul Reddy Global Ltd,1984-11-13,38,F,IN,Corporate Entity,Corporate,48392719,HNI,Medium,False,False,,2019-10-14,BR-000072,48
+CUST-000267,Sneha Wang Trading Co,1991-10-27,31,M,US,Corporate Entity,Corporate,3596004,High,Low,False,False,,2019-07-15,BR-000147,26
+CUST-000268,Arjun Al-Farsi,1999-11-27,23,F,TR,Salaried,Retail,168131,Low,Medium,False,False,,2023-10-22,BR-000044,35
+CUST-000269,Myra Johnson,1991-04-06,31,F,GB,Salaried,Retail,205485,Low,Low,False,False,,2020-10-21,BR-000038,36
+CUST-000270,Rahul Patel,1980-09-10,42,M,CN,Salaried,Retail,282999,Low,Medium,False,False,,2020-03-01,BR-000053,49
+CUST-000271,Priya Das,1973-09-27,49,M,DE,Salaried,Retail,408250,Low,Medium,False,False,,2020-07-26,BR-000033,33
+CUST-000272,James Gupta,1982-05-06,40,M,GB,Business Owner,HNI,9151594,HNI,Medium,False,False,,2019-02-16,BR-000054,27
+CUST-000273,Aarav Kapoor,1968-07-02,54,F,CN,Business Owner,HNI,19907456,HNI,Medium,False,False,,2019-04-05,BR-000155,50
+CUST-000274,Pooja Chowdhury,1999-08-21,23,F,AE,Student,Student,430630,Low,Medium,False,False,,2023-04-17,BR-000092,66
+CUST-000275,Liam Chowdhury Impex,1971-10-16,51,Other,AE,Self-Employed,Business,4149218,High,Medium,False,False,,2022-11-14,BR-000161,50
+CUST-000276,Karan Rao Holdings,1979-05-22,43,F,TR,Self-Employed,Business,1356496,Medium,Medium,False,False,,2020-03-01,BR-000045,44
+CUST-000277,Aadhya Al-Farsi,1976-04-11,46,M,AE,Salaried,Retail,964603,Medium,Low,False,False,,2021-08-10,BR-000166,13
+CUST-000278,Pooja Singh,1989-03-22,33,Other,GB,Salaried,Retail,1012553,Medium,Medium,False,False,,2019-03-31,BR-000168,35
+CUST-000279,John Gupta Enterprises,1977-04-30,45,F,US,Self-Employed,Business,1258021,Medium,High,False,False,,2020-07-30,BR-000075,57
+CUST-000280,Ava Iyer,1939-09-17,83,F,IN,Retired,Retiree,721559,Medium,Low,False,False,,2019-07-01,BR-000022,35
+CUST-000281,Aarav Patel,1995-01-03,28,F,IN,Salaried,Retail,259335,Low,Low,False,False,,2021-08-15,BR-000141,41
+CUST-000282,Neha Iyer,1958-06-26,64,F,PA,Business Owner,HNI,24389820,HNI,Low,False,False,,2019-10-08,BR-000143,30
+CUST-000283,Mohammed Sharma,1974-04-25,48,M,IN,Salaried,Retail,770741,Medium,Medium,False,False,,2022-08-04,BR-000076,29
+CUST-000284,Aditya Reddy,1966-05-10,56,F,IN,Salaried,Retail,428259,Low,Medium,False,False,,2021-12-28,BR-000013,47
+CUST-000285,Li Al-Farsi Enterprises,1989-12-14,33,F,AE,Self-Employed,Business,777698,Medium,Medium,False,False,,2020-08-07,BR-000040,59
+CUST-000286,Olivia Sharma,1978-03-23,44,F,IN,Salaried,Retail,843710,Medium,Medium,False,False,,2019-01-24,BR-000046,27
+CUST-000287,Noah Nair,1995-03-16,27,F,DE,Salaried,Retail,2943088,High,Low,False,False,,2019-08-13,BR-000075,38
+CUST-000288,Sneha Patel,1954-10-28,68,F,TR,Salaried,Retail,4472870,High,Low,False,False,,2019-02-17,BR-000119,41
+CUST-000289,Ava Al-Farsi,1986-12-28,36,M,DE,Business Owner,HNI,13654132,HNI,Medium,False,False,,2021-04-21,BR-000095,41
+CUST-000290,John Johnson,2001-04-29,21,M,GB,Student,Student,328957,Low,Medium,False,False,,2023-10-31,BR-000071,60
+CUST-000291,Ava Rao Enterprises,1977-10-25,45,M,PA,Corporate Entity,Corporate,2711003,High,Medium,False,False,,2020-05-23,BR-000134,46
+CUST-000292,Priya Brown,1989-07-07,33,M,SG,Salaried,Retail,323981,Low,Medium,False,False,,2021-04-30,BR-000143,57
+CUST-000293,Aadhya Wang,1961-11-13,61,F,CN,Salaried,Retail,709761,Medium,Low,False,False,,2019-08-01,BR-000060,15
+CUST-000294,Vivaan Brown,1991-01-13,31,M,US,Salaried,Retail,1871009,High,Low,False,False,,2019-09-03,BR-000177,14
+CUST-000295,Li Nair,1991-08-05,31,M,US,Salaried,Retail,483847,Low,Low,False,False,,2022-05-18,BR-000112,30
+CUST-000296,Pooja Zhang,1983-12-11,39,Other,GB,Salaried,Retail,353436,Low,Low,False,False,,2021-07-05,BR-000024,51
+CUST-000297,Mohammed Reddy,1945-12-22,77,F,AE,Retired,Retiree,233200,Low,Medium,False,False,,2023-03-22,BR-000024,32
+CUST-000298,Liam Khan,2002-06-24,20,M,US,Student,Student,214448,Low,Low,False,False,,2020-05-08,BR-000051,33
+CUST-000299,Liam Brown,1988-06-23,34,F,KY,Salaried,Retail,308470,Low,Low,False,False,,2024-10-18,BR-000075,34
+CUST-000300,Olivia Zhang,1945-05-24,77,M,AE,Retired,Retiree,466815,Low,Medium,False,False,,2020-03-01,BR-000145,58
+CUST-000301,Ava Gupta,2004-03-12,18,M,US,Student,Student,304836,Low,High,False,False,,2023-06-01,BR-000094,70
+CUST-000302,Olivia Das Trading Co,1968-11-10,54,F,GB,Self-Employed,Business,1328194,Medium,High,False,False,CUST-000451,2022-03-10,BR-000071,57
+CUST-000303,Pooja Reddy,1972-10-29,50,F,IN,Salaried,Retail,781315,Medium,Low,False,False,,2019-08-11,BR-000070,39
+CUST-000304,Liam Mehta,1981-08-05,41,M,GB,Salaried,Retail,656242,Medium,Low,False,False,,2022-10-21,BR-000130,17
+CUST-000305,Mohammed Sharma,1971-11-20,51,M,US,Salaried,Retail,185332,Low,Low,False,False,,2019-05-03,BR-000040,56
+CUST-000306,Fatima Johnson Impex,1979-09-27,43,F,TR,Corporate Entity,Corporate,30187528,HNI,Low,False,False,,2024-09-08,BR-000009,28
+CUST-000307,Wei Mehta,1958-04-11,64,F,GB,Salaried,Retail,1267857,Medium,High,False,False,,2024-09-09,BR-000093,77
+CUST-000308,Liam Gupta,2002-01-08,20,F,TR,Student,Student,203397,Low,Medium,False,False,,2022-01-01,BR-000114,41
+CUST-000309,Kabir Johnson,1985-01-03,38,M,SG,Salaried,Retail,1355970,Medium,Medium,False,False,,2018-11-23,BR-000142,60
+CUST-000310,Vivaan Sharma,1996-05-01,26,M,DE,Salaried,Retail,295487,Low,Medium,False,False,,2021-09-25,BR-000128,52
+CUST-000311,John Smith,1989-10-26,33,M,SG,Salaried,Retail,780230,Medium,Medium,False,False,,2019-02-02,BR-000127,48
+CUST-000312,Rahul Kapoor,1991-04-27,31,F,IN,Salaried,Retail,2532711,High,Medium,False,False,,2022-03-31,BR-000167,62
+CUST-000313,Rahul Zhang,1984-07-18,38,F,SG,Salaried,Retail,4323920,High,Low,False,False,,2024-08-08,BR-000043,36
+CUST-000314,Sneha Patel,1998-07-02,24,M,PA,Student,Student,191117,Low,Low,False,False,,2023-01-02,BR-000013,45
+CUST-000315,Sneha Rao Global Ltd,1991-05-06,31,F,SG,Self-Employed,Business,702486,Medium,Medium,False,False,,2019-04-07,BR-000021,42
+CUST-000316,Ananya Nair,1954-10-17,68,F,PA,Salaried,Retail,154933,Low,Low,False,False,,2023-01-06,BR-000156,34
+CUST-000317,Ananya Al-Farsi,1954-05-12,68,F,IN,Salaried,Retail,1272997,Medium,Medium,False,False,,2019-02-03,BR-000155,45
+CUST-000318,Li Iyer,2001-07-22,21,F,US,Student,Student,401302,Low,Low,False,False,,2021-12-16,BR-000035,21
+CUST-000319,James Smith,1976-01-08,47,F,GB,Salaried,Retail,160668,Low,Low,False,False,,2023-12-28,BR-000171,16
+CUST-000320,Myra Al-Farsi Enterprises,1985-08-09,37,M,PA,Corporate Entity,Corporate,4275778,High,Medium,False,False,,2019-08-30,BR-000125,54
+CUST-000321,Karan Chowdhury,1957-10-04,65,F,AE,Salaried,Retail,507349,Medium,Low,False,False,,2019-02-20,BR-000167,21
+CUST-000322,Sneha Wang,1958-12-18,64,F,DE,Retired,Retiree,176222,Low,Medium,False,False,,2020-02-21,BR-000032,40
+CUST-000323,Saanvi Al-Farsi,1992-01-10,30,F,IN,Salaried,Retail,154275,Low,Medium,False,False,,2023-07-18,BR-000003,56
+CUST-000324,Priya Mehta,1988-01-09,35,F,DE,Salaried,Retail,1434757,Medium,Medium,False,False,,2022-06-12,BR-000162,35
+CUST-000325,Rahul Brown,1985-12-20,37,F,GB,Salaried,Retail,1340057,Medium,High,False,False,,2020-11-02,BR-000156,77
+CUST-000326,Karan Sharma,1962-07-14,60,F,CN,Salaried,Retail,627427,Medium,Low,False,False,,2022-02-16,BR-000062,29
+CUST-000327,Olivia Mehta,1974-11-08,48,F,KY,Salaried,Retail,379583,Low,Medium,False,False,,2024-01-25,BR-000092,63
+CUST-000328,Robert Johnson,1956-05-22,66,M,GB,Salaried,Retail,4106461,High,Medium,False,False,,2021-07-16,BR-000128,63
+CUST-000329,Aditya Nair,1955-06-17,67,M,KY,Salaried,Retail,403258,Low,Low,False,False,,2024-09-01,BR-000139,46
+CUST-000330,Ava Das,2001-09-18,21,F,DE,Student,Student,203985,Low,Low,False,False,,2019-08-18,BR-000047,11
+CUST-000331,Wei Nair,1979-04-11,43,F,GB,Salaried,Retail,422405,Low,Low,False,False,,2022-06-28,BR-000138,22
+CUST-000332,Emma Chowdhury,1964-11-17,58,M,DE,Salaried,Retail,168298,Low,Low,False,False,,2024-07-25,BR-000170,29
+CUST-000333,Myra Singh,1970-11-10,52,M,US,Salaried,Retail,728437,Medium,Low,False,False,,2022-04-27,BR-000026,42
+CUST-000334,Arjun Mehta,1960-09-03,62,M,SG,Retired,Retiree,348576,Low,Low,False,False,,2020-12-24,BR-000082,30
+CUST-000335,Mohammed Iyer,1940-08-07,82,F,IN,Retired,Retiree,321275,Low,High,False,False,,2022-04-29,BR-000108,67
+CUST-000336,John Iyer,1968-06-15,54,M,AE,Salaried,Retail,438575,Low,Medium,False,False,,2020-02-29,BR-000119,45
+CUST-000337,Pooja Kapoor Impex,1989-12-06,33,M,IN,Corporate Entity,Corporate,34155496,HNI,Medium,False,False,,2024-05-07,BR-000096,23
+CUST-000338,Arjun Chowdhury,1970-03-03,52,F,CN,Salaried,Retail,452557,Low,Low,False,False,,2023-08-27,BR-000052,37
+CUST-000339,Ava Al-Farsi,1961-01-14,62,M,TR,Retired,Retiree,317621,Low,Medium,False,False,,2020-07-12,BR-000004,34
+CUST-000340,Wei Smith,1981-03-28,41,M,DE,Salaried,Retail,414707,Low,Medium,False,False,,2021-05-16,BR-000157,48
+CUST-000341,Ishaan Chowdhury,1986-05-30,36,F,SG,Salaried,Retail,179671,Low,High,False,False,,2023-06-29,BR-000131,61
+CUST-000342,Sarah Kapoor,1974-05-12,48,F,TR,Salaried,Retail,378890,Low,Low,False,False,,2023-07-15,BR-000119,52
+CUST-000343,Kabir Nair,1999-08-10,23,M,US,Salaried,Retail,274431,Low,Low,False,False,,2024-11-08,BR-000130,35
+CUST-000344,Aditya Smith,1968-09-11,54,M,SG,Salaried,Retail,1269750,Medium,Medium,False,False,,2020-05-26,BR-000177,43
+CUST-000345,Myra Brown,1969-01-21,53,M,GB,Salaried,Retail,343816,Low,High,False,False,,2023-06-11,BR-000029,73
+CUST-000346,Neha Das,2004-03-07,18,F,DE,Student,Student,176365,Low,High,False,False,,2021-11-03,BR-000175,69
+CUST-000347,Priya Verma,1946-11-14,76,M,US,Retired,Retiree,323858,Low,Low,False,False,,2024-03-19,BR-000175,18
+CUST-000348,Ananya Smith,1971-09-13,51,M,AE,Salaried,Retail,3780946,High,High,False,False,,2024-06-14,BR-000039,89
+CUST-000349,Pooja Verma,1968-04-26,54,M,IN,Salaried,Retail,250370,Low,Medium,False,False,,2021-09-15,BR-000092,48
+CUST-000350,Karan Johnson,2004-05-19,18,M,IN,Student,Student,447311,Low,Low,False,False,,2022-08-24,BR-000049,27
+CUST-000351,Aadhya Kapoor,1998-03-02,24,M,KY,Business Owner,HNI,12913239,HNI,Low,False,False,,2020-12-10,BR-000085,16
+CUST-000352,Myra Nair,1957-04-18,65,F,GB,Retired,Retiree,445544,Low,Low,False,False,,2020-10-05,BR-000075,20
+CUST-000353,Rahul Smith,1993-09-25,29,M,KY,Business Owner,HNI,3091693,High,Medium,False,False,,2023-01-10,BR-000145,46
+CUST-000354,Rahul Reddy,1986-01-13,36,F,TR,Salaried,Retail,381041,Low,Low,False,False,,2019-02-07,BR-000014,35
+CUST-000355,Karan Singh Holdings,1963-01-18,59,F,US,Self-Employed,Business,785509,Medium,Medium,False,False,CUST-000291,2018-12-04,BR-000130,59
+CUST-000356,Emma Zhang,1980-08-18,42,M,KY,Salaried,Retail,333718,Low,Medium,False,False,,2023-06-29,BR-000157,60
+CUST-000357,Ava Reddy,1979-11-12,43,M,AE,Salaried,Retail,427752,Low,High,False,False,,2021-07-17,BR-000012,78
+CUST-000358,James Iyer,1980-08-01,42,F,US,Salaried,Retail,767333,Medium,Medium,False,False,,2023-03-04,BR-000045,44
+CUST-000359,Liam Das,1995-09-05,27,M,IN,Salaried,Retail,468255,Low,Low,False,False,,2020-12-25,BR-000053,52
+CUST-000360,James Patel Enterprises,1997-10-17,25,M,AE,Self-Employed,Business,1117128,Medium,Low,False,False,,2019-02-11,BR-000095,17
+CUST-000361,Noah Smith,1981-05-26,41,M,IN,Salaried,Retail,476239,Low,High,False,False,,2024-11-07,BR-000091,67
+CUST-000362,Myra Al-Farsi,1990-06-23,32,M,GB,Business Owner,HNI,22880025,HNI,High,True,False,,2023-03-02,BR-000002,50
+CUST-000363,Liam Rao,1969-06-27,53,F,KY,Salaried,Retail,4707057,High,High,False,False,,2020-10-01,BR-000057,64
+CUST-000364,Kabir Mehta,2000-04-06,22,F,DE,Salaried,Retail,2605410,High,Medium,False,False,,2020-07-18,BR-000150,42
+CUST-000365,Olivia Singh,1978-07-24,44,F,PA,Salaried,Retail,908601,Medium,Medium,False,False,,2023-10-20,BR-000093,54
+CUST-000366,Ava Sharma,2000-10-18,22,F,CN,Salaried,Retail,1040572,Medium,Low,False,False,,2020-04-26,BR-000119,25
+CUST-000367,Liam Kapoor,1981-03-10,41,F,PA,Salaried,Retail,3577646,High,Medium,False,False,,2023-08-19,BR-000060,51
+CUST-000368,Aditya Mehta,1994-01-03,29,F,GB,Salaried,Retail,246226,Low,Medium,False,False,,2024-03-09,BR-000025,46
+CUST-000369,Kabir Gupta,1965-12-19,57,M,PA,Salaried,Retail,180361,Low,Medium,False,False,,2023-09-30,BR-000005,49
+CUST-000370,Ava Das,1963-03-09,59,M,DE,Salaried,Retail,252681,Low,Medium,False,False,,2022-11-18,BR-000078,42
+CUST-000371,John Patel,1974-03-30,48,M,TR,Salaried,Retail,887501,Medium,Medium,False,False,,2020-03-25,BR-000108,62
+CUST-000372,Neha Iyer,1967-03-14,55,F,SG,Salaried,Retail,2287583,High,Low,False,False,,2021-04-07,BR-000124,29
+CUST-000373,Diya Al-Farsi,1999-04-23,23,F,DE,Student,Student,250972,Low,Medium,False,False,,2021-11-24,BR-000102,56
+CUST-000374,Ishaan Rao,1995-10-21,27,F,AE,Salaried,Retail,479410,Low,Medium,False,False,,2021-09-12,BR-000119,50
+CUST-000375,Liam Brown,1958-05-21,64,F,IN,Salaried,Retail,225639,Low,Low,False,False,,2021-10-01,BR-000135,29
+CUST-000376,Priya Wang,1993-03-30,29,Other,CN,Business Owner,HNI,3710839,High,Low,False,False,,2021-01-31,BR-000106,39
+CUST-000377,Ava Smith,1963-03-30,59,M,GB,Business Owner,HNI,15251502,HNI,High,False,False,,2022-11-04,BR-000041,45
+CUST-000378,Neha Zhang,1966-10-26,56,M,DE,Salaried,Retail,320225,Low,Low,False,False,,2019-11-07,BR-000066,21
+CUST-000379,Aarav Mehta,1997-11-07,25,F,AE,Business Owner,HNI,3537585,High,Low,False,False,,2020-10-20,BR-000145,10
+CUST-000380,Sneha Rao,1993-10-11,29,F,US,Salaried,Retail,371587,Low,Low,False,False,,2020-09-28,BR-000002,13
+CUST-000381,Sarah Singh,1990-02-09,32,M,CN,Business Owner,HNI,20893452,HNI,Medium,False,False,,2019-11-28,BR-000137,55
+CUST-000382,Vivaan Zhang Holdings,1960-05-05,62,F,US,Self-Employed,Business,734946,Medium,Medium,False,False,,2023-06-10,BR-000012,57
+CUST-000383,Karan Reddy,1972-02-13,50,F,KY,Business Owner,HNI,4576897,High,Medium,False,False,,2023-08-24,BR-000077,43
+CUST-000384,Neha Chowdhury,1997-12-22,25,M,TR,Salaried,Retail,1114988,Medium,Low,False,False,,2022-04-11,BR-000170,25
+CUST-000385,Mohammed Gupta,1980-10-14,42,F,GB,Salaried,Retail,2303783,High,High,False,False,,2023-10-02,BR-000159,90
+CUST-000386,Mohammed Patel,2004-06-19,18,M,KY,Student,Student,342371,Low,Low,False,False,,2023-04-05,BR-000162,20
+CUST-000387,Pooja Wang,1999-08-30,23,M,CN,Salaried,Retail,326112,Low,Medium,False,False,,2024-07-27,BR-000107,74
+CUST-000388,Ishaan Singh,1957-05-01,65,M,TR,Salaried,Retail,353472,Low,High,False,False,,2019-05-19,BR-000093,56
+CUST-000389,Arjun Reddy,2000-04-05,22,F,PA,Salaried,Retail,277524,Low,Medium,False,False,,2024-04-26,BR-000108,41
+CUST-000390,John Sharma,1958-06-07,64,F,AE,Salaried,Retail,950540,Medium,Medium,False,False,,2023-01-11,BR-000063,49
+CUST-000391,Aditya Iyer,1962-02-12,60,F,GB,Retired,Retiree,1266701,Medium,Medium,False,False,,2022-04-07,BR-000019,55
+CUST-000392,Li Reddy,1995-10-22,27,F,PA,Salaried,Retail,4918029,High,Low,False,False,,2020-11-20,BR-000065,34
+CUST-000393,Neha Khan,1984-03-09,38,F,PA,Salaried,Retail,1062958,Medium,Medium,False,False,,2020-11-01,BR-000014,48
+CUST-000394,Vivaan Zhang,1994-12-07,28,M,GB,Salaried,Retail,226066,Low,Medium,False,False,,2022-01-25,BR-000055,30
+CUST-000395,Ava Iyer,1941-08-23,81,F,TR,Retired,Retiree,1233491,Medium,Low,False,False,,2024-03-15,BR-000115,42
+CUST-000396,Robert Nair,1958-12-31,64,F,SG,Salaried,Retail,151498,Low,Medium,False,False,,2022-03-20,BR-000105,59
+CUST-000397,Aadhya Sharma,1999-06-28,23,F,IN,Student,Student,463221,Low,Medium,False,False,,2023-05-16,BR-000030,72
+CUST-000398,Myra Singh,1965-04-16,57,M,SG,Salaried,Retail,757305,Medium,Medium,False,False,,2021-02-15,BR-000115,58
+CUST-000399,Robert Verma,1957-08-06,65,M,SG,Salaried,Retail,486942,Low,Medium,False,False,,2020-05-09,BR-000109,62
+CUST-000400,James Brown,1959-12-12,63,F,US,Salaried,Retail,318179,Low,Low,False,False,,2021-01-15,BR-000017,26
+CUST-000401,Aadhya Reddy,1964-04-30,58,M,US,Salaried,Retail,684141,Medium,Medium,False,False,,2020-07-16,BR-000174,52
+CUST-000402,Neha Zhang,1998-07-06,24,F,PA,Salaried,Retail,186028,Low,Low,False,False,,2021-03-28,BR-000007,30
+CUST-000403,James Reddy,1961-08-14,61,M,SG,Business Owner,HNI,34285953,HNI,High,False,False,,2023-12-03,BR-000046,49
+CUST-000404,Kabir Smith,1951-02-04,71,M,TR,Retired,Retiree,1325230,Medium,Medium,False,False,,2024-06-02,BR-000166,42
+CUST-000405,Aadhya Singh,1938-01-28,84,M,IN,Retired,Retiree,219903,Low,Medium,False,False,,2024-01-20,BR-000090,62
+CUST-000406,Emma Zhang,1998-04-04,24,F,DE,Student,Student,354222,Low,Low,False,False,,2023-11-30,BR-000132,22
+CUST-000407,Kabir Sharma,1983-05-26,39,F,KY,Salaried,Retail,2530923,High,Medium,False,False,,2024-11-19,BR-000174,37
+CUST-000408,Mohammed Sharma,1997-02-06,25,M,AE,Salaried,Retail,264850,Low,High,False,False,,2021-01-02,BR-000062,64
+CUST-000409,Priya Reddy,1959-09-14,63,F,IN,Retired,Retiree,1242569,Medium,Medium,False,False,,2020-07-31,BR-000060,44
+CUST-000410,Rahul Singh,1967-12-31,55,M,IN,Salaried,Retail,1082430,Medium,Medium,False,False,,2023-06-03,BR-000023,54
+CUST-000411,Ava Zhang Holdings,1969-04-05,53,M,PA,Self-Employed,Business,3584731,High,High,False,False,,2024-05-04,BR-000115,61
+CUST-000412,Kabir Reddy,1998-10-13,24,M,DE,Student,Student,424421,Low,Low,False,False,,2021-06-21,BR-000178,33
+CUST-000413,Fatima Patel Global Ltd,1965-04-27,57,F,US,Corporate Entity,Corporate,42306721,HNI,Medium,False,False,,2024-08-20,BR-000049,56
+CUST-000414,Liam Smith,1987-02-05,35,M,KY,Salaried,Retail,887678,Medium,Medium,False,False,,2022-08-11,BR-000056,42
+CUST-000415,Ava Zhang,1988-10-28,34,F,US,Salaried,Retail,201288,Low,Medium,False,False,,2019-11-09,BR-000135,53
+CUST-000416,John Singh Enterprises,1991-04-29,31,F,TR,Self-Employed,Business,531278,Medium,Medium,False,False,,2023-04-11,BR-000069,49
+CUST-000417,Priya Iyer,1946-02-17,76,M,KY,Retired,Retiree,1427838,Medium,Medium,False,False,,2024-08-14,BR-000118,58
+CUST-000418,Sarah Smith,2003-12-21,19,Other,GB,Student,Student,204441,Low,High,False,False,,2024-07-30,BR-000132,78
+CUST-000419,Myra Al-Farsi,1975-05-16,47,M,SG,Salaried,Retail,351061,Low,High,False,False,,2021-07-30,BR-000095,73
+CUST-000420,Li Wang,1968-05-29,54,F,IN,Salaried,Retail,408980,Low,Medium,False,False,,2019-07-24,BR-000026,49
+CUST-000421,Aditya Wang,1955-04-06,67,M,SG,Salaried,Retail,628292,Medium,Medium,False,False,,2020-02-23,BR-000178,60
+CUST-000422,Aarav Sharma,1958-10-15,64,M,PA,Salaried,Retail,643179,Medium,Medium,False,False,,2024-05-22,BR-000119,71
+CUST-000423,Aadhya Das,1954-09-27,68,F,DE,Salaried,Retail,239215,Low,Low,False,False,,2020-09-26,BR-000112,26
+CUST-000424,James Chowdhury,1963-11-19,59,M,GB,Salaried,Retail,338015,Low,Low,False,False,,2022-06-16,BR-000175,26
+CUST-000425,Ananya Wang,1979-09-30,43,F,PA,Business Owner,HNI,35308483,HNI,Medium,False,False,,2020-05-25,BR-000036,28
+CUST-000426,Arjun Mehta,2001-03-07,21,M,SG,Student,Student,443864,Low,Medium,False,False,,2020-12-24,BR-000066,56
+CUST-000427,Karan Reddy,1972-12-30,50,M,KY,Business Owner,HNI,48720925,HNI,Medium,False,False,,2022-03-18,BR-000052,35
+CUST-000428,James Patel Impex,1959-09-29,63,F,AE,Corporate Entity,Corporate,35166403,HNI,Medium,False,False,,2022-09-06,BR-000048,62
+CUST-000429,Rahul Nair Holdings,1991-06-16,31,Other,DE,Corporate Entity,Corporate,5843777,HNI,Medium,False,False,,2024-03-10,BR-000023,30
+CUST-000430,John Smith Holdings,1974-08-26,48,F,GB,Self-Employed,Business,1216958,Medium,Medium,False,False,,2019-04-24,BR-000103,57
+CUST-000431,Myra Brown Enterprises,2000-02-08,22,M,US,Self-Employed,Business,4703414,High,Medium,False,False,CUST-000428,2022-04-29,BR-000095,44
+CUST-000432,Rahul Reddy,1974-12-20,48,F,GB,Salaried,Retail,929152,Medium,Medium,False,False,,2019-03-29,BR-000052,67
+CUST-000433,Wei Verma,1960-01-28,62,F,KY,Salaried,Retail,305018,Low,Medium,False,False,,2022-07-17,BR-000002,54
+CUST-000434,Robert Wang,1986-10-16,36,F,GB,Salaried,Retail,297256,Low,Medium,False,False,,2021-06-06,BR-000047,35
+CUST-000435,Vivaan Iyer,1962-05-31,60,M,CN,Salaried,Retail,367949,Low,Low,False,False,,2023-08-13,BR-000078,47
+CUST-000436,Rahul Nair,1983-08-30,39,M,US,Business Owner,HNI,46034221,HNI,Medium,False,False,,2020-08-19,BR-000075,49
+CUST-000437,Ava Kapoor,1967-02-03,55,F,US,Salaried,Retail,1157170,Medium,High,False,False,,2020-06-10,BR-000065,74
+CUST-000438,Ava Kapoor,1973-10-01,49,M,TR,Salaried,Retail,453653,Low,Medium,False,False,,2023-06-09,BR-000075,42
+CUST-000439,Aditya Iyer Impex,1988-06-24,34,F,CN,Self-Employed,Business,1034419,Medium,Low,False,False,CUST-000429,2019-12-13,BR-000105,20
+CUST-000440,Vivaan Verma,1999-12-15,23,F,SG,Student,Student,415510,Low,High,False,False,,2021-08-02,BR-000139,69
+CUST-000441,Aadhya Kapoor,1954-05-13,68,M,TR,Business Owner,HNI,13923411,HNI,Low,False,False,,2024-10-05,BR-000131,39
+CUST-000442,Pooja Mehta,1999-02-20,23,F,PA,Student,Student,377679,Low,Low,False,False,,2019-10-23,BR-000106,33
+CUST-000443,Noah Kapoor,1957-06-08,65,F,PA,Salaried,Retail,1414060,Medium,Medium,False,False,,2024-02-06,BR-000055,61
+CUST-000444,Karan Kapoor,1981-01-23,41,M,IN,Salaried,Retail,1628798,High,Medium,False,False,,2020-01-26,BR-000058,57
+CUST-000445,Aarav Verma,1968-12-16,54,M,IN,Salaried,Retail,4106261,High,Medium,False,False,,2024-07-31,BR-000149,16
+CUST-000446,Kabir Chowdhury,1999-10-11,23,M,TR,Student,Student,334457,Low,Medium,False,False,,2022-12-01,BR-000065,70
+CUST-000447,Ananya Smith,1959-03-07,63,F,PA,Retired,Retiree,408148,Low,High,False,False,,2024-11-28,BR-000136,67
+CUST-000448,Rahul Rao,1996-05-24,26,F,TR,Salaried,Retail,1407261,Medium,Medium,False,False,,2023-09-17,BR-000122,47
+CUST-000449,Rahul Al-Farsi Holdings,1961-09-04,61,F,US,Self-Employed,Business,3298162,High,Medium,False,False,,2019-04-09,BR-000094,43
+CUST-000450,Aadhya Singh,1981-07-11,41,M,KY,Salaried,Retail,1220918,Medium,Low,False,False,,2023-02-01,BR-000123,26
+CUST-000451,Ava Chowdhury Global Ltd,1961-09-17,61,M,AE,Corporate Entity,Corporate,29726049,HNI,Medium,False,False,,2024-03-21,BR-000014,38
+CUST-000452,Li Brown,1993-07-24,29,M,PA,Salaried,Retail,1441344,Medium,Medium,False,False,,2022-12-29,BR-000151,49
+CUST-000453,Wei Mehta,1960-06-18,62,F,TR,Salaried,Retail,1054450,Medium,Low,False,False,,2020-08-16,BR-000124,43
+CUST-000454,Noah Al-Farsi,2004-11-20,18,M,AE,Student,Student,218300,Low,Low,False,False,,2021-09-28,BR-000014,43
+CUST-000455,Aarav Al-Farsi,1953-10-08,69,M,US,Salaried,Retail,228224,Low,Medium,False,False,,2021-03-08,BR-000070,53
+CUST-000456,Ishaan Kapoor,1960-06-16,62,M,DE,Salaried,Retail,1347350,Medium,Low,False,False,,2019-10-01,BR-000080,53
+CUST-000457,Sarah Iyer,1963-03-31,59,M,CN,Salaried,Retail,458486,Low,Low,False,False,,2023-07-07,BR-000129,33
+CUST-000458,Wei Patel,1974-06-10,48,M,TR,Salaried,Retail,1277179,Medium,Medium,False,False,,2023-02-14,BR-000025,39
+CUST-000459,Ava Mehta,1965-03-23,57,F,US,Salaried,Retail,545937,Medium,Medium,False,False,,2022-06-29,BR-000017,40
+CUST-000460,Li Zhang,1954-03-19,68,F,SG,Salaried,Retail,1094323,Medium,Low,False,False,,2021-09-25,BR-000030,52
+CUST-000461,Sneha Singh Global Ltd,1979-07-11,43,M,PA,Corporate Entity,Corporate,24360194,HNI,Low,False,False,,2021-08-26,BR-000119,27
+CUST-000462,Aarav Nair,1986-01-22,36,M,TR,Salaried,Retail,420478,Low,Medium,False,False,,2023-01-28,BR-000069,26
+CUST-000463,Mohammed Zhang,1957-05-15,65,M,IN,Retired,Retiree,206095,Low,Medium,False,False,,2023-06-12,BR-000148,67
+CUST-000464,John Reddy,1982-06-30,40,M,TR,Salaried,Retail,187880,Low,High,False,False,,2024-08-13,BR-000102,85
+CUST-000465,Fatima Gupta,1999-07-06,23,F,CN,Student,Student,191600,Low,Low,False,False,,2021-08-21,BR-000089,35
+CUST-000466,Neha Gupta,1999-01-18,23,F,DE,Student,Student,153548,Low,Low,False,False,,2023-02-17,BR-000028,43
+CUST-000467,Robert Johnson,1940-04-29,82,M,GB,Retired,Retiree,1338637,Medium,Low,False,False,,2019-09-11,BR-000165,50
+CUST-000468,Emma Patel,2000-02-08,22,M,TR,Salaried,Retail,1412338,Medium,Medium,False,False,,2024-11-17,BR-000081,48
+CUST-000469,Priya Brown,1996-09-14,26,M,CN,Salaried,Retail,931848,Medium,Low,False,False,,2020-06-30,BR-000005,36
+CUST-000470,Kabir Iyer,1998-04-12,24,F,TR,Student,Student,291100,Low,Medium,False,False,,2022-09-20,BR-000155,38
+CUST-000471,Diya Singh,1956-12-21,66,M,AE,Salaried,Retail,214046,Low,Medium,False,False,,2019-03-13,BR-000064,59
+CUST-000472,Neha Iyer,1973-05-17,49,M,SG,Salaried,Retail,430131,Low,Medium,False,False,,2019-05-25,BR-000130,88
+CUST-000473,Ishaan Nair,1954-04-29,68,F,US,Business Owner,HNI,29189185,HNI,Medium,False,False,,2021-02-24,BR-000036,45
+CUST-000474,Neha Khan,1939-01-22,84,M,SG,Retired,Retiree,360112,Low,Low,False,False,,2019-09-03,BR-000170,27
+CUST-000475,Robert Johnson,1959-08-01,63,M,CN,Salaried,Retail,277534,Low,Low,False,False,,2018-11-23,BR-000057,38
+CUST-000476,Aarav Iyer,1987-09-11,35,M,AE,Salaried,Retail,763456,Medium,High,False,False,,2022-10-03,BR-000034,52
+CUST-000477,Olivia Rao,1996-07-22,26,F,US,Salaried,Retail,1150163,Medium,High,False,False,,2022-10-01,BR-000131,52
+CUST-000478,Sarah Mehta,1980-10-27,42,M,AE,Salaried,Retail,165099,Low,Medium,False,False,,2019-06-24,BR-000101,48
+CUST-000479,Fatima Wang Holdings,1965-08-01,57,Other,GB,Corporate Entity,Corporate,36434620,HNI,Medium,False,False,,2023-08-15,BR-000140,54
+CUST-000480,Pooja Gupta,1953-08-14,69,M,TR,Salaried,Retail,334735,Low,Low,False,False,,2019-06-05,BR-000004,13
+CUST-000481,Vivaan Mehta,1990-11-21,32,Other,GB,Business Owner,HNI,26868628,HNI,Medium,False,False,,2022-07-17,BR-000175,48
+CUST-000482,Aadhya Brown,1977-11-06,45,F,SG,Salaried,Retail,387074,Low,Low,False,False,,2019-10-10,BR-000093,31
+CUST-000483,Sneha Khan,1987-11-15,35,M,DE,Business Owner,HNI,36302796,HNI,Medium,False,False,,2024-05-26,BR-000050,50
+CUST-000484,Neha Smith,1993-09-17,29,M,KY,Salaried,Retail,301812,Low,High,False,False,,2023-10-31,BR-000079,79
+CUST-000485,Aditya Mehta Enterprises,1973-01-26,49,Other,KY,Corporate Entity,Corporate,6674272,HNI,Low,False,False,,2022-10-01,BR-000167,29
+CUST-000486,Wei Nair,2003-07-21,19,F,TR,Student,Student,274956,Low,Medium,False,False,,2021-06-24,BR-000020,46
+CUST-000487,Saanvi Zhang,1998-07-27,24,M,SG,Salaried,Retail,443427,Low,Low,False,False,,2023-02-19,BR-000005,41
+CUST-000488,Diya Verma,1999-08-17,23,M,GB,Salaried,Retail,379745,Low,Medium,False,False,,2023-04-10,BR-000048,32
+CUST-000489,Aditya Rao,1976-10-28,46,M,AE,Business Owner,HNI,45085068,HNI,High,False,False,,2024-09-22,BR-000177,64
+CUST-000490,Priya Rao,1987-08-05,35,F,GB,Business Owner,HNI,27480892,HNI,Medium,False,False,,2024-09-15,BR-000016,75
+CUST-000491,Neha Chowdhury Trading Co,1985-03-08,37,F,GB,Self-Employed,Business,2034428,High,Medium,False,False,,2021-01-01,BR-000157,17
+CUST-000492,Robert Chowdhury,1987-12-01,35,F,GB,Salaried,Retail,684287,Medium,Medium,False,False,,2019-04-22,BR-000081,50
+CUST-000493,Neha Al-Farsi,1959-09-01,63,M,PA,Salaried,Retail,267931,Low,High,False,False,,2024-11-21,BR-000017,67
+CUST-000494,Pooja Kapoor,1980-04-21,42,F,US,Business Owner,HNI,35996386,HNI,Medium,False,False,,2021-04-04,BR-000140,38
+CUST-000495,Ishaan Johnson,1942-08-02,80,M,GB,Retired,Retiree,373792,Low,High,False,False,,2024-04-29,BR-000112,62
+CUST-000496,Olivia Chowdhury Global Ltd,1998-09-16,24,M,DE,Self-Employed,Business,2495046,High,High,False,False,CUST-000461,2024-10-03,BR-000052,87
+CUST-000497,Sarah Reddy Holdings,1971-11-12,51,M,IN,Corporate Entity,Corporate,2465017,High,Low,False,False,,2021-06-01,BR-000098,28
+CUST-000498,Vivaan Rao,1978-03-29,44,M,DE,Business Owner,HNI,30059018,HNI,Low,False,False,,2019-07-15,BR-000015,48
+CUST-000499,Ishaan Khan,1951-05-28,71,M,AE,Retired,Retiree,156302,Low,High,False,False,,2022-01-10,BR-000166,56
+CUST-000500,Wei Zhang,2004-09-03,18,M,AE,Student,Student,334737,Low,Low,False,False,,2024-05-24,BR-000051,43
