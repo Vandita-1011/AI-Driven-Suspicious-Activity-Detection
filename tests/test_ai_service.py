@@ -2,21 +2,37 @@
 import pytest
 from unittest.mock import MagicMock, patch
 
-from src.api_interface.ai_service import AIService
+# Vandita's imports
+from src.api_interface.ai_service import AIService as EngineAIService
 from src.api_interface.request_models import AnalysisRequest
 from src.api_interface.response_models import RiskReport, AlertResponse, PipelineStatusResponse
 from src.orchestrator.orchestrator import PipelineResult
 from src.alerts.alert_prioritizer import Alert
 from src.constants.risk_levels import AlertPriority
 
+# Harsh's imports
+from backend.exceptions.ai_exceptions import (
+    AIServiceException,
+    AIValidationError,
+    AIConnectionError,
+    AITimeoutError,
+    AIUnavailableError,
+)
+from backend.models.ai_request import InvestigationRequest, HealthCheckRequest
+from backend.models.ai_response import (
+    HealthCheckResponse,
+    InvestigationResponse,
+    StatusResponse,
+    CancelResponse,
+)
+from backend.services.ai_service import AIService as BackendAIService, AIServiceAdapter
 
 # ---------------------------------------------------------------------------
-# Helpers
+# Vandita's Helpers
 # ---------------------------------------------------------------------------
 
 def _make_request(run_id: str = "RUN001") -> AnalysisRequest:
     return AnalysisRequest(run_id=run_id)
-
 
 def _make_alert(tid: str = "TXN001") -> Alert:
     return Alert(
@@ -35,14 +51,12 @@ def _make_alert(tid: str = "TXN001") -> Alert:
         status="OPEN",
     )
 
-
 def _successful_pipeline_result(alert: Alert) -> PipelineResult:
     return PipelineResult(
         success=True,
         alerts=[alert],
         elapsed_seconds=1.23,
     )
-
 
 def _failed_pipeline_result() -> PipelineResult:
     return PipelineResult(
@@ -52,15 +66,14 @@ def _failed_pipeline_result() -> PipelineResult:
         error_message="Data load error.",
     )
 
-
 # ---------------------------------------------------------------------------
-# Tests — run_pipeline()
+# Vandita's Tests — EngineAIService
 # ---------------------------------------------------------------------------
 
 class TestRunPipeline:
 
     def setup_method(self):
-        self.service = AIService()
+        self.service = EngineAIService()
 
     @patch("src.api_interface.ai_service.Orchestrator")
     def test_successful_run_returns_risk_report(self, MockOrchestrator):
@@ -135,14 +148,10 @@ class TestRunPipeline:
         assert report.alerts == []
 
 
-# ---------------------------------------------------------------------------
-# Tests — get_pipeline_status()
-# ---------------------------------------------------------------------------
-
 class TestGetPipelineStatus:
 
     def setup_method(self):
-        self.service = AIService()
+        self.service = EngineAIService()
 
     def test_success_status(self):
         status = self.service.get_pipeline_status(elapsed_seconds=2.5, success=True)
@@ -159,14 +168,10 @@ class TestGetPipelineStatus:
         assert "error" in status.message.lower()
 
 
-# ---------------------------------------------------------------------------
-# Tests — _alert_to_response() with dict input
-# ---------------------------------------------------------------------------
-
 class TestAlertToResponse:
 
     def setup_method(self):
-        self.service = AIService()
+        self.service = EngineAIService()
 
     def test_dict_alert_mapped_correctly(self):
         alert_dict = {
@@ -184,3 +189,106 @@ class TestAlertToResponse:
         assert resp.transaction_id == "TXN002"
         assert resp.score == 77.5
         assert resp.explanation == "HIGH risk detected."
+
+
+# ---------------------------------------------------------------------------
+# Harsh's Tests — BackendAIService
+# ---------------------------------------------------------------------------
+
+def test_health_check_success():
+    service = BackendAIService()
+    response = service.health_check()
+    assert isinstance(response, HealthCheckResponse)
+    assert response.status == "ok"
+    assert "ready" in response.message.lower()
+
+
+def test_submit_investigation_success():
+    service = BackendAIService()
+    req = InvestigationRequest(
+        request_id="req-123",
+        investigation_id="inv-456",
+        transaction_ids=["tx-1", "tx-2"],
+    )
+    resp = service.submit_investigation(req)
+    assert isinstance(resp, InvestigationResponse)
+    assert resp.request_id == "req-123"
+    assert resp.investigation_id == "inv-456"
+    assert resp.status == "COMPLETED"
+
+
+def test_submit_investigation_validation_error_empty_id():
+    service = BackendAIService()
+    with pytest.raises(AIValidationError):
+        service.submit_investigation(
+            InvestigationRequest(request_id="   ", investigation_id="inv-1")
+        )
+
+    with pytest.raises(AIValidationError):
+        service.submit_investigation(
+            InvestigationRequest(request_id="req-1", investigation_id="")
+        )
+
+
+def test_get_investigation_status_success():
+    service = BackendAIService()
+    resp = service.get_investigation_status("inv-789", request_id="req-789")
+    assert isinstance(resp, StatusResponse)
+    assert resp.investigation_id == "inv-789"
+    assert resp.status == "IN_PROGRESS"
+
+
+def test_get_investigation_status_invalid_id():
+    service = BackendAIService()
+    with pytest.raises(AIValidationError):
+        service.get_investigation_status("")
+
+
+def test_cancel_investigation_success():
+    service = BackendAIService()
+    resp = service.cancel_investigation("inv border-999")
+    assert isinstance(resp, CancelResponse)
+    assert resp.investigation_id == "inv border-999"
+    assert resp.status == "CANCELLED"
+
+
+def test_adapter_response_validation_failure():
+    mock_adapter = MagicMock()
+    mock_adapter.execute_investigation.return_value = "invalid response (not a dict)"
+    service = BackendAIService(max_retries=1, adapter=mock_adapter)
+
+    req = InvestigationRequest(request_id="req-1", investigation_id="inv-1")
+    with pytest.raises(AIValidationError):
+        service.submit_investigation(req)
+
+
+def test_retry_mechanism_exhausted():
+    mock_adapter = MagicMock()
+    mock_adapter.execute_investigation.side_effect = TimeoutError("Connection timed out")
+    service = BackendAIService(max_retries=3, backoff_factor=0.01, adapter=mock_adapter)
+
+    req = InvestigationRequest(request_id="req-1", investigation_id="inv-1")
+    with pytest.raises(AITimeoutError):
+        service.submit_investigation(req)
+
+    assert mock_adapter.execute_investigation.call_count == 3
+
+
+def test_retry_mechanism_recovers():
+    mock_adapter = MagicMock()
+    mock_adapter.execute_investigation.side_effect = [
+        ConnectionError("Transient failure"),
+        {
+            "request_id": "req-1",
+            "investigation_id": "inv-1",
+            "status": "COMPLETED",
+            "message": "Recovered",
+        },
+    ]
+    service = BackendAIService(max_retries=3, backoff_factor=0.01, adapter=mock_adapter)
+
+    req = InvestigationRequest(request_id="req-1", investigation_id="inv-1")
+    resp = service.submit_investigation(req)
+
+    assert resp.status == "COMPLETED"
+    assert mock_adapter.execute_investigation.call_count == 2
