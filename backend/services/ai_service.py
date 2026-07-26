@@ -8,6 +8,7 @@ structured logging (sanitized), timeout handling, and exponential backoff retry 
 import logging
 import time
 from typing import Dict, Any, List, Optional
+# pyrefly: ignore [missing-import]
 from fastapi import UploadFile
 
 from backend.exceptions.ai_exceptions import (

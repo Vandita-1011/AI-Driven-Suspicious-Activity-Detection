@@ -1,12 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { UploadCloud, FileType, CheckCircle2, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { UploadCloud, FileType, CheckCircle2, X, ArrowRight, Loader2 } from 'lucide-react';
 import { apiService } from '../services/api';
 import { LoadingSpinner, ErrorState } from '../components/UIComponents';
 
 export default function Upload() {
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
-  const [uploading, setUploading] = useState(false);
+  const [uploadStep, setUploadStep] = useState(null); // 'uploading' | 'creating_investigation' | null
   const [status, setStatus] = useState(null);
   const [error, setError] = useState(null);
   const fileInputRef = useRef(null);
@@ -55,27 +57,47 @@ export default function Upload() {
 
   const handleUpload = async () => {
     if (!file) return;
-    setUploading(true);
+    setUploadStep('uploading');
     setStatus(null);
     setError(null);
+
     try {
+      // Step 1: Upload & submit investigation to backend AI service
       const res = await apiService.uploadTransactions(file);
-      setStatus(res);
-      setFile(null);
+
+      setUploadStep('creating_investigation');
+      
+      // Short delay for UX transition
+      setTimeout(() => {
+        setStatus(res);
+        setUploadStep(null);
+        setFile(null);
+      }, 800);
+
     } catch (err) {
-      setError(err.message || "Upload failed.");
-    } finally {
-      setUploading(false);
+      setUploadStep(null);
+      const detail = err.response?.data?.detail || err.message || "Upload failed.";
+      setError(detail);
     }
   };
 
-  if (uploading) {
+  if (uploadStep === 'uploading') {
     return (
-      <div className="p-6 lg:p-8 max-w-4xl mx-auto min-h-screen bg-slate-50">
-        <LoadingSpinner text="Uploading and processing transactions..." />
-        <div className="max-w-md mx-auto mt-4 h-2 bg-slate-200 rounded-full overflow-hidden">
-          <div className="h-full bg-blue-600 rounded-full animate-[progress_1.5s_ease-in-out_infinite]" style={{ width: '60%' }}></div>
+      <div className="p-6 lg:p-8 max-w-4xl mx-auto min-h-screen bg-slate-50 flex flex-col items-center justify-center">
+        <LoadingSpinner text="Uploading transactions file..." />
+        <div className="max-w-md w-full mt-4 h-2 bg-slate-200 rounded-full overflow-hidden">
+          <div className="h-full bg-blue-600 rounded-full animate-[progress_1.5s_ease-in-out_infinite]" style={{ width: '50%' }}></div>
         </div>
+      </div>
+    );
+  }
+
+  if (uploadStep === 'creating_investigation') {
+    return (
+      <div className="p-6 lg:p-8 max-w-4xl mx-auto min-h-screen bg-slate-50 flex flex-col items-center justify-center">
+        <Loader2 className="w-10 h-10 animate-spin text-blue-600 mb-4" />
+        <h3 className="text-lg font-semibold text-slate-900">Creating Investigation...</h3>
+        <p className="text-sm text-slate-500 mt-1">Submitting payload to AI Integration Layer</p>
       </div>
     );
   }
@@ -86,7 +108,7 @@ export default function Upload() {
       {/* Header */}
       <div className="border-b border-slate-200 pb-4">
         <h1 className="text-2xl font-bold tracking-tight text-slate-900">Upload Transactions</h1>
-        <p className="text-sm text-slate-500 mt-1">Upload transaction CSV files for AML analysis.</p>
+        <p className="text-sm text-slate-500 mt-1">Upload transaction CSV files for AI-driven AML analysis.</p>
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-10">
@@ -145,14 +167,39 @@ export default function Upload() {
           </div>
         )}
 
-        {/* Success State */}
+        {/* Success State Toast / Card */}
         {status && (
-          <div className="mt-8 p-5 bg-green-50 text-green-800 rounded-xl border border-green-200 flex items-start gap-3 shadow-sm">
-            <CheckCircle2 className="mt-0.5 flex-shrink-0 text-green-600" size={24} />
-            <div>
-              <p className="text-sm font-bold text-green-900">{status.message}</p>
-              <p className="text-sm mt-1 text-green-700">File <span className="font-semibold">{status.file_name}</span> has been successfully queued for processing.</p>
+          <div className="mt-8 p-6 bg-green-50 text-green-900 rounded-xl border border-green-200 space-y-4 shadow-sm">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="mt-0.5 flex-shrink-0 text-green-600" size={24} />
+              <div className="flex-1">
+                <p className="text-base font-bold text-green-950">Upload Successful</p>
+                <p className="text-sm mt-1 text-green-800">
+                  File <span className="font-semibold">{status.file_name}</span> has been uploaded and an investigation has been created.
+                </p>
+                <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-white/70 p-3 rounded-lg border border-green-200/60">
+                  <div>
+                    <span className="text-slate-500 block">Investigation ID</span>
+                    <span className="font-mono font-semibold text-slate-900">{status.investigation_id || "N/A"}</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500 block">Request ID</span>
+                    <span className="font-mono font-semibold text-slate-900">{status.request_id || "N/A"}</span>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {status.investigation_id && (
+              <div className="flex justify-end pt-2">
+                <button
+                  onClick={() => navigate(`/investigation/${status.investigation_id}`)}
+                  className="inline-flex items-center gap-2 px-5 py-2 bg-green-700 text-white text-sm font-semibold rounded-lg hover:bg-green-800 transition-colors shadow-sm"
+                >
+                  View Investigation <ArrowRight size={16} />
+                </button>
+              </div>
+            )}
           </div>
         )}
 
