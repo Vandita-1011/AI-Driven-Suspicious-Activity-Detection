@@ -1,7 +1,8 @@
 import logging
+# pyrefly: ignore [missing-import]
 from fastapi import APIRouter, HTTPException
-from backend.schemas.alert_schema import AlertListResponse, AlertDetailResponse
-from backend.services.ai_service import AIService
+from typing import Dict, Any, List
+from pydantic import BaseModel
 
 logger = logging.getLogger(__name__)
 router = APIRouter(tags=["Alerts"])

@@ -2,66 +2,142 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { apiService } from '../services/api';
 import { StatusBadge, LoadingSpinner, ErrorState } from '../components/UIComponents';
-import { Search, Filter, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { Search, Filter, ChevronLeft, ChevronRight, Eye, CheckCircle2, ShieldAlert, ArrowDownToLine, Users, CheckSquare } from 'lucide-react';
 
 export default function Alerts() {
   const [alerts, setAlerts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [toast, setToast] = useState(null);
   
   // Filtering & Pagination
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRisk, setSelectedRisk] = useState("All");
+  const [selectedStatus, setSelectedStatus] = useState("All");
+  
+  // Selection
+  const [selectedIds, setSelectedIds] = useState(new Set());
+
+  const fetchAlerts = async () => {
+    try {
+      const res = await apiService.getAlerts();
+      setAlerts(res.alerts);
+    } catch (err) {
+      setError("Failed to load alerts. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchAlerts = async () => {
-      try {
-        const res = await apiService.getAlerts();
-        setAlerts(res.alerts);
-      } catch (err) {
-        setError("Failed to load alerts. Please try again.");
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchAlerts();
   }, []);
 
+  const showToast = (message, type = 'success') => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 3000);
+  };
+
+  const handleUpdateStatus = async (alertId, newStatus) => {
+    try {
+      await apiService.updateAlertStatus(alertId, { status: newStatus });
+      setAlerts(alerts.map(a => a.id === alertId ? { ...a, status: newStatus } : a));
+      showToast(`Alert ${alertId} updated to ${newStatus}`);
+    } catch (err) {
+      alert("Failed to update status.");
+    }
+  };
+
+  const handleBulkUpdate = async (newStatus) => {
+    if (selectedIds.size === 0) return;
+    if (!window.confirm(`Update ${selectedIds.size} alerts to ${newStatus}?`)) return;
+    try {
+      const promises = Array.from(selectedIds).map(id => apiService.updateAlertStatus(id, { status: newStatus }));
+      await Promise.all(promises);
+      setAlerts(alerts.map(a => selectedIds.has(a.id) ? { ...a, status: newStatus } : a));
+      setSelectedIds(new Set());
+      showToast(`Updated ${promises.length} alerts successfully.`);
+    } catch (err) {
+      alert("Failed to update some alerts.");
+    }
+  };
+
+  const toggleSelectAll = (e, currentList) => {
+    if (e.target.checked) {
+      setSelectedIds(new Set(currentList.map(a => a.id)));
+    } else {
+      setSelectedIds(new Set());
+    }
+  };
+
+  const toggleSelect = (id) => {
+    const newSet = new Set(selectedIds);
+    if (newSet.has(id)) newSet.delete(id);
+    else newSet.add(id);
+    setSelectedIds(newSet);
+  };
+
   const filteredAlerts = alerts.filter(alert => {
     const matchesSearch = 
-      alert.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      alert.customer.toLowerCase().includes(searchTerm.toLowerCase());
+      alert.id?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      alert.customer?.toLowerCase().includes(searchTerm.toLowerCase());
     
-    const matchesRisk = selectedRisk === "All" || alert.riskLevel === selectedRisk;
+    const matchesRisk = selectedRisk === "All" || alert.riskLevel === selectedRisk || alert.severity === selectedRisk?.toUpperCase();
+    const matchesStatus = selectedStatus === "All" || alert.status === selectedStatus;
 
-    return matchesSearch && matchesRisk;
+    return matchesSearch && matchesRisk && matchesStatus;
   });
 
   if (loading) return <LoadingSpinner text="Loading alerts..." />;
-  if (error) return <ErrorState title="Alerts Error" description={error} onRetry={() => window.location.reload()} />;
+  if (error) return <ErrorState title="Alerts Error" description={error} onRetry={fetchAlerts} />;
 
   return (
-    <div className="p-6 lg:p-8 max-w-7xl mx-auto space-y-8 bg-slate-50 min-h-screen">
+    <div className="p-6 lg:p-8 max-w-7xl mx-auto space-y-8 bg-slate-50 min-h-screen relative">
       
+      {/* Toast Notification */}
+      {toast && (
+        <div className={`fixed bottom-4 right-4 z-50 px-4 py-3 rounded-lg shadow-lg border flex items-center gap-3 transition-all ${toast.type === 'success' ? 'bg-green-50 border-green-200 text-green-800' : 'bg-red-50 border-red-200 text-red-800'}`}>
+          <CheckCircle2 size={18} className={toast.type === 'success' ? 'text-green-600' : 'text-red-600'} />
+          <span className="text-sm font-medium">{toast.message}</span>
+        </div>
+      )}
+
       {/* Header */}
-      <div className="border-b border-slate-200 pb-4">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900">Alerts</h1>
-        <p className="text-sm text-slate-500 mt-1">Review suspicious transactions generated by the AML engine.</p>
+      <div className="border-b border-slate-200 pb-4 flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">Alerts</h1>
+          <p className="text-sm text-slate-500 mt-1">Review suspicious transactions generated by the AML engine.</p>
+        </div>
       </div>
 
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
         
-        {/* Toolbar: Search & Filters */}
+        {/* Toolbar: Search, Filters & Bulk Actions */}
         <div className="p-4 border-b border-slate-200 bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="relative max-w-md w-full">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
-            <input 
-              type="text" 
-              placeholder="Search by Alert ID or Customer..." 
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-            />
+          <div className="flex items-center gap-4 flex-1">
+            <div className="relative max-w-md w-full">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+              <input 
+                type="text" 
+                placeholder="Search by Alert ID or Customer..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+              />
+            </div>
+            {selectedIds.size > 0 && (
+              <div className="flex items-center gap-2 animate-in fade-in slide-in-from-left-2">
+                <span className="text-sm font-medium text-slate-700 bg-slate-100 px-2 py-1 rounded">
+                  {selectedIds.size} selected
+                </span>
+                <button onClick={() => handleBulkUpdate("Investigating")} className="p-1.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded text-xs font-semibold flex items-center gap-1 border border-blue-200 transition-colors">
+                  <ShieldAlert size={14} /> Investigate
+                </button>
+                <button onClick={() => handleBulkUpdate("Resolved")} className="p-1.5 bg-green-50 text-green-700 hover:bg-green-100 rounded text-xs font-semibold flex items-center gap-1 border border-green-200 transition-colors">
+                  <CheckSquare size={14} /> Resolve
+                </button>
+              </div>
+            )}
           </div>
           
           <div className="flex items-center gap-2">
@@ -76,6 +152,16 @@ export default function Alerts() {
               <option value="Medium">Medium</option>
               <option value="Low">Low</option>
             </select>
+            <select
+              value={selectedStatus}
+              onChange={(e) => setSelectedStatus(e.target.value)}
+              className="pl-3 pr-8 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 cursor-pointer"
+            >
+              <option value="All">All Statuses</option>
+              <option value="Open">Open</option>
+              <option value="Investigating">Investigating</option>
+              <option value="Resolved">Resolved</option>
+            </select>
           </div>
         </div>
 
@@ -84,44 +170,61 @@ export default function Alerts() {
           <table className="w-full text-sm text-left">
             <thead className="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-200">
               <tr>
+                <th className="px-6 py-4 font-semibold w-12">
+                  <input 
+                    type="checkbox" 
+                    onChange={(e) => toggleSelectAll(e, filteredAlerts)}
+                    checked={filteredAlerts.length > 0 && selectedIds.size === filteredAlerts.length}
+                    className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
+                  />
+                </th>
                 <th className="px-6 py-4 font-semibold whitespace-nowrap">Alert ID</th>
                 <th className="px-6 py-4 font-semibold whitespace-nowrap">Customer</th>
-                <th className="px-6 py-4 font-semibold whitespace-nowrap">Risk Score</th>
-                <th className="px-6 py-4 font-semibold whitespace-nowrap">Risk Level</th>
+                <th className="px-6 py-4 font-semibold whitespace-nowrap">Risk</th>
                 <th className="px-6 py-4 font-semibold whitespace-nowrap">Status</th>
-                <th className="px-6 py-4 font-semibold whitespace-nowrap">Created At</th>
+                <th className="px-6 py-4 font-semibold whitespace-nowrap">Details</th>
                 <th className="px-6 py-4 font-semibold whitespace-nowrap text-right">Actions</th>
               </tr>
             </thead>
             <tbody>
               {filteredAlerts.length > 0 ? (
                 filteredAlerts.map((alert) => (
-                  <tr key={alert.id} className="border-b border-slate-100 hover:bg-slate-50/50 transition-colors">
-                    <td className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap">{alert.id}</td>
-                    <td className="px-6 py-4 text-slate-700 whitespace-nowrap">{alert.customer}</td>
-                    <td className="px-6 py-4 text-slate-700 font-medium">
-                      <span className={alert.riskScore >= 80 ? 'text-red-600' : alert.riskScore >= 50 ? 'text-amber-600' : 'text-green-600'}>
-                        {alert.riskScore}/100
-                      </span>
+                  <tr key={alert.id || alert.alert_id} className={`border-b border-slate-100 transition-colors ${selectedIds.has(alert.id || alert.alert_id) ? 'bg-blue-50/40' : 'hover:bg-slate-50/50'}`}>
+                    <td className="px-6 py-4">
+                      <input 
+                        type="checkbox" 
+                        checked={selectedIds.has(alert.id || alert.alert_id)}
+                        onChange={() => toggleSelect(alert.id || alert.alert_id)}
+                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
+                      />
+                    </td>
+                    <td className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap">{alert.id || alert.alert_id}</td>
+                    <td className="px-6 py-4 text-slate-700 whitespace-nowrap">{alert.customer || "System Generated"}</td>
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-2">
+                        {alert.riskScore && (
+                          <span className={alert.riskScore >= 80 ? 'text-red-600 font-bold' : alert.riskScore >= 50 ? 'text-amber-600 font-semibold' : 'text-green-600 font-semibold'}>
+                            {alert.riskScore}/100
+                          </span>
+                        )}
+                        <StatusBadge status={alert.riskLevel || alert.severity} type="risk" />
+                      </div>
                     </td>
                     <td className="px-6 py-4">
-                      <StatusBadge status={alert.riskLevel} type="risk" />
+                      <StatusBadge status={alert.status || "Open"} type="status" />
                     </td>
-                    <td className="px-6 py-4">
-                      <StatusBadge status={alert.status} type="status" />
-                    </td>
-                    <td className="px-6 py-4 text-slate-500 whitespace-nowrap">
-                      {new Date(alert.createdAt).toLocaleString(undefined, {
-                        month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit'
-                      })}
+                    <td className="px-6 py-4 text-slate-500 text-xs">
+                      {alert.description || "Suspicious transaction detected"}
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <Link 
-                        to={`/investigation/${alert.id}`}
-                        className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 text-sm font-medium text-blue-600 rounded-md hover:bg-blue-50 transition-colors shadow-sm"
-                      >
-                        <Eye size={16} /> View
-                      </Link>
+                      <div className="flex items-center justify-end gap-2">
+                        <Link 
+                          to={`/investigation/${alert.id || alert.alert_id}`}
+                          className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 bg-white border border-slate-200 text-sm font-medium text-slate-700 rounded-md hover:bg-slate-50 hover:text-blue-600 transition-colors shadow-sm"
+                        >
+                          <Eye size={16} /> View
+                        </Link>
+                      </div>
                     </td>
                   </tr>
                 ))
