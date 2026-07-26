@@ -8,7 +8,7 @@ The platform combines traditional rule-based detection with statistical analysis
 
 ---
 
-# Problem Statement
+## Problem Statement
 
 Financial institutions process millions of financial transactions every day. Traditional AML systems rely heavily on static rules, often generating large numbers of false positives that require extensive manual review.
 
@@ -16,11 +16,11 @@ This project aims to improve suspicious activity detection by combining multiple
 
 ---
 
-# Solution Approach
+## Solution Approach
 
 The platform follows a multi-stage intelligent analysis pipeline.
 
-## 1. Data Ingestion
+### 1. Data Ingestion
 
 Transaction datasets are uploaded through the web interface.
 
@@ -29,9 +29,7 @@ Supported inputs include:
 - CSV transaction files
 - Structured transaction records
 
----
-
-## 2. Data Validation & Preprocessing
+### 2. Data Validation & Preprocessing
 
 The uploaded data is:
 
@@ -41,9 +39,7 @@ The uploaded data is:
 - Enriched
 - Prepared for downstream AI analysis
 
----
-
-## 3. Feature Engineering
+### 3. Feature Engineering
 
 The platform generates multiple analytical features including:
 
@@ -54,9 +50,7 @@ The platform generates multiple analytical features including:
 - Customer activity trends
 - Network relationship indicators
 
----
-
-## 4. Behaviour Profiling
+### 4. Behaviour Profiling
 
 Historical customer activity is analysed to establish behavioural baselines.
 
@@ -67,9 +61,7 @@ The system identifies deviations such as:
 - Sudden spikes in activity
 - Unexpected account interactions
 
----
-
-## 5. Multi-Engine Risk Analysis
+### 5. Multi-Engine Risk Analysis
 
 The AI intelligence layer combines multiple detection techniques:
 
@@ -81,9 +73,7 @@ The AI intelligence layer combines multiple detection techniques:
 
 Each engine independently evaluates transaction risk before contributing to the final assessment.
 
----
-
-## 6. Risk Fusion
+### 6. Risk Fusion
 
 Outputs from all detection engines are combined to generate a unified risk score.
 
@@ -94,17 +84,13 @@ Transactions are classified into:
 - High Risk
 - Critical Risk
 
----
-
-## 7. Explainable AI
+### 7. Explainable AI
 
 Instead of only assigning a risk score, the platform explains why a transaction was flagged by highlighting the contributing behavioural patterns and detection results.
 
 This improves transparency and assists investigators during manual review.
 
----
-
-## 8. Recommendation Engine
+### 8. Recommendation Engine
 
 Based on the final risk assessment, the platform recommends actions such as:
 
@@ -113,9 +99,7 @@ Based on the final risk assessment, the platform recommends actions such as:
 - Enhanced Due Diligence
 - Escalate Investigation
 
----
-
-## 9. Investigation Dashboard
+### 9. Investigation Dashboard
 
 Investigators can:
 
@@ -127,7 +111,7 @@ Investigators can:
 
 ---
 
-# Key Features
+## Key Features
 
 - AI-powered suspicious activity detection
 - Explainable AI
@@ -145,79 +129,77 @@ Investigators can:
 
 ---
 
-# Project Architecture
+## Project Architecture
 
 ```
-                         User
-                          │
-                 React Frontend Dashboard
-                          │
-                    FastAPI Backend APIs
-                          │
-                   AI Intelligence Layer
-                          │
-        ┌────────────────────────────────────┐
-        │                                    │
-   Data Loader                      Data Validation
-        │                                    │
-   Preprocessing                   Feature Engineering
-        │                                    │
- Behaviour Profiling              Multi-Engine Analysis
-        │                                    │
- ┌──────────────┬──────────────┬──────────────┐
- │              │              │              │
-Rule Engine  Statistical   ML Engine   Pattern Engine
-                 Engine
-        └──────────────┬──────────────┘
-                       │
-                 Risk Fusion Engine
-                       │
-               Explainability Engine
-                       │
-              Recommendation Engine
-                       │
-              Alerts & Investigation
+                                    User
+                                     │
+                          React Frontend Dashboard
+                                     │
+                           FastAPI Backend APIs
+                                     │
+                          AI Intelligence Layer
+                                     │
+        ┌────────────────────────────┴────────────────────────────┐
+        │                                                          │
+   Data Loader                                            Data Validation
+        │                                                          │
+   Preprocessing                                        Feature Engineering
+        │                                                          │
+ Behaviour Profiling                                    Multi-Engine Analysis
+        │                                                          │
+        │              ┌───────────────┬───────────────┬──────────┘
+        │              │               │               │
+        │         Rule Engine    Statistical      ML Engine     Pattern Engine
+        │              │           Engine             │               │
+        │              └───────────────┴───────┬───────┴───────────────┘
+        │                                       │
+        │                              Risk Fusion Engine
+        │                                       │
+        │                            Explainability Engine
+        │                                       │
+        │                            Recommendation Engine
+        │                                       │
+        └───────────────────────────► Alerts & Investigation
 ```
 
 ---
 
-# Technology Stack
+## Technology Stack
 
-## Backend
+### Backend
 
 - Python
 - FastAPI
 
-## Frontend
+### Frontend
 
 - React
 - Vite
 
-## AI / Machine Learning
+### AI / Machine Learning
 
 - Scikit-learn
 - Pandas
 - NumPy
 
-## Configuration
+### Configuration
 
 - YAML
 
-## Testing
+### Testing
 
 - Pytest
 
 ---
 
-# Dataset Information
+## Dataset Information
 
 The project uses publicly available transaction datasets together with carefully generated synthetic transaction data.
 
----
+### Public Dataset
 
-## Public Dataset
-
-### IBM AML Transaction Dataset
+**IBM AML Transaction Dataset**
 
 Source:
 
@@ -225,9 +207,7 @@ https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laun
 
 The IBM AML dataset was used to understand realistic transaction structures and Anti-Money Laundering scenarios during development and testing.
 
----
-
-## Synthetic Dataset
+### Synthetic Dataset
 
 Since publicly available datasets cannot represent every suspicious behaviour required for experimentation, synthetic transaction records were generated.
 
@@ -235,9 +215,7 @@ The synthetic dataset was created solely for research, testing, and demonstratio
 
 No real customer information is included.
 
----
-
-### Synthetic Data Schema
+#### Synthetic Data Schema
 
 The synthetic records follow a banking transaction structure including fields such as:
 
@@ -253,9 +231,7 @@ The synthetic records follow a banking transaction structure including fields su
 - Geographic Information
 - Risk Labels
 
----
-
-### Synthetic Data Generation Logic
+#### Synthetic Data Generation Logic
 
 Synthetic transactions were generated using realistic banking assumptions.
 
@@ -273,7 +249,7 @@ The generated records follow the IBM dataset schema wherever applicable to maint
 
 ---
 
-# Assumptions
+## Assumptions
 
 - Customer identifiers are anonymized.
 - Synthetic records represent realistic banking behaviour.
@@ -282,7 +258,7 @@ The generated records follow the IBM dataset schema wherever applicable to maint
 
 ---
 
-# AI Assistance Disclosure
+## AI Assistance Disclosure
 
 The following AI-assisted development tools were used during implementation:
 
@@ -295,18 +271,35 @@ Final implementation, integration, testing, and validation were performed by the
 
 ---
 
-# Installation
+## Prerequisites
 
-Clone the repository:
+Before running the project, ensure the following software is installed:
+
+- Python 3.11 or later
+- Node.js (LTS) with npm
+- Git
+
+Verify the installation:
 
 ```bash
-git clone <repository-url>
-cd AI-Driven-Suspicious-Activity-Detection
+python --version
+node --version
+npm --version
+git --version
 ```
 
 ---
 
-## Backend Setup
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/<vandita-1011>/AI-Driven-Suspicious-Activity-Detection.git
+cd AI-Driven-Suspicious-Activity-Detection
+```
+
+### Backend Setup
 
 Install backend dependencies:
 
@@ -314,15 +307,13 @@ Install backend dependencies:
 pip install -r backend/requirements.txt
 ```
 
-Install AI dependencies (if applicable):
+Install the additional dependency required for file uploads:
 
 ```bash
-pip install -r requirements_ai.txt
+pip install python-multipart
 ```
 
----
-
-## Frontend Setup
+### Frontend Setup
 
 ```bash
 cd frontend
@@ -332,7 +323,7 @@ cd ..
 
 ---
 
-# Running the Project
+## Running the Project
 
 The application consists of two independent services:
 
@@ -341,9 +332,7 @@ The application consists of two independent services:
 
 Both services must be running simultaneously.
 
----
-
-## Step 1 — Start the Backend
+### Step 1 — Start the Backend
 
 From the project root:
 
@@ -363,9 +352,7 @@ Swagger Documentation:
 http://127.0.0.1:8000/docs
 ```
 
----
-
-## Step 2 — Start the Frontend
+### Step 2 — Start the Frontend
 
 Open another terminal.
 
@@ -380,9 +367,7 @@ Frontend URL:
 http://localhost:5173
 ```
 
----
-
-## Step 3 — Using the Application
+### Step 3 — Using the Application
 
 1. Start both backend and frontend.
 2. Open the frontend application.
@@ -399,7 +384,25 @@ http://localhost:5173
 
 ---
 
-# Running Tests
+## API Documentation
+
+Interactive API documentation is automatically available once the backend is running.
+
+Swagger UI:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+OpenAPI Specification:
+
+```
+http://127.0.0.1:8000/openapi.json
+```
+
+---
+
+## Running Tests
 
 Run all tests:
 
@@ -413,61 +416,96 @@ Run a specific test:
 pytest tests/test_ai_service.py
 ```
 
+Run the backend server:
+
+```bash
+uvicorn backend.app:app --reload
+```
+
 ---
 
-# Project Structure
+## Project Structure
 
 ```
 AI-Driven-Suspicious-Activity-Detection/
 │
-├── backend/              # FastAPI backend APIs
-├── frontend/             # React + Vite frontend
-├── src/                  # AI intelligence modules
-├── tests/                # Unit tests
-├── logs/                 # Runtime logs
-├── outputs/              # Generated reports
-├── models/               # Model assets
-├── requirements_ai.txt   # AI dependencies
-└── README.md
+├── backend/
+│   ├── database/
+│   ├── exceptions/
+│   ├── models/
+│   ├── routes/
+│   ├── schemas/
+│   ├── services/
+│   ├── utils/
+│   ├── app.py
+│   └── requirements.txt
+│
+├── frontend/
+│
+├── src/
+│
+├── tests/
+│
+├── logs/
+│
+├── outputs/
+│
+├── README.md
+│
+└── .gitignore
 ```
 
 ---
 
-# Data Sources
+## Data Sources
 
-### IBM AML Transaction Dataset
+**IBM AML Transaction Dataset**
 
 https://www.kaggle.com/datasets/ealtman2019/ibm-transactions-for-anti-money-laundering-aml
 
-### Synthetic Dataset
+**Synthetic Dataset**
 
 Generated by the project team using realistic banking transaction assumptions for testing and demonstration purposes.
 
 ---
 
-# Future Improvements
+## Future Improvements
 
 - Real-time transaction streaming
-- Graph Neural Network integration
+- Graph Neural Network based relationship analysis
 - Continuous investigator feedback learning
 - Adaptive risk scoring
 - Fraud network visualization
 - Streaming anomaly detection
 - Automated model retraining
+- LLM-assisted Suspicious Activity Report (SAR) generation
+- Apache Kafka based real-time event processing
 
 ---
 
-# License
+## Repository Notes
+
+- This repository was created and maintained throughout the hackathon.
+- The commit history reflects the complete development process.
+- The solution is implemented as a generic banking-domain suspicious activity detection platform.
+- No organization-specific names, branding, or proprietary references have been used in the repository.
+
+---
+
+## License
 
 This repository is intended for educational and hackathon purposes.
 
 ---
 
-# Acknowledgements
+## Acknowledgements
 
-- IBM AML Dataset
+- IBM AML Transaction Dataset
 - Kaggle
 - FastAPI
 - React
+- Vite
 - Scikit-learn
+- NumPy
+- Pandas
 - Python Community
