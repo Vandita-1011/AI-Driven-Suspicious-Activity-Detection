@@ -104,8 +104,15 @@ class Orchestrator:
                 recommender = Recommender()
                 prioritizer = AlertPrioritizer()
                 
-                # Dummy calls for foundation
-                explanations = explainer.explain_batch([], {}, features_df)
+                # Explain findings
+                explanations = explainer.explain_batch(
+                    risk_assessments=risk_assessments,
+                    rule_hits=rule_hits,
+                    behaviour_findings=behaviour_findings,
+                    stat_findings=stat_findings,
+                    ml_findings=ml_findings,
+                    pattern_findings=pattern_findings
+                )
                 recs = recommender.recommend_batch(risk_df)
                 alerts = prioritizer.prioritize(risk_df, explanations, recs)
                 
