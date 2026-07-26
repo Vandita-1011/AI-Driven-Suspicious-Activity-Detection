@@ -17,10 +17,15 @@ Response models (src/api_interface/response_models.py):
     CustomerRiskProfile Per-customer risk summary
     PipelineStatusResponse Pipeline execution metadata
 
+Service (src/api_interface/ai_service.py):
+    AIService           Single entry point into the AI engine
+
 Usage (by the FastAPI developer):
+    from src.api_interface.ai_service import AIService
     from src.api_interface.request_models import AnalysisRequest
     from src.api_interface.response_models import RiskReport
 """
+from src.api_interface.ai_service import AIService
 from src.api_interface.request_models import (
     AnalysisRequest,
     CustomerQueryRequest,
@@ -34,6 +39,7 @@ from src.api_interface.response_models import (
 )
 
 __all__ = [
+    "AIService",
     "AnalysisRequest", "CustomerQueryRequest", "AlertQueryRequest",
     "AlertResponse", "RiskReport", "CustomerRiskProfile", "PipelineStatusResponse",
 ]
