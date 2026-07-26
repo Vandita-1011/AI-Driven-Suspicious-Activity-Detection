@@ -1,6 +1,7 @@
 import logging
+# pyrefly: ignore [missing-import]
 from fastapi import FastAPI, HTTPException
-from backend.routes import upload, alerts, dashboard, investigation, reports
+from backend.routes import upload, alerts, dashboard, investigation, reports, feedback
 from backend.services.ai_service import AIService
 
 # Configure logging
@@ -18,6 +19,7 @@ app.include_router(alerts.router)
 app.include_router(dashboard.router)
 app.include_router(investigation.router)
 app.include_router(reports.router)
+app.include_router(feedback.router)
 
 ai_service = AIService()
 
