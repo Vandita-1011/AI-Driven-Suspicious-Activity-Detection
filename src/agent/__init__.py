@@ -52,6 +52,8 @@ from src.agent.memory_models import (
 from src.agent.context_memory import ContextMemoryManager, SessionNotFoundError
 from src.agent.execution_models import ExecutionLogEntry, ExecutionResult, ExecutionStatus
 from src.agent.execution_controller import ExecutionController, ToolExecutor
+from src.agent.learning_models import FeedbackType, LearningRecord, LearningSummary
+from src.agent.continuous_learning import ContinuousLearningManager
 
 __all__ = [
     "IntentRecognizer", "Intent", "IntentResult",
@@ -64,4 +66,5 @@ __all__ = [
     "ConversationState", "PlanningState", "ExecutionState",
     "ExecutionController", "ToolExecutor",
     "ExecutionStatus", "ExecutionLogEntry", "ExecutionResult",
+    "ContinuousLearningManager", "FeedbackType", "LearningRecord", "LearningSummary",
 ]
