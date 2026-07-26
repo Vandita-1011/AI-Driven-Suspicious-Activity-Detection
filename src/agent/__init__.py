@@ -50,6 +50,8 @@ from src.agent.memory_models import (
     PlanningState,
 )
 from src.agent.context_memory import ContextMemoryManager, SessionNotFoundError
+from src.agent.execution_models import ExecutionLogEntry, ExecutionResult, ExecutionStatus
+from src.agent.execution_controller import ExecutionController, ToolExecutor
 
 __all__ = [
     "IntentRecognizer", "Intent", "IntentResult",
@@ -60,4 +62,6 @@ __all__ = [
     "ToolRouter", "ExecutionStage", "RoutedPlan", "RoutedStep", "StepStatus",
     "ContextMemoryManager", "SessionNotFoundError", "ContextMemory", "InvestigationSession",
     "ConversationState", "PlanningState", "ExecutionState",
+    "ExecutionController", "ToolExecutor",
+    "ExecutionStatus", "ExecutionLogEntry", "ExecutionResult",
 ]
