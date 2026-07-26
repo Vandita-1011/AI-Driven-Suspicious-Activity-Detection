@@ -2,25 +2,40 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000',
+  timeout: 15000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 export const apiService = {
+  // ----------------------------------------------------------------
+  // Dashboard APIs
+  // ----------------------------------------------------------------
+
   getDashboardData: async () => {
-    try {
-      const response = await api.get('/dashboard');
-      return response.data;
-    } catch (e) {
-      return {
-        total_alerts: 120,
-        high_risk: 15,
-        medium_risk: 45,
-        low_risk: 60,
-      };
-    }
+    const response = await api.get('/dashboard');
+    return response.data;
   },
+
+  getDashboardSummary: async () => {
+    const response = await api.get('/dashboard/summary');
+    return response.data;
+  },
+
+  getDashboardTrend: async () => {
+    const response = await api.get('/dashboard/trend');
+    return response.data;
+  },
+
+  getRiskDistribution: async () => {
+    const response = await api.get('/dashboard/risk-distribution');
+    return response.data;
+  },
+
+  // ----------------------------------------------------------------
+  // Upload & Analysis APIs
+  // ----------------------------------------------------------------
 
   uploadTransactions: async (file) => {
     const formData = new FormData();
@@ -32,6 +47,10 @@ export const apiService = {
     });
     return response.data;
   },
+
+  // ----------------------------------------------------------------
+  // Investigation APIs
+  // ----------------------------------------------------------------
 
   getInvestigationStatus: async (investigationId) => {
     const response = await api.get(`/investigation/${investigationId}/status`);
@@ -48,27 +67,27 @@ export const apiService = {
     return response.data;
   },
 
+  // ----------------------------------------------------------------
+  // Alerts APIs
+  // ----------------------------------------------------------------
+
   getAlerts: async () => {
-    try {
-      const response = await api.get('/alerts');
-      return response.data;
-    } catch (e) {
-      return { alerts: [] };
-    }
+    const response = await api.get('/alerts');
+    return response.data;
   },
 
+  // ----------------------------------------------------------------
+  // Reports APIs
+  // ----------------------------------------------------------------
+
   getReports: async () => {
-    try {
-      const response = await api.get('/reports');
-      return response.data;
-    } catch (e) {
-      return { reports: [] };
-    }
+    const response = await api.get('/reports');
+    return response.data;
   },
 
   generateReport: async (type) => {
     return { status: 'success', message: `Report generation for ${type} initiated.` };
-  }
+  },
 };
 
 export default api;
