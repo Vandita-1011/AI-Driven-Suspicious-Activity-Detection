@@ -42,6 +42,14 @@ from src.agent.plan_models import ExecutionPlan, LogicalTool, PlanStep, StepPrio
 from src.agent.dynamic_planner import DynamicPlanner
 from src.agent.routing_models import ExecutionStage, RoutedPlan, RoutedStep, StepStatus
 from src.agent.tool_router import ToolRouter
+from src.agent.memory_models import (
+    ContextMemory,
+    ConversationState,
+    ExecutionState,
+    InvestigationSession,
+    PlanningState,
+)
+from src.agent.context_memory import ContextMemoryManager, SessionNotFoundError
 
 __all__ = [
     "IntentRecognizer", "Intent", "IntentResult",
@@ -50,4 +58,6 @@ __all__ = [
     "PatternIdentifier", "InvestigationPatternType", "ConfidenceLevel", "PatternIdentificationResult",
     "DynamicPlanner", "ExecutionPlan", "LogicalTool", "PlanStep", "StepPriority",
     "ToolRouter", "ExecutionStage", "RoutedPlan", "RoutedStep", "StepStatus",
+    "ContextMemoryManager", "SessionNotFoundError", "ContextMemory", "InvestigationSession",
+    "ConversationState", "PlanningState", "ExecutionState",
 ]
