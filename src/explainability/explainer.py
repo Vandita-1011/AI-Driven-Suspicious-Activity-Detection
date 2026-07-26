@@ -4,7 +4,7 @@ Explainer
 Generates plain-English evidence-based explanations for a transaction's risk score.
 Does not use SHAP or LIME; relies purely on triggered rules, patterns, and anomalies.
 """
-from typing import Any, List
+from typing import List
 from collections import defaultdict
 
 from src.interfaces.base_explainer import BaseExplainer, Explanation
@@ -34,7 +34,7 @@ class Explainer(BaseExplainer):
         pattern_findings: List[PatternFinding]
     ) -> Explanation:
         """
-        Creates a single explanation.
+        Creates a single explanation based on existing fused risk results.
         """
         tid = risk_assessment.transaction_id
         score = risk_assessment.overall_risk_score
@@ -63,7 +63,7 @@ class Explainer(BaseExplainer):
         indicators = []
         triggered_rules_names = []
         matched_patterns_names = []
-        
+
         for r in rule_hits:
             indicators.append(r.rule_name)
             triggered_rules_names.append(r.rule_name)
@@ -89,7 +89,7 @@ class Explainer(BaseExplainer):
 
         # 4. Confidence Explanation
         num_engines = sum([len(rule_hits) > 0, len(behaviour_findings) > 0, len(stat_findings) > 0, len(ml_findings) > 0, len(pattern_findings) > 0])
-        
+
         if num_engines >= 3:
             conf_str = f"High confidence because {num_engines} independent engines produced consistent suspicious indicators."
         elif num_engines == 2:
@@ -104,12 +104,12 @@ class Explainer(BaseExplainer):
         # Contributing factors for structured output
         factors = []
         factors.extend([{"type": "rule", "name": r.rule_name, "score": r.score} for r in rule_hits])
-        factors.extend([{"type": "behaviour", "name": b.finding_name, "score": b.score} for r in behaviour_findings])
-        factors.extend([{"type": "statistical", "name": s.finding_name, "score": s.score} for r in stat_findings])
-        factors.extend([{"type": "ml", "name": m.model_name, "score": m.anomaly_score} for r in ml_findings])
-        factors.extend([{"type": "pattern", "name": p.pattern_name, "score": p.confidence} for r in pattern_findings])
+        factors.extend([{"type": "behaviour", "name": b.finding_name, "score": b.score} for b in behaviour_findings])
+        factors.extend([{"type": "statistical", "name": s.finding_name, "score": s.score} for s in stat_findings])
+        factors.extend([{"type": "ml", "name": m.model_name, "score": m.anomaly_score} for m in ml_findings])
+        factors.extend([{"type": "pattern", "name": p.pattern_name, "score": p.confidence} for p in pattern_findings])
 
-        explanation = Explanation(
+        return Explanation(
             transaction_id=tid,
             risk_score=score,
             narrative=narrative,
@@ -117,7 +117,6 @@ class Explainer(BaseExplainer):
             triggered_rules=triggered_rules_names,
             matched_patterns=matched_patterns_names
         )
-        return explanation
 
     @timed("Explainer Batch")
     def explain_batch(
@@ -130,31 +129,31 @@ class Explainer(BaseExplainer):
         pattern_findings: List[PatternFinding]
     ) -> List[Explanation]:
         """
-        Creates explanations for a list of transactions.
+        Creates explanations for a list of transactions based on provided results and features.
         """
         logger.info("Generating explanations for %d transactions...", len(risk_assessments))
-        
+
         # Group findings by transaction_id
         rules_by_tx = defaultdict(list)
         for r in rule_hits:
             if r.triggered:
                 rules_by_tx[r.transaction_id].append(r)
-                
+
         behav_by_tx = defaultdict(list)
         for b in behaviour_findings:
             if b.triggered:
                 behav_by_tx[b.transaction_id].append(b)
-                
+
         stat_by_tx = defaultdict(list)
         for s in stat_findings:
             if s.triggered:
                 stat_by_tx[s.transaction_id].append(s)
-                
+
         ml_by_tx = defaultdict(list)
         for m in ml_findings:
             if m.prediction == 'Anomaly':
                 ml_by_tx[m.transaction_id].append(m)
-                
+
         pattern_by_tx = defaultdict(list)
         for p in pattern_findings:
             pattern_by_tx[p.transaction_id].append(p)
@@ -171,5 +170,5 @@ class Explainer(BaseExplainer):
                 pattern_findings=pattern_by_tx.get(tid, [])
             )
             explanations.append(explanation)
-            
+
         return explanations
