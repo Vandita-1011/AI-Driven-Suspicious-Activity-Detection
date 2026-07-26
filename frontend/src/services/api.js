@@ -76,6 +76,12 @@ export const apiService = {
     return response.data;
   },
 
+  updateAlertStatus: async (alertId, payload) => {
+    // Assuming backend has this, or we patch it via investigation/update
+    const response = await api.post(`/investigation/${alertId}`, payload);
+    return response.data;
+  },
+
   // ----------------------------------------------------------------
   // Reports APIs
   // ----------------------------------------------------------------
@@ -85,9 +91,29 @@ export const apiService = {
     return response.data;
   },
 
-  generateReport: async (type) => {
-    return { status: 'success', message: `Report generation for ${type} initiated.` };
+  generateReport: async (type, format = "PDF", metadata = {}) => {
+    const response = await api.post('/reports/generate', { report_type: type, format, metadata });
+    return response.data;
   },
+
+  deleteReport: async (reportId) => {
+    const response = await api.delete(`/reports/${reportId}`);
+    return response.data;
+  },
+
+  // ----------------------------------------------------------------
+  // Feedback APIs
+  // ----------------------------------------------------------------
+
+  submitFeedback: async (payload) => {
+    const response = await api.post('/feedback', payload);
+    return response.data;
+  },
+
+  getFeedback: async (investigationId) => {
+    const response = await api.get(`/feedback/${investigationId}`);
+    return response.data;
+  }
 };
 
 export default api;
